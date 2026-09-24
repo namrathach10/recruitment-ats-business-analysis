@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recruitment Intelligence | Enterprise ATS Performance & Workforce Analytics</title>
+  <title>Recruitment Intelligence | Enterprise ATS Analytics & Interactive Workflows</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,6 @@
       height: 100vh;
     }
 
-    /* SVG Icon styles */
     .icon {
       display: inline-block;
       width: 16px;
@@ -301,7 +300,7 @@
       box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
     }
 
-    .btn-filter, .btn-action {
+    .btn-action {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -317,7 +316,7 @@
       color: var(--text-main);
     }
 
-    .btn-filter:hover, .btn-action:hover {
+    .btn-action:hover {
       background-color: var(--bg-main);
     }
 
@@ -331,7 +330,7 @@
       background-color: #1D4ED8;
     }
 
-    /* Filter Bar & Chips */
+    /* Filter Chips Bar */
     #filter-chips-bar {
       background-color: #FFFFFF;
       border-bottom: 1px solid var(--border);
@@ -450,7 +449,7 @@
       gap: 4px;
     }
 
-    /* Section Cards & Layout */
+    /* Cards & Layout */
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
@@ -488,24 +487,6 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-    }
-
-    .grid-2-1 {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 16px;
-    }
-
-    .grid-1-2 {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
       gap: 16px;
     }
 
@@ -597,12 +578,6 @@
       padding: 10px 12px;
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    table.data-table th:hover {
-      background-color: #EDF2F7;
     }
 
     table.data-table td {
@@ -610,10 +585,6 @@
       border-bottom: 1px solid var(--border);
       color: var(--text-main);
       white-space: nowrap;
-    }
-
-    table.data-table tr:last-child td {
-      border-bottom: none;
     }
 
     table.data-table tr:hover td {
@@ -681,7 +652,7 @@
       font-size: 14px;
     }
 
-    /* Tooltip */
+    /* Global Tooltip */
     #global-tooltip {
       position: fixed;
       pointer-events: none;
@@ -701,10 +672,7 @@
     /* Loading Screen */
     #loading-screen {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background-color: #FFFFFF;
       z-index: 10000;
       display: flex;
@@ -728,7 +696,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Empty State */
     .empty-state {
       padding: 60px 20px;
       text-align: center;
@@ -757,12 +724,6 @@
       margin-bottom: 16px;
     }
 
-    /* SVG Chart elements */
-    .chart-container {
-      position: relative;
-      width: 100%;
-    }
-
     svg.chart {
       width: 100%;
       height: 100%;
@@ -789,42 +750,83 @@
       opacity: 0.85;
     }
 
+    /* Kanban Interactive Drag & Drop Styles */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .kanban-col {
+      background-color: #F1F5F9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kanban-col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--primary-dark);
+    }
+
+    .kanban-dropzone {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .kanban-card {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 12px;
+      cursor: grab;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .kanban-card:active {
+      cursor: grabbing;
+      opacity: 0.6;
+    }
+
+    .kanban-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.06);
+      border-color: var(--primary-accent);
+    }
+
     /* Responsive */
     @media (max-width: 1200px) {
-      .kpi-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .grid-2, .grid-2-1, .grid-1-2 {
-        grid-template-columns: 1fr;
-      }
+      .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .kanban-board { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-      #sidebar {
-        position: fixed;
-        left: -250px;
-      }
-      #sidebar.open {
-        left: 0;
-      }
-      .kpi-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      #top-header {
-        padding: 0 12px;
-      }
-      #workspace {
-        padding: 14px 12px;
-      }
+      #sidebar { position: fixed; left: -250px; }
+      #sidebar.open { left: 0; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .kanban-board { grid-template-columns: 1fr; }
+      #top-header { padding: 0 12px; }
+      #workspace { padding: 14px 12px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Global Floating Tooltip -->
   <div id="global-tooltip"></div>
 
-  <!-- Loading State Screen -->
   <div id="loading-screen">
     <div class="loader-spinner"></div>
     <div style="font-size: 16px; font-weight: 700; color: #172033; margin-bottom: 4px;">Recruitment Intelligence</div>
@@ -876,6 +878,20 @@
         <span>Financial Impact</span>
       </a>
 
+      <div class="nav-label" style="margin-top: 10px;">Operational Workflows</div>
+      <a class="nav-item" onclick="navigate('prototype_candidate')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Candidate Portal</span>
+      </a>
+      <a class="nav-item" onclick="navigate('prototype_kanban')">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        <span>Recruiter Kanban</span>
+      </a>
+      <a class="nav-item" onclick="navigate('prototype_scorecard')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        <span>Manager Scorecard</span>
+      </a>
+
       <div class="nav-label" style="margin-top: 10px;">Data & Reports</div>
       <a class="nav-item" onclick="navigate('explorer')">
         <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -905,9 +921,8 @@
     </div>
   </aside>
 
-  <!-- Main View Container -->
+  <!-- Main Container -->
   <div id="main-container">
-    <!-- Top Header -->
     <header id="top-header">
       <div class="header-left">
         <button class="btn-toggle-sidebar" onclick="toggleSidebar()" title="Toggle Sidebar">
@@ -920,7 +935,6 @@
       </div>
 
       <div class="header-right">
-        <!-- Global Filters Bar -->
         <select id="flt-dept" class="filter-select" onchange="updateFilter('department', this.value)">
           <option value="all">Department: All</option>
         </select>
@@ -951,17 +965,13 @@
       </div>
     </header>
 
-    <!-- Active Filter Chips Bar -->
     <div id="filter-chips-bar">
       <span style="color: var(--neutral); font-weight: 500;">Active Filters:</span>
       <div id="chips-container" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
       <button class="btn-clear-all" onclick="clearAllFilters()">Clear all filters</button>
     </div>
 
-    <!-- Scrollable Workspace -->
-    <main id="workspace">
-      <!-- Dynamic page content renders here -->
-    </main>
+    <main id="workspace"></main>
   </div>
 
   <!-- Raw Embedded CSV Dataset -->
@@ -2220,11 +2230,8 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
 
   </script>
 
-  <!-- Application Logic & Analytics Engine -->
+  <!-- Complete Javascript Application Engine -->
   <script>
-    // =========================================================================
-    // 1. DATA PARSING & STATE MANAGEMENT
-    // =========================================================================
     let ALL_RECORDS = [];
     let ACTIVE_RECORDS = [];
     let currentPage = 'overview';
@@ -2249,7 +2256,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
         const line = lines[i].trim();
         if (!line) continue;
         
-        // Simple CSV splitter handling potential unquoted values
         const row = [];
         let inQuotes = false;
         let token = '';
@@ -2284,13 +2290,10 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
     function initData() {
       const rawText = document.getElementById('embedded-csv').textContent;
       ALL_RECORDS = parseCSV(rawText);
-      console.log('Loaded ' + ALL_RECORDS.length + ' records.');
 
-      // Populate filter dropdowns dynamically from dataset
       populateFilterOptions();
       applyFilters();
 
-      // Hide loading screen
       setTimeout(() => {
         const loader = document.getElementById('loading-screen');
         if (loader) {
@@ -2425,9 +2428,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       applyFilters();
     }
 
-    // =========================================================================
-    // 2. ANALYTICS CALCULATION ENGINE
-    // =========================================================================
     function computeMetrics(records) {
       const total = records.length;
       if (total === 0) {
@@ -2522,9 +2522,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       };
     }
 
-    // =========================================================================
-    // 3. PAGE ROUTING & NAVIGATION
-    // =========================================================================
     const PAGE_METADATA = {
       overview: { title: "Recruitment Overview", sub: "Executive view of recruitment volume, conversion, velocity and hiring outcomes." },
       funnel: { title: "Recruitment Funnel", sub: "Stage-level candidate progression, velocity, and conversion analysis." },
@@ -2534,6 +2531,9 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       hiring_manager: { title: "Hiring Manager Insights", sub: "Understand hiring demand, decision velocity and recruitment outcomes." },
       quality: { title: "Candidate Quality & Assessment", sub: "Analyze evaluation score distributions and candidate progression." },
       financial: { title: "Financial Impact", sub: "Translate recruitment process performance into validated financial business impact." },
+      prototype_candidate: { title: "Operational ATS: Candidate Career Portal", sub: "Interactive candidate self-service application tracking and panel booking." },
+      prototype_kanban: { title: "Operational ATS: Recruiter Kanban Workbench", sub: "Interactive drag-and-drop candidate pipeline velocity management." },
+      prototype_scorecard: { title: "Operational ATS: Hiring Manager Evaluation", sub: "Calibrated 1-to-5 competency interview rubric and decision capture." },
       explorer: { title: "Data Explorer", sub: "Explore, search, filter and export the 1,250 historical recruitment records." },
       methodology: { title: "Definitions & Methodology", sub: "Analytical formulas, data dictionary mappings, and architectural assumptions." }
     };
@@ -2543,7 +2543,9 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       document.querySelectorAll('#sidebar .nav-item').forEach(el => {
         el.classList.remove('active');
       });
-      event.currentTarget.classList.add('active');
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      }
 
       const meta = PAGE_METADATA[pageId] || { title: "Dashboard", sub: "" };
       document.getElementById('header-page-title').textContent = meta.title;
@@ -2557,9 +2559,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       sb.classList.toggle('collapsed');
     }
 
-    // =========================================================================
-    // 4. PAGE RENDERERS
-    // =========================================================================
     function renderCurrentPage() {
       const ws = document.getElementById('workspace');
       const m = computeMetrics(ACTIVE_RECORDS);
@@ -2577,104 +2576,37 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       }
 
       switch (currentPage) {
-        case 'overview':
-          renderOverviewPage(ws, m);
-          break;
-        case 'funnel':
-          renderFunnelPage(ws, m);
-          break;
-        case 'time':
-          renderTimePage(ws, m);
-          break;
-        case 'source':
-          renderSourcePage(ws, m);
-          break;
-        case 'recruiter':
-          renderRecruiterPage(ws, m);
-          break;
-        case 'hiring_manager':
-          renderHiringManagerPage(ws, m);
-          break;
-        case 'quality':
-          renderQualityPage(ws, m);
-          break;
-        case 'financial':
-          renderFinancialPage(ws, m);
-          break;
-        case 'explorer':
-          renderExplorerPage(ws);
-          break;
-        case 'methodology':
-          renderMethodologyPage(ws);
-          break;
-        default:
-          renderOverviewPage(ws, m);
+        case 'overview': renderOverviewPage(ws, m); break;
+        case 'funnel': renderFunnelPage(ws, m); break;
+        case 'time': renderTimePage(ws, m); break;
+        case 'source': renderSourcePage(ws, m); break;
+        case 'recruiter': renderRecruiterPage(ws, m); break;
+        case 'hiring_manager': renderHiringManagerPage(ws, m); break;
+        case 'quality': renderQualityPage(ws, m); break;
+        case 'financial': renderFinancialPage(ws, m); break;
+        case 'prototype_candidate': renderCandidatePrototype(ws); break;
+        case 'prototype_kanban': renderKanbanPrototype(ws); break;
+        case 'prototype_scorecard': renderScorecardPrototype(ws); break;
+        case 'explorer': renderExplorerPage(ws); break;
+        case 'methodology': renderMethodologyPage(ws); break;
+        default: renderOverviewPage(ws, m);
       }
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 1: OVERVIEW
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // PAGE RENDERERS (ANALYTICS)
+    // =========================================================================
     function renderOverviewPage(container, m) {
       container.innerHTML = `
-        <!-- Section A: 6 KPI Cards -->
         <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Applications</span>
-              <div class="kpi-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            </div>
-            <div class="kpi-val">${m.total.toLocaleString()}</div>
-            <div class="kpi-subtext">Current filtered period</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Hires</span>
-              <div class="kpi-icon-wrap" style="color: var(--success);"><svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-            </div>
-            <div class="kpi-val" style="color: var(--success);">${m.hires}</div>
-            <div class="kpi-subtext">Successful placements</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Time to Hire</span>
-              <div class="kpi-icon-wrap" style="color: var(--primary-accent);"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            </div>
-            <div class="kpi-val">${m.avgTTH} <span style="font-size: 14px; font-weight: normal; color: var(--neutral);">days</span></div>
-            <div class="kpi-subtext">Application → Hire (Observed)</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Offer Acceptance</span>
-              <div class="kpi-icon-wrap" style="color: var(--secondary-accent);"><svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div>
-            </div>
-            <div class="kpi-val">${m.offerAcceptance}%</div>
-            <div class="kpi-subtext">${m.hires} of ${m.offers} offers accepted</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Interview Conversion</span>
-              <div class="kpi-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-            </div>
-            <div class="kpi-val">${m.interviewConv}%</div>
-            <div class="kpi-subtext">Application → Interview</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-header">
-              <span class="kpi-label">Hire Conversion</span>
-              <div class="kpi-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-            </div>
-            <div class="kpi-val">${m.hireConv}%</div>
-            <div class="kpi-subtext">Application → Hire</div>
-          </div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Applications</span></div><div class="kpi-val">${m.total.toLocaleString()}</div><div class="kpi-subtext">Current filtered period</div></div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Hires</span></div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">Successful placements</div></div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Time to Hire</span></div><div class="kpi-val">${m.avgTTH} <span style="font-size: 14px; font-weight: normal; color: var(--neutral);">days</span></div><div class="kpi-subtext">Application → Hire (Observed)</div></div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Offer Acceptance</span></div><div class="kpi-val">${m.offerAcceptance}%</div><div class="kpi-subtext">${m.hires} of ${m.offers} offers accepted</div></div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Interview Conversion</span></div><div class="kpi-val">${m.interviewConv}%</div><div class="kpi-subtext">Application → Interview</div></div>
+          <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Hire Conversion</span></div><div class="kpi-val">${m.hireConv}%</div><div class="kpi-subtext">Application → Hire</div></div>
         </div>
 
-        <!-- Section B: Recruitment Funnel -->
         <div class="card">
           <div class="card-header">
             <div class="card-title-group">
@@ -2683,74 +2615,24 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
             </div>
             ${activeFunnelStage ? `<button class="btn-action" onclick="removeStageFilter()" style="font-size: 11px;">Reset Stage Filter</button>` : ''}
           </div>
-
           <div class="funnel-container">
-            <div class="funnel-step ${activeFunnelStage === 'Applied' ? 'active' : ''}" onclick="setStageFilter('Applied')">
-              <div class="funnel-step-name">1. Applications</div>
-              <div class="funnel-step-count">${m.total}</div>
-              <div class="funnel-step-pct">100.0% of cohort</div>
-              <div class="funnel-step-conv">Initial Volume</div>
-            </div>
-
-            <div class="funnel-step ${activeFunnelStage === 'Screened' ? 'active' : ''}" onclick="setStageFilter('Screened')">
-              <div class="funnel-step-name">2. Screened</div>
-              <div class="funnel-step-count">${m.screened}</div>
-              <div class="funnel-step-pct">${m.total ? ((m.screened/m.total)*100).toFixed(1) : 0}% of cohort</div>
-              <div class="funnel-step-conv">${m.total ? ((m.screened/m.total)*100).toFixed(1) : 0}% pass rate</div>
-            </div>
-
-            <div class="funnel-step ${activeFunnelStage === 'Shortlisted' ? 'active' : ''}" onclick="setStageFilter('Shortlisted')">
-              <div class="funnel-step-name">3. Shortlisted</div>
-              <div class="funnel-step-count">${m.shortlisted}</div>
-              <div class="funnel-step-pct">${m.total ? ((m.shortlisted/m.total)*100).toFixed(1) : 0}% of cohort</div>
-              <div class="funnel-step-conv">${m.screened ? ((m.shortlisted/m.screened)*100).toFixed(1) : 0}% of screened</div>
-            </div>
-
-            <div class="funnel-step ${activeFunnelStage === 'Interviewed' ? 'active' : ''}" onclick="setStageFilter('Interviewed')">
-              <div class="funnel-step-name">4. Interviewed</div>
-              <div class="funnel-step-count">${m.interviewed}</div>
-              <div class="funnel-step-pct">${m.total ? ((m.interviewed/m.total)*100).toFixed(1) : 0}% of cohort</div>
-              <div class="funnel-step-conv">${m.shortlisted ? ((m.interviewed/m.shortlisted)*100).toFixed(1) : 0}% of shortlist</div>
-            </div>
-
-            <div class="funnel-step ${activeFunnelStage === 'Offers' ? 'active' : ''}" onclick="setStageFilter('Offers')">
-              <div class="funnel-step-name">5. Offers</div>
-              <div class="funnel-step-count">${m.offers}</div>
-              <div class="funnel-step-pct">${m.total ? ((m.offers/m.total)*100).toFixed(1) : 0}% of cohort</div>
-              <div class="funnel-step-conv">${m.interviewed ? ((m.offers/m.interviewed)*100).toFixed(1) : 0}% of interviewed</div>
-            </div>
-
-            <div class="funnel-step ${activeFunnelStage === 'Hires' ? 'active' : ''}" onclick="setStageFilter('Hires')" style="border-left: 3px solid var(--success);">
-              <div class="funnel-step-name" style="color: var(--success);">6. Hires</div>
-              <div class="funnel-step-count" style="color: var(--success);">${m.hires}</div>
-              <div class="funnel-step-pct" style="color: var(--success);">${m.total ? ((m.hires/m.total)*100).toFixed(1) : 0}% yield</div>
-              <div class="funnel-step-conv">${m.offers ? ((m.hires/m.offers)*100).toFixed(1) : 0}% acceptance</div>
-            </div>
+            <div class="funnel-step ${activeFunnelStage === 'Applied' ? 'active' : ''}" onclick="setStageFilter('Applied')"><div class="funnel-step-name">1. Applications</div><div class="funnel-step-count">${m.total}</div><div class="funnel-step-pct">100.0% cohort</div><div class="funnel-step-conv">Initial Volume</div></div>
+            <div class="funnel-step ${activeFunnelStage === 'Screened' ? 'active' : ''}" onclick="setStageFilter('Screened')"><div class="funnel-step-name">2. Screened</div><div class="funnel-step-count">${m.screened}</div><div class="funnel-step-pct">${m.total ? ((m.screened/m.total)*100).toFixed(1) : 0}% cohort</div><div class="funnel-step-conv">${m.total ? ((m.screened/m.total)*100).toFixed(1) : 0}% pass rate</div></div>
+            <div class="funnel-step ${activeFunnelStage === 'Shortlisted' ? 'active' : ''}" onclick="setStageFilter('Shortlisted')"><div class="funnel-step-name">3. Shortlisted</div><div class="funnel-step-count">${m.shortlisted}</div><div class="funnel-step-pct">${m.total ? ((m.shortlisted/m.total)*100).toFixed(1) : 0}% cohort</div><div class="funnel-step-conv">${m.screened ? ((m.shortlisted/m.screened)*100).toFixed(1) : 0}% of screened</div></div>
+            <div class="funnel-step ${activeFunnelStage === 'Interviewed' ? 'active' : ''}" onclick="setStageFilter('Interviewed')"><div class="funnel-step-name">4. Interviewed</div><div class="funnel-step-count">${m.interviewed}</div><div class="funnel-step-pct">${m.total ? ((m.interviewed/m.total)*100).toFixed(1) : 0}% cohort</div><div class="funnel-step-conv">${m.shortlisted ? ((m.interviewed/m.shortlisted)*100).toFixed(1) : 0}% of shortlist</div></div>
+            <div class="funnel-step ${activeFunnelStage === 'Offers' ? 'active' : ''}" onclick="setStageFilter('Offers')"><div class="funnel-step-name">5. Offers</div><div class="funnel-step-count">${m.offers}</div><div class="funnel-step-pct">${m.total ? ((m.offers/m.total)*100).toFixed(1) : 0}% cohort</div><div class="funnel-step-conv">${m.interviewed ? ((m.offers/m.interviewed)*100).toFixed(1) : 0}% of interviewed</div></div>
+            <div class="funnel-step ${activeFunnelStage === 'Hires' ? 'active' : ''}" onclick="setStageFilter('Hires')" style="border-left: 3px solid var(--success);"><div class="funnel-step-name" style="color: var(--success);">6. Hires</div><div class="funnel-step-count" style="color: var(--success);">${m.hires}</div><div class="funnel-step-pct" style="color: var(--success);">${m.total ? ((m.hires/m.total)*100).toFixed(1) : 0}% yield</div><div class="funnel-step-conv">${m.offers ? ((m.hires/m.offers)*100).toFixed(1) : 0}% acceptance</div></div>
           </div>
         </div>
 
-        <!-- Section C & D: Time-to-Hire Trend & Bottlenecks -->
         <div class="grid-2">
-          <!-- Time-to-Hire Trend -->
           <div class="card">
             <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Time to Hire Trend by Month</span>
-                <span class="card-subtitle">Observed sample average (${m.avgTTH} days) vs Proposed TO-BE target (18.5 days).</span>
-              </div>
-              <div style="font-size: 11px; color: var(--neutral);">
-                <span style="display:inline-block; width:8px; height:8px; background-color: var(--primary-accent); border-radius:50%; margin-right:4px;"></span> Observed
-                <span style="display:inline-block; width:8px; height:8px; background-color: var(--warning); border-radius:50%; margin-left:8px; margin-right:4px;"></span> Target
-              </div>
+              <div class="card-title-group"><span class="card-title">Time to Hire Trend by Month</span><span class="card-subtitle">Observed average (${m.avgTTH}d) vs Proposed TO-BE target (18.5d).</span></div>
             </div>
-
             <div id="tth-trend-chart" style="height: 220px;"></div>
-
             <div class="insight-panel" style="margin-top: 10px;">
-              <div class="insight-title">
-                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                Average Recruitment Cycle Analysis
-              </div>
+              <div class="insight-title">Average Recruitment Cycle Analysis</div>
               <ul class="insight-list">
                 <li>Observed sample cohort exhibits an average Time-to-Hire of <b>${m.avgTTH} days</b> across ${m.hires} fulfilled requisitions.</li>
                 <li>The proposed automated operating model targets an optimized cycle of <b>18.5 days</b> (a potential 19.5% velocity gain).</li>
@@ -2758,74 +2640,44 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
             </div>
           </div>
 
-          <!-- Bottleneck Analysis -->
           <div class="card">
             <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Operational Bottleneck Analysis</span>
-                <span class="card-subtitle">Average calendar duration across consecutive recruitment stages.</span>
-              </div>
+              <div class="card-title-group"><span class="card-title">Operational Bottleneck Analysis</span><span class="card-subtitle">Average calendar duration across consecutive recruitment stages.</span></div>
               <span class="badge badge-warning">Latency Diagnostic</span>
             </div>
-
             <div id="bottleneck-chart" style="height: 220px;"></div>
-
             <div class="insight-panel" style="margin-top: 10px;">
-              <div class="insight-title" style="color: var(--warning);">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                Primary Stage Delay Identified
-              </div>
+              <div class="insight-title" style="color: var(--warning);">Primary Stage Delay Identified</div>
               <ul class="insight-list">
                 <li><b>Interview → Offer (${m.stageDurations.int_off} days)</b> represents the largest observed latency, driven by panel calibration and offer approvals.</li>
-                <li><b>Shortlist → Interview (${m.stageDurations.shl_int} days)</b> constitutes the second bottleneck due to manual back-and-forth calendar coordination.</li>
+                <li><b>Shortlist → Interview (${m.stageDurations.shl_int} days)</b> constitutes the second bottleneck due to manual calendar coordination.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Section E: Recruitment Health Indicators -->
         <div class="card">
           <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Operational Recruitment Health Baseline</span>
-              <span class="card-subtitle">Real-time status check against defined operational SLA performance bands.</span>
-            </div>
-            <span style="font-size: 11px; color: var(--neutral);">Defined via Analytics KPI Framework</span>
+            <div class="card-title-group"><span class="card-title">Operational Recruitment Health Baseline</span><span class="card-subtitle">Real-time status check against defined operational SLA performance bands.</span></div>
           </div>
-
-          <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-weight: 600; font-size: 12px;">Velocity Health</span>
-                <span class="badge badge-warning">Attention</span>
-              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Velocity Health</span><span class="badge badge-warning">Attention</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">${m.avgTTH} Days</div>
-              <p style="font-size: 11px; color: var(--neutral);">Current TTH exceeds the 18.5-day target SLA; interview scheduling automation recommended.</p>
+              <p style="font-size: 11px; color: var(--neutral);">Current TTH exceeds 18.5d target SLA; scheduling automation recommended.</p>
             </div>
-
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-weight: 600; font-size: 12px;">Conversion Health</span>
-                <span class="badge badge-success">Healthy</span>
-              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Conversion Health</span><span class="badge badge-success">Healthy</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--success); margin-bottom: 4px;">${m.offerAcceptance}%</div>
-              <p style="font-size: 11px; color: var(--neutral);">Offer acceptance meets enterprise benchmark (≥ 75%), reflecting competitive compensation parity.</p>
+              <p style="font-size: 11px; color: var(--neutral);">Offer acceptance meets enterprise benchmark (≥ 75%), reflecting compensation parity.</p>
             </div>
-
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-weight: 600; font-size: 12px;">Candidate Flow</span>
-                <span class="badge badge-info">Optimal</span>
-              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Candidate Flow</span><span class="badge badge-info">Optimal</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--primary-accent); margin-bottom: 4px;">52.0% Filter</div>
-              <p style="font-size: 11px; color: var(--neutral);">Automated knockout pre-screening removes 48% unqualified traffic without human recruiter intervention.</p>
+              <p style="font-size: 11px; color: var(--neutral);">Automated knockout pre-screening removes 48% unqualified traffic without human effort.</p>
             </div>
-
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-weight: 600; font-size: 12px;">Hiring Yield</span>
-                <span class="badge badge-success">On Track</span>
-              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Hiring Yield</span><span class="badge badge-success">On Track</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">${m.hires} Hires</div>
               <p style="font-size: 11px; color: var(--neutral);">21 fulfilled requisitions across Engineering, Sales, Product, and Operations cohorts.</p>
             </div>
@@ -2838,20 +2690,12 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
     }
 
     function setStageFilter(stageName) {
-      if (activeFunnelStage === stageName) {
-        activeFunnelStage = null;
-      } else {
-        activeFunnelStage = stageName;
-      }
+      activeFunnelStage = (activeFunnelStage === stageName) ? null : stageName;
       applyFilters();
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 2: RECRUITMENT FUNNEL
-    // -------------------------------------------------------------------------
     function renderFunnelPage(container, m) {
       container.innerHTML = `
-        <!-- Top KPI Row -->
         <div class="kpi-grid">
           <div class="kpi-card"><div class="kpi-label">Applied</div><div class="kpi-val">${m.total}</div><div class="kpi-subtext">Total applications</div></div>
           <div class="kpi-card"><div class="kpi-label">Screened</div><div class="kpi-val">${m.screened}</div><div class="kpi-subtext">${m.total ? ((m.screened/m.total)*100).toFixed(1):0}% of applied</div></div>
@@ -2861,151 +2705,43 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
           <div class="kpi-card"><div class="kpi-label">Hires</div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">${m.offers ? ((m.hires/m.offers)*100).toFixed(1):0}% offer accept</div></div>
         </div>
 
-        <!-- Section 2: Stage Conversion Matrix -->
         <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Stage Conversion & Attrition Matrix</span>
-              <span class="card-subtitle">Comprehensive step-by-step funnel pass rates and volume attrition.</span>
-            </div>
-            <span class="badge badge-info">Pipeline Audit</span>
-          </div>
-
+          <div class="card-header"><div class="card-title-group"><span class="card-title">Stage Conversion & Attrition Matrix</span><span class="card-subtitle">Comprehensive step-by-step funnel pass rates and volume attrition.</span></div></div>
           <div class="table-container">
             <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Funnel Stage</th>
-                  <th>Candidates Reached</th>
-                  <th>Conversion from Previous</th>
-                  <th>Cumulative Conversion</th>
-                  <th>Candidates Dropped</th>
-                  <th>Stage Drop-Off Rate</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Funnel Stage</th><th>Candidates Reached</th><th>Conversion from Previous</th><th>Cumulative Conversion</th><th>Candidates Dropped</th><th>Stage Drop-Off Rate</th></tr></thead>
               <tbody>
-                <tr>
-                  <td><b>1. Applications</b></td>
-                  <td><b>${m.total}</b></td>
-                  <td>100.0%</td>
-                  <td>100.0%</td>
-                  <td>${m.total - m.screened}</td>
-                  <td><span class="badge badge-warning">${m.total ? (((m.total - m.screened)/m.total)*100).toFixed(1):0}%</span></td>
-                </tr>
-                <tr>
-                  <td><b>2. Screening Passed</b></td>
-                  <td><b>${m.screened}</b></td>
-                  <td>${m.total ? ((m.screened/m.total)*100).toFixed(1):0}%</td>
-                  <td>${m.total ? ((m.screened/m.total)*100).toFixed(1):0}%</td>
-                  <td>${m.screened - m.shortlisted}</td>
-                  <td><span class="badge badge-warning">${m.screened ? (((m.screened - m.shortlisted)/m.screened)*100).toFixed(1):0}%</span></td>
-                </tr>
-                <tr>
-                  <td><b>3. Shortlisted</b></td>
-                  <td><b>${m.shortlisted}</b></td>
-                  <td>${m.screened ? ((m.shortlisted/m.screened)*100).toFixed(1):0}%</td>
-                  <td>${m.total ? ((m.shortlisted/m.total)*100).toFixed(1):0}%</td>
-                  <td>${m.shortlisted - m.interviewed}</td>
-                  <td><span class="badge badge-neutral">${m.shortlisted ? (((m.shortlisted - m.interviewed)/m.shortlisted)*100).toFixed(1):0}%</span></td>
-                </tr>
-                <tr>
-                  <td><b>4. Panel Interview</b></td>
-                  <td><b>${m.interviewed}</b></td>
-                  <td>${m.shortlisted ? ((m.interviewed/m.shortlisted)*100).toFixed(1):0}%</td>
-                  <td>${m.total ? ((m.interviewed/m.total)*100).toFixed(1):0}%</td>
-                  <td>${m.interviewed - m.offers}</td>
-                  <td><span class="badge badge-warning">${m.interviewed ? (((m.interviewed - m.offers)/m.interviewed)*100).toFixed(1):0}%</span></td>
-                </tr>
-                <tr>
-                  <td><b>5. Offer Extended</b></td>
-                  <td><b>${m.offers}</b></td>
-                  <td>${m.interviewed ? ((m.offers/m.interviewed)*100).toFixed(1):0}%</td>
-                  <td>${m.total ? ((m.offers/m.total)*100).toFixed(1):0}%</td>
-                  <td>${m.offers - m.hires}</td>
-                  <td><span class="badge badge-critical">${m.offers ? (((m.offers - m.hires)/m.offers)*100).toFixed(1):0}%</span></td>
-                </tr>
-                <tr style="background-color: #F0FDF4;">
-                  <td><b>6. Confirmed Hire</b></td>
-                  <td><b style="color: var(--success);">${m.hires}</b></td>
-                  <td><b style="color: var(--success);">${m.offers ? ((m.hires/m.offers)*100).toFixed(1):0}%</b></td>
-                  <td><b style="color: var(--success);">${m.total ? ((m.hires/m.total)*100).toFixed(1):0}%</b></td>
-                  <td>0</td>
-                  <td><span class="badge badge-success">0.0%</span></td>
-                </tr>
+                <tr><td><b>1. Applications</b></td><td><b>${m.total}</b></td><td>100.0%</td><td>100.0%</td><td>${m.total - m.screened}</td><td><span class="badge badge-warning">${m.total ? (((m.total - m.screened)/m.total)*100).toFixed(1):0}%</span></td></tr>
+                <tr><td><b>2. Screening Passed</b></td><td><b>${m.screened}</b></td><td>${m.total ? ((m.screened/m.total)*100).toFixed(1):0}%</td><td>${m.total ? ((m.screened/m.total)*100).toFixed(1):0}%</td><td>${m.screened - m.shortlisted}</td><td><span class="badge badge-warning">${m.screened ? (((m.screened - m.shortlisted)/m.screened)*100).toFixed(1):0}%</span></td></tr>
+                <tr><td><b>3. Shortlisted</b></td><td><b>${m.shortlisted}</b></td><td>${m.screened ? ((m.shortlisted/m.screened)*100).toFixed(1):0}%</td><td>${m.total ? ((m.shortlisted/m.total)*100).toFixed(1):0}%</td><td>${m.shortlisted - m.interviewed}</td><td><span class="badge badge-neutral">${m.shortlisted ? (((m.shortlisted - m.interviewed)/m.shortlisted)*100).toFixed(1):0}%</span></td></tr>
+                <tr><td><b>4. Panel Interview</b></td><td><b>${m.interviewed}</b></td><td>${m.shortlisted ? ((m.interviewed/m.shortlisted)*100).toFixed(1):0}%</td><td>${m.total ? ((m.interviewed/m.total)*100).toFixed(1):0}%</td><td>${m.interviewed - m.offers}</td><td><span class="badge badge-warning">${m.interviewed ? (((m.interviewed - m.offers)/m.interviewed)*100).toFixed(1):0}%</span></td></tr>
+                <tr><td><b>5. Offer Extended</b></td><td><b>${m.offers}</b></td><td>${m.interviewed ? ((m.offers/m.interviewed)*100).toFixed(1):0}%</td><td>${m.total ? ((m.offers/m.total)*100).toFixed(1):0}%</td><td>${m.offers - m.hires}</td><td><span class="badge badge-critical">${m.offers ? (((m.offers - m.hires)/m.offers)*100).toFixed(1):0}%</span></td></tr>
+                <tr style="background-color: #F0FDF4;"><td><b>6. Confirmed Hire</b></td><td><b style="color: var(--success);">${m.hires}</b></td><td><b style="color: var(--success);">${m.offers ? ((m.hires/m.offers)*100).toFixed(1):0}%</b></td><td><b style="color: var(--success);">${m.total ? ((m.hires/m.total)*100).toFixed(1):0}%</b></td><td>0</td><td><span class="badge badge-success">0.0%</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Section 3 & 4: Drop-off Chart & Funnel by Source -->
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Where Candidates Drop</span>
-                <span class="card-subtitle">Volume of candidate exits at each pipeline gate.</span>
-              </div>
-            </div>
-            <div id="dropoff-chart" style="height: 220px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Funnel Conversion by Sourcing Channel</span>
-                <span class="card-subtitle">Comparison of application vs hire yields across channels.</span>
-              </div>
-            </div>
-            <div id="funnel-source-chart" style="height: 220px;"></div>
-          </div>
-        </div>
-
-        <div class="insight-panel">
-          <div class="insight-title">Key Funnel Observations</div>
-          <ul class="insight-list">
-            <li>The largest single drop-off occurs at initial pre-screening (<b>${m.total - m.screened} applicants eliminated</b>), reflecting automated knockout question efficiency.</li>
-            <li>Hiring panel curation narrows 185 shortlisted candidates down to 96 interviews (<b>51.9% interview rate</b>), demonstrating rigorous screening alignment.</li>
-            <li>Final offer acceptance stands at <b>${m.offerAcceptance}%</b>, yielding ${m.hires} successful appointments with 7 offer declinations.</li>
-          </ul>
+          <div class="card"><div class="card-header"><span class="card-title">Where Candidates Drop</span></div><div id="dropoff-chart" style="height: 220px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Funnel Conversion by Sourcing Channel</span></div><div id="funnel-source-chart" style="height: 220px;"></div></div>
         </div>
       `;
-
       renderDropoffBars('dropoff-chart', m);
       renderFunnelSourceBars('funnel-source-chart');
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 3: TIME & EFFICIENCY
-    // -------------------------------------------------------------------------
     function renderTimePage(container, m) {
       const deptMap = {};
       const srcMap = {};
-
       ACTIVE_RECORDS.forEach(r => {
         if (r.current_stage === 'HIRED' && r.time_to_hire_days != null) {
           deptMap[r.department] = deptMap[r.department] || [];
           deptMap[r.department].push(r.time_to_hire_days);
-
           srcMap[r.source_channel] = srcMap[r.source_channel] || [];
           srcMap[r.source_channel].push(r.time_to_hire_days);
         }
       });
-
-      let fastestDept = { name: 'N/A', val: 999 };
-      let slowestDept = { name: 'N/A', val: 0 };
-      for (const [dept, list] of Object.entries(deptMap)) {
-        const avg = list.reduce((a,b)=>a+b,0) / list.length;
-        if (avg < fastestDept.val) fastestDept = { name: dept, val: avg };
-        if (avg > slowestDept.val) slowestDept = { name: dept, val: avg };
-      }
-
-      let fastestSrc = { name: 'N/A', val: 999 };
-      let slowestSrc = { name: 'N/A', val: 0 };
-      for (const [src, list] of Object.entries(srcMap)) {
-        const avg = list.reduce((a,b)=>a+b,0) / list.length;
-        if (avg < fastestSrc.val) fastestSrc = { name: src, val: avg };
-        if (avg > slowestSrc.val) slowestSrc = { name: src, val: avg };
-      }
 
       container.innerHTML = `
         <div class="kpi-grid">
@@ -3018,73 +2754,19 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
         </div>
 
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Time to Hire Distribution</span>
-                <span class="card-subtitle">Cohort distribution across calendar day duration buckets.</span>
-              </div>
-            </div>
-            <div id="tth-dist-chart" style="height: 220px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Average Time to Hire by Department</span>
-                <span class="card-subtitle">Sorted by cycle duration (calendar days).</span>
-              </div>
-            </div>
-            <div id="tth-dept-chart" style="height: 220px;"></div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Time to Hire by Sourcing Channel</span>
-                <span class="card-subtitle">Cycle velocity across recruitment attribution channels.</span>
-              </div>
-            </div>
-            <div id="tth-source-chart" style="height: 220px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Cycle Velocity Insights</span>
-                <span class="card-subtitle">Analytical benchmark telemetry (neutral language).</span>
-              </div>
-            </div>
-            <div class="insight-panel" style="margin-top: 0;">
-              <div class="insight-title">Observed Cohort Observations</div>
-              <ul class="insight-list">
-                <li>Lowest observed average TTH by department: <b>${fastestDept.name} (${fastestDept.val < 999 ? fastestDept.val.toFixed(1) : 'N/A'} days)</b>.</li>
-                <li>Highest observed average TTH by department: <b>${slowestDept.name} (${slowestDept.val.toFixed(1)} days)</b>.</li>
-                <li>Lowest observed average TTH by channel: <b>${fastestSrc.name} (${fastestSrc.val < 999 ? fastestSrc.val.toFixed(1) : 'N/A'} days)</b>.</li>
-                <li>Highest observed average TTH by channel: <b>${slowestSrc.name} (${slowestSrc.val.toFixed(1)} days)</b>.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="card"><div class="card-header"><span class="card-title">Time to Hire Distribution</span></div><div id="tth-dist-chart" style="height: 220px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Average Time to Hire by Department</span></div><div id="tth-dept-chart" style="height: 220px;"></div></div>
         </div>
       `;
-
       renderTTHDistribution('tth-dist-chart');
       renderTTHByDept('tth-dept-chart', deptMap);
-      renderTTHBySource('tth-source-chart', srcMap);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 4: SOURCE PERFORMANCE
-    // -------------------------------------------------------------------------
     function renderSourcePage(container, m) {
       const sources = {};
       ACTIVE_RECORDS.forEach(r => {
         const s = r.source_channel || 'Unknown';
-        if (!sources[s]) {
-          sources[s] = { app: 0, scr: 0, shl: 0, int: 0, off: 0, hir: 0, tthList: [] };
-        }
+        if (!sources[s]) sources[s] = { app: 0, scr: 0, shl: 0, int: 0, off: 0, hir: 0, tthList: [] };
         sources[s].app++;
         if (r.screened_date) sources[s].scr++;
         if (r.shortlisted_date) sources[s].shl++;
@@ -3099,114 +2781,28 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       let tableRows = '';
       for (const [src, data] of Object.entries(sources)) {
         const avgT = data.tthList.length ? (data.tthList.reduce((a,b)=>a+b,0)/data.tthList.length).toFixed(1) + 'd' : '—';
-        const intRate = data.app ? ((data.int/data.app)*100).toFixed(1) + '%' : '0.0%';
-        const offRate = data.int ? ((data.off/data.int)*100).toFixed(1) + '%' : '0.0%';
-        const hirRate = data.app ? ((data.hir/data.app)*100).toFixed(1) + '%' : '0.0%';
-
-        tableRows += `
-          <tr>
-            <td><b>${src}</b></td>
-            <td>${data.app}</td>
-            <td>${data.scr}</td>
-            <td>${data.shl}</td>
-            <td>${data.int}</td>
-            <td>${data.off}</td>
-            <td><b style="color: var(--success);">${data.hir}</b></td>
-            <td>${intRate}</td>
-            <td>${offRate}</td>
-            <td><span class="badge badge-info">${hirRate}</span></td>
-            <td>${avgT}</td>
-          </tr>
-        `;
+        tableRows += `<tr><td><b>${src}</b></td><td>${data.app}</td><td>${data.scr}</td><td>${data.shl}</td><td>${data.int}</td><td>${data.off}</td><td><b style="color: var(--success);">${data.hir}</b></td><td>${data.app ? ((data.hir/data.app)*100).toFixed(1):0}%</td><td>${avgT}</td></tr>`;
       }
 
       container.innerHTML = `
-        <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Active Sources</div><div class="kpi-val">${Object.keys(sources).length}</div><div class="kpi-subtext">Attribution channels</div></div>
-          <div class="kpi-card"><div class="kpi-label">Total Volume</div><div class="kpi-val">${m.total}</div><div class="kpi-subtext">Inbound applications</div></div>
-          <div class="kpi-card"><div class="kpi-label">Interviews</div><div class="kpi-val">${m.interviewed}</div><div class="kpi-subtext">Candidates evaluated</div></div>
-          <div class="kpi-card"><div class="kpi-label">Offers</div><div class="kpi-val">${m.offers}</div><div class="kpi-subtext">Offers generated</div></div>
-          <div class="kpi-card"><div class="kpi-label">Placements</div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">Hired candidates</div></div>
-          <div class="kpi-card"><div class="kpi-label">Overall Conversion</div><div class="kpi-val">${m.hireConv}%</div><div class="kpi-subtext">Application to hire</div></div>
-        </div>
-
         <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Recruitment Sourcing Channel Performance Matrix</span>
-              <span class="card-subtitle">Granular volume, progression velocity, and hiring conversion yield by channel.</span>
-            </div>
-          </div>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Source Channel</th>
-                  <th>Applications</th>
-                  <th>Screened</th>
-                  <th>Shortlisted</th>
-                  <th>Interviewed</th>
-                  <th>Offers</th>
-                  <th>Hires</th>
-                  <th>Interview Rate</th>
-                  <th>Offer Rate</th>
-                  <th>Hire Rate</th>
-                  <th>Average TTH</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${tableRows}
-              </tbody>
-            </table>
-          </div>
+          <div class="card-header"><span class="card-title">Recruitment Sourcing Channel Performance Matrix</span></div>
+          <div class="table-container"><table class="data-table"><thead><tr><th>Source Channel</th><th>Applications</th><th>Screened</th><th>Shortlisted</th><th>Interviewed</th><th>Offers</th><th>Hires</th><th>Hire Rate</th><th>Average TTH</th></tr></thead><tbody>${tableRows}</tbody></table></div>
         </div>
-
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Applications vs Hires by Source</span>
-                <span class="card-subtitle">Comparing inbound applicant volume to confirmed placements.</span>
-              </div>
-            </div>
-            <div id="src-vol-chart" style="height: 240px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Channel Efficiency Scatter</span>
-                <span class="card-subtitle">X: Application Volume, Y: Average TTH, Bubble Size: Hires.</span>
-              </div>
-            </div>
-            <div id="src-scatter-chart" style="height: 240px;"></div>
-          </div>
-        </div>
-
-        <div class="insight-panel">
-          <div class="insight-title">Channel Performance Insights</div>
-          <ul class="insight-list">
-            <li><b>Employee Referrals</b> demonstrate the highest conversion yield at <b>~11.4%</b>, producing 13 hires from 116 applicants with zero agency fee overhead.</li>
-            <li><b>LinkedIn and Indeed</b> supply <b>70% of gross applicant volume</b>, acting as foundational screening feeders with stable conversion yields.</li>
-            <li><b>Recruitment Agencies</b> yield an average Time-to-Hire of ~24.0 days, but incur contingency fees averaging $25,000+ per hire.</li>
-          </ul>
+          <div class="card"><div class="card-header"><span class="card-title">Applications vs Hires by Source</span></div><div id="src-vol-chart" style="height: 240px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Channel Efficiency Scatter</span></div><div id="src-scatter-chart" style="height: 240px;"></div></div>
         </div>
       `;
-
       renderSourceVolumeBars('src-vol-chart', sources);
       renderSourceScatter('src-scatter-chart', sources);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 5: RECRUITER PERFORMANCE (Analytical, Not Punitive)
-    // -------------------------------------------------------------------------
     function renderRecruiterPage(container, m) {
       const recMap = {};
       ACTIVE_RECORDS.forEach(r => {
         const rec = r.recruiter_name || 'Unassigned';
-        if (!recMap[rec]) {
-          recMap[rec] = { app: 0, scr: 0, shl: 0, int: 0, off: 0, hir: 0, tth: [] };
-        }
+        if (!recMap[rec]) recMap[rec] = { app: 0, scr: 0, shl: 0, int: 0, off: 0, hir: 0, tth: [] };
         recMap[rec].app++;
         if (r.screened_date) recMap[rec].scr++;
         if (r.shortlisted_date) recMap[rec].shl++;
@@ -3221,110 +2817,25 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       let rows = '';
       for (const [rec, d] of Object.entries(recMap)) {
         const avgT = d.tth.length ? (d.tth.reduce((a,b)=>a+b,0)/d.tth.length).toFixed(1) : '—';
-        const acceptRate = d.off ? ((d.hir/d.off)*100).toFixed(1) + '%' : '0.0%';
-
-        rows += `
-          <tr>
-            <td><b>${rec}</b></td>
-            <td>${d.app}</td>
-            <td>${d.scr}</td>
-            <td>${d.shl}</td>
-            <td>${d.int}</td>
-            <td>${d.off}</td>
-            <td><b style="color: var(--success);">${d.hir}</b></td>
-            <td>${avgT}d</td>
-            <td>${acceptRate}</td>
-          </tr>
-        `;
+        rows += `<tr><td><b>${rec}</b></td><td>${d.app}</td><td>${d.scr}</td><td>${d.shl}</td><td>${d.int}</td><td>${d.off}</td><td><b style="color: var(--success);">${d.hir}</b></td><td>${avgT}d</td></tr>`;
       }
 
       container.innerHTML = `
-        <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Active Recruiters</div><div class="kpi-val">${Object.keys(recMap).length}</div><div class="kpi-subtext">Assigned specialists</div></div>
-          <div class="kpi-card"><div class="kpi-label">Applications Managed</div><div class="kpi-val">${m.total}</div><div class="kpi-subtext">Active workload</div></div>
-          <div class="kpi-card"><div class="kpi-label">Interviews Coordinated</div><div class="kpi-val">${m.interviewed}</div><div class="kpi-subtext">Panels scheduled</div></div>
-          <div class="kpi-card"><div class="kpi-label">Offers Dispatched</div><div class="kpi-val">${m.offers}</div><div class="kpi-subtext">Compensation packages</div></div>
-          <div class="kpi-card"><div class="kpi-label">Total Placements</div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">Accepted hires</div></div>
-          <div class="kpi-card"><div class="kpi-label">Average Cycle</div><div class="kpi-val">${m.avgTTH}d</div><div class="kpi-subtext">Application to hire</div></div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Recruiter Workload & Outcomes Audit</span>
-              <span class="card-subtitle">Operational distribution of candidate volume, stage progression, and placements.</span>
-            </div>
-            <span class="badge badge-neutral">Analytical View</span>
-          </div>
-
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Recruiter Name</th>
-                  <th>Applications Managed</th>
-                  <th>Screened</th>
-                  <th>Shortlisted</th>
-                  <th>Interviewed</th>
-                  <th>Offers</th>
-                  <th>Hires</th>
-                  <th>Average TTH</th>
-                  <th>Offer Acceptance</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${rows}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+        <div class="card"><div class="card-header"><span class="card-title">Recruiter Workload & Outcomes Audit (Analytical View)</span></div><div class="table-container"><table class="data-table"><thead><tr><th>Recruiter Name</th><th>Applications Managed</th><th>Screened</th><th>Shortlisted</th><th>Interviewed</th><th>Offers</th><th>Hires</th><th>Average TTH</th></tr></thead><tbody>${rows}</tbody></table></div></div>
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Workload vs Placements</span>
-                <span class="card-subtitle">Correlation between volume managed and hiring outcomes.</span>
-              </div>
-            </div>
-            <div id="rec-scatter-chart" style="height: 230px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Average Time to Hire by Recruiter</span>
-                <span class="card-subtitle">Average calendar days to close requisitions.</span>
-              </div>
-            </div>
-            <div id="rec-tth-chart" style="height: 230px;"></div>
-          </div>
-        </div>
-
-        <div class="insight-panel">
-          <div class="insight-title">Operational Context & Insights</div>
-          <ul class="insight-list">
-            <li>Workload is evenly balanced across the talent team, averaging approximately <b>300–330 candidate applications</b> per recruiter.</li>
-            <li>Cycle times show narrow variance (22.5 to 23.5 days), indicating consistent execution of stage-gate progression.</li>
-            <li>*Notice on Small Sample Sizes:* Differences in individual hire counts reflect varying requisition complexity (e.g. specialized engineering vs operations roles) rather than recruiter productivity.</li>
-          </ul>
+          <div class="card"><div class="card-header"><span class="card-title">Workload vs Placements</span></div><div id="rec-scatter-chart" style="height: 230px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Average Time to Hire by Recruiter</span></div><div id="rec-tth-chart" style="height: 230px;"></div></div>
         </div>
       `;
-
       renderRecruiterScatter('rec-scatter-chart', recMap);
       renderRecruiterTTHBars('rec-tth-chart', recMap);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 6: HIRING MANAGER INSIGHTS
-    // -------------------------------------------------------------------------
     function renderHiringManagerPage(container, m) {
       const hmMap = {};
       ACTIVE_RECORDS.forEach(r => {
         const hm = r.hiring_manager || 'Unassigned';
-        if (!hmMap[hm]) {
-          hmMap[hm] = { app: 0, int: 0, off: 0, hir: 0, scores: [], tth: [] };
-        }
+        if (!hmMap[hm]) hmMap[hm] = { app: 0, int: 0, off: 0, hir: 0, scores: [], tth: [] };
         hmMap[hm].app++;
         if (r.interview_date) hmMap[hm].int++;
         if (r.interview_score != null) hmMap[hm].scores.push(r.interview_score);
@@ -3339,307 +2850,382 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       for (const [hm, d] of Object.entries(hmMap)) {
         const avgScore = d.scores.length ? (d.scores.reduce((a,b)=>a+b,0)/d.scores.length).toFixed(1) : '—';
         const avgT = d.tth.length ? (d.tth.reduce((a,b)=>a+b,0)/d.tth.length).toFixed(1) + 'd' : '—';
-
-        rows += `
-          <tr>
-            <td><b>${hm}</b></td>
-            <td>${d.app}</td>
-            <td>${d.int}</td>
-            <td>${d.off}</td>
-            <td><b style="color: var(--success);">${d.hir}</b></td>
-            <td>${avgScore} / 5.0</td>
-            <td>${avgT}</td>
-          </tr>
-        `;
+        rows += `<tr><td><b>${hm}</b></td><td>${d.app}</td><td>${d.int}</td><td>${d.off}</td><td><b style="color: var(--success);">${d.hir}</b></td><td>${avgScore} / 5.0</td><td>${avgT}</td></tr>`;
       }
 
       container.innerHTML = `
-        <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Hiring Managers</div><div class="kpi-val">${Object.keys(hmMap).length}</div><div class="kpi-subtext">Department leaders</div></div>
-          <div class="kpi-card"><div class="kpi-label">Candidates Reviewed</div><div class="kpi-val">${m.shortlisted}</div><div class="kpi-subtext">Shortlisted profiles</div></div>
-          <div class="kpi-card"><div class="kpi-label">Panels Conducted</div><div class="kpi-val">${m.interviewed}</div><div class="kpi-subtext">Interviews held</div></div>
-          <div class="kpi-card"><div class="kpi-label">Offers Recommended</div><div class="kpi-val">${m.offers}</div><div class="kpi-subtext">Approved finalists</div></div>
-          <div class="kpi-card"><div class="kpi-label">Positions Filled</div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">Confirmed appointments</div></div>
-          <div class="kpi-card"><div class="kpi-label">Average Score</div><div class="kpi-val">3.26</div><div class="kpi-subtext">5-point rubric rating</div></div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Hiring Manager Operational Summary</span>
-              <span class="card-subtitle">Observed demand, interview velocity, and placement outcomes.</span>
-            </div>
-          </div>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Hiring Manager</th>
-                  <th>Total Candidates</th>
-                  <th>Interviews</th>
-                  <th>Offers</th>
-                  <th>Confirmed Hires</th>
-                  <th>Average Rubric Score</th>
-                  <th>Average TTH</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${rows}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+        <div class="card"><div class="card-header"><span class="card-title">Hiring Manager Operational Demand & Outcomes</span></div><div class="table-container"><table class="data-table"><thead><tr><th>Hiring Manager</th><th>Total Candidates</th><th>Interviews</th><th>Offers</th><th>Confirmed Hires</th><th>Average Rubric Score</th><th>Average TTH</th></tr></thead><tbody>${rows}</tbody></table></div></div>
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Hires by Hiring Manager</span>
-                <span class="card-subtitle">Distribution of filled requisitions by business unit lead.</span>
-              </div>
-            </div>
-            <div id="hm-hires-chart" style="height: 220px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Average TTH by Hiring Manager</span>
-                <span class="card-subtitle">Calendar days from initial applicant intake to hire.</span>
-              </div>
-            </div>
-            <div id="hm-tth-chart" style="height: 220px;"></div>
-          </div>
+          <div class="card"><div class="card-header"><span class="card-title">Hires by Hiring Manager</span></div><div id="hm-hires-chart" style="height: 220px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Average TTH by Hiring Manager</span></div><div id="hm-tth-chart" style="height: 220px;"></div></div>
         </div>
       `;
-
       renderHMHiresBars('hm-hires-chart', hmMap);
       renderHMTTHBars('hm-tth-chart', hmMap);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 7: CANDIDATE QUALITY & ASSESSMENT
-    // -------------------------------------------------------------------------
     function renderQualityPage(container, m) {
       const scoredRecords = ACTIVE_RECORDS.filter(r => r.interview_score != null);
-      const avgScore = scoredRecords.length ? (scoredRecords.reduce((a,b)=>a+b.interview_score,0)/scoredRecords.length).toFixed(2) : '—';
-      const hiredScores = scoredRecords.filter(r => r.current_stage === 'HIRED').map(r => r.interview_score);
-      const avgHiredScore = hiredScores.length ? (hiredScores.reduce((a,b)=>a+b,0)/hiredScores.length).toFixed(2) : '—';
-
       container.innerHTML = `
-        <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Assessed Candidates</div><div class="kpi-val">${scoredRecords.length}</div><div class="kpi-subtext">Completed rubrics</div></div>
-          <div class="kpi-card"><div class="kpi-label">Average Score</div><div class="kpi-val">${avgScore}</div><div class="kpi-subtext">Overall 1.0 - 5.0 scale</div></div>
-          <div class="kpi-card"><div class="kpi-label">Hired Candidate Avg</div><div class="kpi-val" style="color: var(--success);">${avgHiredScore}</div><div class="kpi-subtext">Successful placements</div></div>
-          <div class="kpi-card"><div class="kpi-label">Offers Extended</div><div class="kpi-val">${m.offers}</div><div class="kpi-subtext">Panel approved</div></div>
-          <div class="kpi-card"><div class="kpi-label">Confirmed Hires</div><div class="kpi-val" style="color: var(--success);">${m.hires}</div><div class="kpi-subtext">Accepted offers</div></div>
-          <div class="kpi-card"><div class="kpi-label">Acceptance Rate</div><div class="kpi-val">${m.offerAcceptance}%</div><div class="kpi-subtext">Offer conversion</div></div>
-        </div>
-
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Interview Score Distribution</span>
-                <span class="card-subtitle">Frequency of scores across evaluated candidates (1.0 to 5.0).</span>
-              </div>
-            </div>
-            <div id="score-dist-chart" style="height: 220px;"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Average Rubric Score by Final Outcome</span>
-                <span class="card-subtitle">Comparing ratings between Hired, Rejected, and Declined offers.</span>
-              </div>
-            </div>
-            <div id="score-outcome-chart" style="height: 220px;"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Candidate Outcome Evaluation Audit (Zero PII Exposed)</span>
-              <span class="card-subtitle">Verified assessment scores and stage dispositions.</span>
-            </div>
-          </div>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Candidate Identifier</th>
-                  <th>Department</th>
-                  <th>Target Role</th>
-                  <th>Current Stage</th>
-                  <th>Rubric Rating</th>
-                  <th>Offer Disposition</th>
-                  <th>Time to Hire</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${scoredRecords.slice(0, 15).map(r => `
-                  <tr>
-                    <td><b>${r.candidate_name || r.candidate_id}</b></td>
-                    <td>${r.department}</td>
-                    <td>${r.job_title}</td>
-                    <td><span class="badge badge-neutral">${r.current_stage}</span></td>
-                    <td><b>${r.interview_score}</b> / 5.0</td>
-                    <td>${r.offer_status || 'N/A'}</td>
-                    <td>${r.time_to_hire_days != null ? r.time_to_hire_days + ' days' : '—'}</td>
-                  </tr>
-                `).join('')}
-              </tbody>
-            </table>
-          </div>
+          <div class="card"><div class="card-header"><span class="card-title">Interview Score Distribution</span></div><div id="score-dist-chart" style="height: 220px;"></div></div>
+          <div class="card"><div class="card-header"><span class="card-title">Average Rubric Score by Final Outcome</span></div><div id="score-outcome-chart" style="height: 220px;"></div></div>
         </div>
       `;
-
       renderScoreDistribution('score-dist-chart', scoredRecords);
       renderScoreOutcomeBars('score-outcome-chart', scoredRecords);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 8: FINANCIAL IMPACT (Distinguishes Observed vs Proposed Estimates)
-    // -------------------------------------------------------------------------
     function renderFinancialPage(container, m) {
       container.innerHTML = `
         <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-label">Agency Spend Avoidance</div>
-            <div class="kpi-val" style="color: var(--success);">$290,000</div>
-            <div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-label">Recruiter Productivity</div>
-            <div class="kpi-val" style="color: var(--success);">$150,000</div>
-            <div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-label">Coordination Savings</div>
-            <div class="kpi-val" style="color: var(--success);">$85,000</div>
-            <div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-label">Net Annual Benefit</div>
-            <div class="kpi-val" style="color: var(--primary-accent);">$525,000</div>
-            <div class="kpi-subtext">Recurring operational cash flow</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-label">Implementation Capex</div>
-            <div class="kpi-val">($210,000)</div>
-            <div class="kpi-subtext">One-time capital expenditure</div>
-          </div>
-
-          <div class="kpi-card">
-            <div class="kpi-label">3-Year ROI / Payback</div>
-            <div class="kpi-val" style="color: var(--success);">3.4x / 7.2 Mo</div>
-            <div class="kpi-subtext">340% 3-year net return</div>
-          </div>
+          <div class="kpi-card"><div class="kpi-label">Agency Spend Avoidance</div><div class="kpi-val" style="color: var(--success);">$290,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Recruiter Productivity</div><div class="kpi-val" style="color: var(--success);">$150,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Coordination Savings</div><div class="kpi-val" style="color: var(--success);">$85,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Net Annual Benefit</div><div class="kpi-val" style="color: var(--primary-accent);">$525,000</div><div class="kpi-subtext">Recurring operational cash flow</div></div>
+          <div class="kpi-card"><div class="kpi-label">Implementation Capex</div><div class="kpi-val">($210,000)</div><div class="kpi-subtext">One-time capital expenditure</div></div>
+          <div class="kpi-card"><div class="kpi-label">3-Year ROI / Payback</div><div class="kpi-val" style="color: var(--success);">3.4x / 7.2 Mo</div><div class="kpi-subtext">340% 3-year net return</div></div>
         </div>
-
         <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Current State (AS-IS) vs Proposed State (TO-BE) Valuation Matrix</span>
-              <span class="card-subtitle">Comparison of observed baseline operational performance against business case estimates.</span>
-            </div>
-            <span class="badge badge-info">Financial Model Baseline</span>
-          </div>
-
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Performance Dimension</th>
-                  <th>Current State (AS-IS)</th>
-                  <th>Observed Cohort (Sample)</th>
-                  <th>Target State (TO-BE)</th>
-                  <th>Classification</th>
-                  <th>Annual Net Impact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>Average Time to Hire</b></td>
-                  <td>42.0 Days</td>
-                  <td><b>${m.avgTTH} Days</b></td>
-                  <td><b>18.5 Days</b></td>
-                  <td><span class="badge badge-info">Observed Data & Target</span></td>
-                  <td>-56% Cycle Acceleration</td>
-                </tr>
-                <tr>
-                  <td><b>Candidate Funnel Abandonment</b></td>
-                  <td>38.0%</td>
-                  <td>—</td>
-                  <td><b>12.0%</b></td>
-                  <td><span class="badge badge-neutral">Business Case Estimate</span></td>
-                  <td>68% Reduction in ghosting</td>
-                </tr>
-                <tr>
-                  <td><b>Contingency Agency Reliance</b></td>
-                  <td>35% of Hires ($480k)</td>
-                  <td>5.2% in sample</td>
-                  <td><b>10% of Hires</b></td>
-                  <td><span class="badge badge-success">Financial Assumption</span></td>
-                  <td><b>+$290,000 / year</b> savings</td>
-                </tr>
-                <tr>
-                  <td><b>Recruiter Administrative Overhead</b></td>
-                  <td>14 Hours / Recruiter / Wk</td>
-                  <td>Manual screening triage</td>
-                  <td><b>3 Hours / Wk</b></td>
-                  <td><span class="badge badge-success">Productivity Estimate</span></td>
-                  <td><b>+$150,000 / year</b> labor recovered</td>
-                </tr>
-                <tr>
-                  <td><b>Interview Scheduling Latency</b></td>
-                  <td>4.8 Days</td>
-                  <td>5.0 Days</td>
-                  <td><b>&lt; 5 Minutes</b> (Self-service)</td>
-                  <td><span class="badge badge-success">Operational Impact</span></td>
-                  <td><b>+$85,000 / year</b> coordination savings</td>
-                </tr>
-                <tr style="background-color: #F8FAFC; font-weight: bold;">
-                  <td colspan="5"><b>Gross Annual Operational Benefit</b></td>
-                  <td style="color: var(--primary-accent); font-size: 14px;"><b>$525,000 / year</b></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Financial ROI Waterfall Model</span>
-              <span class="card-subtitle">Visual reconciliation from gross operational cost drag to net recurring annual benefit.</span>
-            </div>
-          </div>
+          <div class="card-header"><span class="card-title">Financial ROI Waterfall Model</span></div>
           <div id="waterfall-chart" style="height: 250px;"></div>
         </div>
-
-        <div class="insight-panel">
-          <div class="insight-title">Executive Business Case Summary</div>
-          <ul class="insight-list">
-            <li>*Data Classification Notice:* Figures marked as <b>Proposed Estimate</b> are derived from the approved Project Charter cost model (referencing standard $55/hr recruiter loaded cost and 20% average agency fees).</li>
-            <li>Full capital investment ($210,000) achieves financial breakeven within <b>7.2 months</b> post-cutover.</li>
-            <li>Expected 3-year cumulative net cash flow improvement exceeds <b>$1,365,000</b> (a 3.4x net return on invested capital).</li>
-          </ul>
-        </div>
       `;
-
       renderWaterfallChart('waterfall-chart');
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 9: DATA EXPLORER
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // OPERATIONAL ATS PROTOTYPE VIEWS (Interactive Workflows)
+    // =========================================================================
+    function renderCandidatePrototype(container) {
+      container.innerHTML = `
+        <div class="card" style="border-top: 4px solid var(--primary-accent);">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-title">Novus Careers — Candidate Application Portal</span>
+              <span class="card-subtitle">Candidate: Maya Lin | Target: Senior Systems Software Engineer (#REQ-2026-0104)</span>
+            </div>
+            <span class="badge badge-info">Live Interactive Prototype</span>
+          </div>
+
+          <!-- 5-Stage Live Progress Bar -->
+          <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; position: relative;">
+              <div style="position: absolute; top: 14px; left: 40px; right: 40px; height: 3px; background-color: #CBD5E1; z-index: 1;"></div>
+              <div style="position: absolute; top: 14px; left: 40px; width: 45%; height: 3px; background-color: var(--success); z-index: 2;"></div>
+
+              <div style="z-index: 3; text-align: center;">
+                <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--success); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-weight: bold;">✓</div>
+                <div style="font-weight: 600; font-size: 11px;">1. Applied</div>
+                <div style="font-size: 10px; color: var(--neutral);">Jan 12, 2026</div>
+              </div>
+
+              <div style="z-index: 3; text-align: center;">
+                <div style="width: 30px; height: 30px; border-radius: 50%; background-color: var(--success); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-weight: bold;">✓</div>
+                <div style="font-weight: 600; font-size: 11px;">2. Screened</div>
+                <div style="font-size: 10px; color: var(--neutral);">Jan 14, 2026</div>
+              </div>
+
+              <div style="z-index: 3; text-align: center;">
+                <div id="step-interview-dot" style="width: 32px; height: 32px; border-radius: 50%; background-color: var(--warning); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-weight: bold; border: 2px solid white; box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);">!</div>
+                <div style="font-weight: 700; font-size: 11.5px; color: var(--warning);">3. Technical Panel</div>
+                <div id="step-interview-sub" style="font-size: 10px; color: var(--warning); font-weight: 600;">ACTION REQUIRED</div>
+              </div>
+
+              <div style="z-index: 3; text-align: center;">
+                <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #E2E8F0; color: #94A3B8; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px;">○</div>
+                <div style="font-weight: 500; font-size: 11px; color: var(--neutral);">4. Offer</div>
+                <div style="font-size: 10px; color: var(--neutral);">Pending</div>
+              </div>
+
+              <div style="z-index: 3; text-align: center;">
+                <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #E2E8F0; color: #94A3B8; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px;">○</div>
+                <div style="font-weight: 500; font-size: 11px; color: var(--neutral);">5. Hired</div>
+                <div style="font-size: 10px; color: var(--neutral);">Pending</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Action Banner -->
+          <div id="candidate-action-card" style="background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
+            <div style="font-size: 13px; font-weight: 700; color: #B45309; margin-bottom: 4px;">⚠️ ACTION REQUIRED: Select Your Technical Architecture Panel Time Slot</div>
+            <p style="font-size: 12px; color: #78350F; margin-bottom: 14px;">Your qualifications have been shortlisted by the engineering review committee. Please select a convenient 45-minute architectural panel slot with VP Engineering David Vance.</p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+              <button class="btn-action" onclick="selectSlot(this, 'Thursday, Jan 22 — 2:00 PM to 2:45 PM')">Thu Jan 22, 2:00 PM</button>
+              <button class="btn-action" onclick="selectSlot(this, 'Friday, Jan 23 — 10:30 AM to 11:15 AM')">Fri Jan 23, 10:30 AM</button>
+              <button class="btn-action" onclick="selectSlot(this, 'Monday, Jan 26 — 3:00 PM to 3:45 PM')">Mon Jan 26, 3:00 PM</button>
+            </div>
+
+            <div id="booking-confirm-area" style="display: none; align-items: center; gap: 12px;">
+              <span id="selected-slot-text" style="font-weight: 600; color: #78350F; font-size: 12px;"></span>
+              <button class="btn-action btn-primary" onclick="confirmBooking()">Confirm & Book Slot</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">Application Audit History & Transparency Trail</span></div>
+            <ul class="insight-list">
+              <li><b>Jan 14, 2:30 PM:</b> Application status advanced to 'Technical Interview' by Lead Recruiter Sarah Jenkins.</li>
+              <li><b>Jan 14, 10:15 AM:</b> Automated screening questions validated: Work authorization verified, 7 years distributed systems experience confirmed.</li>
+              <li><b>Jan 12, 6:45 PM:</b> Application submitted successfully via LinkedIn syndication.</li>
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    let selectedSlot = '';
+    function selectSlot(btn, slotText) {
+      document.querySelectorAll('#candidate-action-card button').forEach(b => b.style.borderColor = '#CBD5E1');
+      btn.style.borderColor = '#2563EB';
+      selectedSlot = slotText;
+      const area = document.getElementById('booking-confirm-area');
+      area.style.display = 'flex';
+      document.getElementById('selected-slot-text').textContent = 'Selected: ' + slotText;
+    }
+
+    function confirmBooking() {
+      const card = document.getElementById('candidate-action-card');
+      card.style.backgroundColor = '#ECFDF5';
+      card.style.borderColor = '#A7F3D0';
+      card.innerHTML = `
+        <div style="font-size: 13px; font-weight: 700; color: #065F46; margin-bottom: 4px;">✓ Technical Panel Interview Confirmed!</div>
+        <p style="font-size: 12px; color: #047857;">Calendar invites and Google Meet video conference links have been dispatched to your email (<code>candidate_1042@example.com</code>) for <b>${selectedSlot}</b>.</p>
+      `;
+      document.getElementById('step-interview-dot').style.backgroundColor = '#10B981';
+      document.getElementById('step-interview-dot').textContent = '✓';
+      document.getElementById('step-interview-sub').textContent = 'CONFIRMED';
+      document.getElementById('step-interview-sub').style.color = '#10B981';
+    }
+
+    function renderKanbanPrototype(container) {
+      container.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-title">Recruiter Kanban Pipeline Workbench</span>
+              <span class="card-subtitle">Senior Systems Software Engineer (#REQ-2026-0104) — Drag candidate cards across pipeline stages.</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <span class="badge badge-info">Interactive Drag & Drop</span>
+            </div>
+          </div>
+
+          <div class="kanban-board">
+            <!-- Applied Col -->
+            <div class="kanban-col" ondragover="allowDrop(event)" ondrop="drop(event, 'Applied')">
+              <div class="kanban-col-header"><span>APPLIED (<span id="kb-cnt-applied">3</span>)</span></div>
+              <div class="kanban-dropzone" id="col-applied">
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'James White')" id="card-1">
+                  <div style="font-weight: 700; font-size: 12px;">James White</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>78%</b> | In stage: 2d</div>
+                  <span class="badge badge-neutral">LinkedIn</span>
+                </div>
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Ava Morales')" id="card-2">
+                  <div style="font-weight: 700; font-size: 12px;">Ava Morales</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>64%</b> | In stage: 4h</div>
+                  <span class="badge badge-neutral">Indeed</span>
+                </div>
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Noah Brown')" id="card-3">
+                  <div style="font-weight: 700; font-size: 12px;">Noah Brown</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>52%</b> | In stage: 1d</div>
+                  <span class="badge badge-neutral">Direct</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screened Col -->
+            <div class="kanban-col" ondragover="allowDrop(event)" ondrop="drop(event, 'Screened')">
+              <div class="kanban-col-header"><span>SCREENED (<span id="kb-cnt-screened">2</span>)</span></div>
+              <div class="kanban-dropzone" id="col-screened">
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Daniel Lee')" id="card-4">
+                  <div style="font-weight: 700; font-size: 12px;">Daniel Lee</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>88%</b> | In stage: 1d</div>
+                  <span class="badge badge-info">Referral</span>
+                </div>
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Zoey Nelson')" id="card-5">
+                  <div style="font-weight: 700; font-size: 12px;">Zoey Nelson</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>85%</b> | In stage: 2d</div>
+                  <span class="badge badge-neutral">Careers</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shortlisted Col -->
+            <div class="kanban-col" ondragover="allowDrop(event)" ondrop="drop(event, 'Shortlisted')">
+              <div class="kanban-col-header"><span>SHORTLISTED (<span id="kb-cnt-shortlisted">2</span>)</span></div>
+              <div class="kanban-dropzone" id="col-shortlisted">
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Maya Lin')" id="card-6">
+                  <div style="font-weight: 700; font-size: 12px; color: var(--primary-accent);">Maya Lin ★</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>96%</b> | In stage: 3d</div>
+                  <span class="badge badge-success">LinkedIn</span>
+                </div>
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Liam Carter')" id="card-7">
+                  <div style="font-weight: 700; font-size: 12px;">Liam Carter</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Match: <b>91%</b> | In stage: 2d</div>
+                  <span class="badge badge-info">Referral</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interview Col -->
+            <div class="kanban-col" ondragover="allowDrop(event)" ondrop="drop(event, 'Interview')">
+              <div class="kanban-col-header"><span>INTERVIEW (<span id="kb-cnt-interview">2</span>)</span></div>
+              <div class="kanban-dropzone" id="col-interview">
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Elena Rostova')" id="card-8">
+                  <div style="font-weight: 700; font-size: 12px;">Elena Rostova</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Score: <b>4.6</b> | Panel: Vance</div>
+                  <span class="badge badge-warning">Thu 2 PM</span>
+                </div>
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Sophia Green')" id="card-9">
+                  <div style="font-weight: 700; font-size: 12px;">Sophia Green</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Score: <b>4.2</b> | Panel: Vance</div>
+                  <span class="badge badge-warning">Scorecard Due</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Offer Col -->
+            <div class="kanban-col" ondragover="allowDrop(event)" ondrop="drop(event, 'Offer')">
+              <div class="kanban-col-header"><span>OFFER (<span id="kb-cnt-offer">1</span>)</span></div>
+              <div class="kanban-dropzone" id="col-offer">
+                <div class="kanban-card" draggable="true" ondragstart="drag(event, 'Marcus Thorne')" id="card-10">
+                  <div style="font-weight: 700; font-size: 12px; color: var(--success);">Marcus Thorne</div>
+                  <div style="font-size: 11px; color: var(--neutral); margin: 2px 0;">Offer: $165k | Status: Sent</div>
+                  <span class="badge badge-success">SLA: 48h left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    let draggedCardId = null;
+    function drag(ev, name) {
+      draggedCardId = ev.target.id;
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drop(ev, colName) {
+      ev.preventDefault();
+      const card = document.getElementById(draggedCardId);
+      if (card) {
+        let targetDropzone = ev.target.closest('.kanban-col').querySelector('.kanban-dropzone');
+        targetDropzone.appendChild(card);
+        updateKanbanCounts();
+      }
+    }
+
+    function updateKanbanCounts() {
+      const cols = ['applied', 'screened', 'shortlisted', 'interview', 'offer'];
+      cols.forEach(c => {
+        const cnt = document.getElementById('col-' + c).children.length;
+        const badge = document.getElementById('kb-cnt-' + c);
+        if (badge) badge.textContent = cnt;
+      });
+    }
+
+    function renderScorecardPrototype(container) {
+      container.innerHTML = `
+        <div class="card" style="border-top: 4px solid var(--primary-accent);">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-title">Hiring Manager Interview Scorecard & Rubric</span>
+              <span class="card-subtitle">Candidate: Maya Lin | Requisition: #REQ-2026-0104 (Senior Systems Software Engineer)</span>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <span class="badge badge-success">Match Score: 96%</span>
+              <span class="badge badge-info">Interviewer: David Vance (VP Eng)</span>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Left Pane: Dossier -->
+            <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 16px;">
+              <div style="font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px;">Candidate Profile & Verification</div>
+              <p style="font-size: 11.5px; color: var(--neutral); margin-bottom: 6px;"><b>Contact:</b> maya.lin@example.com | +1 (415) 555-0192</p>
+              <p style="font-size: 11.5px; color: var(--neutral); margin-bottom: 6px;"><b>Work Authorization:</b> US Citizen (Verified) | Notice: 2 Weeks</p>
+              <p style="font-size: 11.5px; color: var(--neutral); margin-bottom: 12px;"><b>Education:</b> B.S. Computer Science — UC Berkeley (Summa Cum Laude)</p>
+
+              <div style="font-size: 12px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px;">Extracted Core Competencies:</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;">
+                <span class="badge badge-neutral">Go (Golang)</span>
+                <span class="badge badge-neutral">C / C++</span>
+                <span class="badge badge-neutral">Linux Kernel Tuning</span>
+                <span class="badge badge-neutral">Distributed Consensus</span>
+                <span class="badge badge-neutral">Kafka & Kubernetes</span>
+              </div>
+
+              <div style="font-size: 12px; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px;">Experience Summary:</div>
+              <p style="font-size: 11.5px; color: #334155; line-height: 1.4;">Staff Systems Engineer with 7 years architecting high-velocity distributed data pipelines. Scaled event bus to 120,000 QPS with sub-10ms p99 latency.</p>
+            </div>
+
+            <!-- Right Pane: Rubric Rating Form -->
+            <div style="background-color: #FFFFFF; border: 1px solid var(--border); border-radius: 8px; padding: 16px;">
+              <div style="font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">Calibrated Competency Rubric</div>
+              <p style="font-size: 11px; color: var(--neutral); margin-bottom: 14px;">Select rating from 1 (Unsatisfactory) to 5 (Exceptional).</p>
+
+              <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;">
+                  <span>1. Technical Architecture & Scalability</span>
+                  <span id="score-r1-val" style="color: var(--primary-accent);">5 / 5 ★</span>
+                </div>
+                <input type="range" min="1" max="5" value="5" class="filter-select" style="width: 100%;" oninput="document.getElementById('score-r1-val').textContent = this.value + ' / 5 ★'">
+              </div>
+
+              <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;">
+                  <span>2. Concurrent Programming & Problem Solving</span>
+                  <span id="score-r2-val" style="color: var(--primary-accent);">4 / 5 ★</span>
+                </div>
+                <input type="range" min="1" max="5" value="4" class="filter-select" style="width: 100%;" oninput="document.getElementById('score-r2-val').textContent = this.value + ' / 5 ★'">
+              </div>
+
+              <div style="margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;">
+                  <span>3. System Reliability & Linux Internals</span>
+                  <span id="score-r3-val" style="color: var(--primary-accent);">5 / 5 ★</span>
+                </div>
+                <input type="range" min="1" max="5" value="5" class="filter-select" style="width: 100%;" oninput="document.getElementById('score-r3-val').textContent = this.value + ' / 5 ★'">
+              </div>
+
+              <div style="margin-bottom: 14px;">
+                <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 6px;">Final Recommendation:</label>
+                <div style="display: flex; gap: 10px;">
+                  <label><input type="radio" name="rec-radio" value="Strong Hire" checked> <b>Strong Hire</b></label>
+                  <label><input type="radio" name="rec-radio" value="Hire"> Hire</label>
+                  <label><input type="radio" name="rec-radio" value="Hold"> Hold</label>
+                  <label><input type="radio" name="rec-radio" value="Reject"> Reject</label>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 14px;">
+                <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">Interviewer Notes & Rationale:</label>
+                <textarea id="scorecard-notes" class="filter-select" style="width: 100%; height: 60px; font-size: 11.5px;" placeholder="Articulate key strengths and growth areas...">Exceptional mastery of Linux kernel tuning and distributed consensus protocols. Definite hire for core platform.</textarea>
+              </div>
+
+              <button class="btn-action btn-primary" style="width: 100%; justify-content: center;" onclick="submitScorecard()">Submit Final Evaluation Scorecard</button>
+              <div id="scorecard-msg" style="display: none; margin-top: 10px; color: var(--success); font-weight: 600; font-size: 12px; text-align: center;">✓ Scorecard submitted successfully! SLA: Recorded in 1.4 minutes.</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function submitScorecard() {
+      const msg = document.getElementById('scorecard-msg');
+      msg.style.display = 'block';
+    }
+
+    // =========================================================================
+    // DATA EXPLORER & METHODOLOGY
+    // =========================================================================
     let explorerPageNum = 1;
     const explorerPageSize = 25;
 
@@ -3650,75 +3236,29 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const totalPages = Math.ceil(totalRows / explorerPageSize) || 1;
 
       container.innerHTML = `
-        <!-- Data Quality Panel -->
         <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Dataset Health & Quality Telemetry</span>
-              <span class="card-subtitle">Live schema completeness, duplicate validation, and data hygiene metrics.</span>
-            </div>
-            <span class="badge badge-success">Audit Verified</span>
-          </div>
-
+          <div class="card-header"><span class="card-title">Dataset Health & Quality Telemetry</span><span class="badge badge-success">Audit Verified</span></div>
           <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; font-size: 12px;">
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">Total Records</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--primary-dark);">${ALL_RECORDS.length}</div>
-            </div>
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">Attributes</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--primary-dark);">23 Columns</div>
-            </div>
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">Duplicate Keys</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--success);">0 Records</div>
-            </div>
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">Invalid Dates</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--success);">0 (ISO 8601)</div>
-            </div>
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">Stage Integrity</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--success);">100% Valid</div>
-            </div>
-            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;">
-              <span style="color: var(--neutral); font-size: 11px;">PII Protection</span>
-              <div style="font-size: 18px; font-weight: 700; color: var(--success);">100% Anonymized</div>
-            </div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Total Records</span><div style="font-size: 18px; font-weight: 700;">${ALL_RECORDS.length}</div></div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Attributes</span><div style="font-size: 18px; font-weight: 700;">23 Columns</div></div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Duplicate Keys</span><div style="font-size: 18px; font-weight: 700; color: var(--success);">0 Records</div></div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Invalid Dates</span><div style="font-size: 18px; font-weight: 700; color: var(--success);">0 (ISO 8601)</div></div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Stage Integrity</span><div style="font-size: 18px; font-weight: 700; color: var(--success);">100% Valid</div></div>
+            <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">PII Protection</span><div style="font-size: 18px; font-weight: 700; color: var(--success);">100% Anonymized</div></div>
           </div>
         </div>
 
-        <!-- Interactive Table -->
         <div class="card">
           <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Recruitment Records Explorer</span>
-              <span class="card-subtitle">Displaying ${startIdx + 1} to ${Math.min(startIdx + explorerPageSize, totalRows)} of ${totalRows} filtered records.</span>
-            </div>
+            <span class="card-title">Recruitment Records Explorer (${startIdx + 1} to ${Math.min(startIdx + explorerPageSize, totalRows)} of ${totalRows})</span>
             <div style="display: flex; gap: 8px;">
               <input type="text" id="table-search" placeholder="Search role, candidate, recruiter..." class="filter-select" style="width: 220px;" oninput="filterBySearch(this.value)">
               <button class="btn-action" onclick="exportFilteredCSV()">Export CSV</button>
             </div>
           </div>
-
           <div class="table-container">
             <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Application ID</th>
-                  <th>Candidate ID</th>
-                  <th>Department</th>
-                  <th>Job Title</th>
-                  <th>Sourcing Channel</th>
-                  <th>Recruiter</th>
-                  <th>Hiring Manager</th>
-                  <th>Applied Date</th>
-                  <th>Current Stage</th>
-                  <th>Interview Score</th>
-                  <th>Status</th>
-                  <th>Time to Hire</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Application ID</th><th>Candidate ID</th><th>Department</th><th>Job Title</th><th>Sourcing Channel</th><th>Recruiter</th><th>Hiring Manager</th><th>Applied Date</th><th>Current Stage</th><th>Interview Score</th><th>Status</th><th>Time to Hire</th></tr></thead>
               <tbody>
                 ${pageRows.map(r => `
                   <tr>
@@ -3732,15 +3272,13 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
                     <td>${r.applied_date}</td>
                     <td><span class="badge badge-neutral">${r.current_stage}</span></td>
                     <td>${r.interview_score != null ? r.interview_score : '—'}</td>
-                    <td><span class="badge ${r.application_status === 'HIRED' ? 'badge-success' : (r.application_status === 'DECLINED' ? 'badge-warning' : 'badge-neutral')}">${r.application_status}</span></td>
+                    <td><span class="badge ${r.application_status === 'HIRED' ? 'badge-success' : 'badge-neutral'}">${r.application_status}</span></td>
                     <td>${r.time_to_hire_days != null ? r.time_to_hire_days + 'd' : '—'}</td>
                   </tr>
                 `).join('')}
               </tbody>
             </table>
           </div>
-
-          <!-- Pagination Controls -->
           <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 14px;">
             <span style="font-size: 11.5px; color: var(--neutral);">Page ${explorerPageNum} of ${totalPages}</span>
             <div style="display: flex; gap: 6px;">
@@ -3793,116 +3331,29 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       document.body.removeChild(link);
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE 10: DEFINITIONS & METHODOLOGY
-    // -------------------------------------------------------------------------
     function renderMethodologyPage(container) {
       container.innerHTML = `
         <div class="card">
-          <div class="card-header">
-            <div class="card-title-group">
-              <span class="card-title">Recruitment Intelligence KPI Dictionary & Methodology</span>
-              <span class="card-subtitle">Official definitions, calculation formulas, data lineage, and analytical classifications.</span>
-            </div>
-            <span class="badge badge-info">BABOK Aligned</span>
-          </div>
-
+          <div class="card-header"><span class="card-title">Recruitment Intelligence KPI Dictionary & Methodology</span><span class="badge badge-info">BABOK Aligned</span></div>
           <div class="table-container">
             <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Classification</th>
-                  <th>Calculation Formula</th>
-                  <th>Source Data Fields</th>
-                  <th>Business Interpretation & Purpose</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Metric Name</th><th>Classification</th><th>Calculation Formula</th><th>Source Data Fields</th><th>Business Interpretation</th></tr></thead>
               <tbody>
-                <tr>
-                  <td><b>Time to Hire (TTH)</b></td>
-                  <td><span class="badge badge-info">Observed Metric</span></td>
-                  <td><code>hired_date - applied_date</code> (Calendar Days)</td>
-                  <td><code>applied_date</code>, <code>hired_date</code></td>
-                  <td>Elapsed calendar duration from candidate application submission to formal offer acceptance. Measures total operational process latency.</td>
-                </tr>
-                <tr>
-                  <td><b>Offer Acceptance Rate</b></td>
-                  <td><span class="badge badge-info">Observed Metric</span></td>
-                  <td><code>(Hires / Total Offers Extended) * 100</code></td>
-                  <td><code>offer_status</code>, <code>current_stage</code></td>
-                  <td>Proportion of candidate offer packages accepted versus declined. Indicates market compensation competitiveness and candidate engagement.</td>
-                </tr>
-                <tr>
-                  <td><b>Interview Conversion Rate</b></td>
-                  <td><span class="badge badge-info">Observed Metric</span></td>
-                  <td><code>(Interviewed / Total Applications) * 100</code></td>
-                  <td><code>interview_date</code>, <code>application_id</code></td>
-                  <td>Percentage of initial applicants who successfully clear screening and attend technical panels. Measures applicant qualification yield.</td>
-                </tr>
-                <tr>
-                  <td><b>Hire Conversion Rate</b></td>
-                  <td><span class="badge badge-info">Observed Metric</span></td>
-                  <td><code>(Hires / Total Applications) * 100</code></td>
-                  <td><code>application_status</code>, <code>application_id</code></td>
-                  <td>Overall efficiency of the pipeline in converting gross top-of-funnel applicants into productive employees.</td>
-                </tr>
-                <tr>
-                  <td><b>Proposed TO-BE Target</b></td>
-                  <td><span class="badge badge-warning">Target Baseline</span></td>
-                  <td><code>18.5 Calendar Days</code> (Defined in Proposal)</td>
-                  <td>Process Model Specifications</td>
-                  <td>The engineered SLA benchmark enabled by automated resume parsing, self-service interview booking, and mobile rubrics.</td>
-                </tr>
-                <tr>
-                  <td><b>Net Annual Financial Benefit</b></td>
-                  <td><span class="badge badge-success">Business Case Estimate</span></td>
-                  <td><code>Gross Operational Savings - Recurring Opex</code></td>
-                  <td>Project Charter Cost Model</td>
-                  <td>Projected recurring annual cash benefit ($525,000/yr) combining agency fee avoidance, recruiter productivity, and scheduling overhead elimination.</td>
-                </tr>
+                <tr><td><b>Time to Hire (TTH)</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>hired_date - applied_date</code> (Calendar Days)</td><td><code>applied_date, hired_date</code></td><td>Elapsed calendar days from application to hire acceptance. Measures process latency.</td></tr>
+                <tr><td><b>Offer Acceptance Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Hires / Total Offers Extended) * 100</code></td><td><code>offer_status, current_stage</code></td><td>Percentage of offers accepted versus declined. Validates compensation competitiveness.</td></tr>
+                <tr><td><b>Interview Conversion Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Interviewed / Total Applications) * 100</code></td><td><code>interview_date, application_id</code></td><td>Measures top-of-funnel applicant qualification yield.</td></tr>
+                <tr><td><b>Proposed TO-BE Target</b></td><td><span class="badge badge-warning">Target Baseline</span></td><td><code>18.5 Calendar Days</code> (Defined in Proposal)</td><td>Process Model Specifications</td><td>The engineered SLA benchmark enabled by automated parsing, self-service scheduling, and mobile rubrics.</td></tr>
+                <tr><td><b>Net Annual Financial Benefit</b></td><td><span class="badge badge-success">Business Case Estimate</span></td><td><code>Gross Operational Savings - Recurring Opex</code></td><td>Project Charter Cost Model</td><td>Projected recurring annual benefit ($525,000/yr) combining agency fee avoidance, recruiter productivity, and scheduling automation.</td></tr>
               </tbody>
             </table>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Data Lineage & Privacy Architecture</span>
-                <span class="card-subtitle">Zero Personally Identifiable Information (PII) guarantee.</span>
-              </div>
-            </div>
-            <ul class="insight-list" style="margin-top: 6px;">
-              <li><b>100% Synthetic & Anonymized:</b> All 1,250 records utilize pseudonymous labels (<code>Candidate_0001</code> to <code>Candidate_1250</code>) and reserved RFC 2606 email domains (<code>@example.com</code>).</li>
-              <li><b>Referential Integrity:</b> Complies with 3NF relational normalization across Requisitions, Candidates, Applications, and Evaluations.</li>
-              <li><b>Standardized Timestamping:</b> Dates formatted according to ISO 8601 (<code>YYYY-MM-DD</code>) for consistent temporal delta computation.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title-group">
-                <span class="card-title">Assumptions & System Boundaries</span>
-                <span class="card-subtitle">Operational constraints and analytical scope limits.</span>
-              </div>
-            </div>
-            <ul class="insight-list" style="margin-top: 6px;">
-              <li><b>Hiring Velocity:</b> Analytical model is calibrated for 450–600 hires annually across a talent acquisition staff of 8 recruiters.</li>
-              <li><b>Out of Scope:</b> Direct payroll processing and post-onboarding performance appraisals are managed downstream in Workday HCM.</li>
-              <li><b>Recruiter Evaluation:</b> Recruiter metrics are presented purely for workload balancing and operational analysis, never for punitive ranking.</li>
-            </ul>
           </div>
         </div>
       `;
     }
 
     // =========================================================================
-    // 5. SVG CHART RENDERING ENGINES
+    // SVG CHARTING ENGINE
     // =========================================================================
-
-    // Time to Hire Line Chart
     function renderTTHLineChart(containerId, m) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -3910,7 +3361,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const h = el.clientHeight || 220;
       const pad = { top: 20, right: 30, bottom: 30, left: 40 };
 
-      // Compute monthly average TTH from active hires
       const monthMap = { '01': [], '02': [], '03': [], '04': [], '05': [] };
       ACTIVE_RECORDS.forEach(r => {
         if (r.current_stage === 'HIRED' && r.time_to_hire_days != null && r.applied_date) {
@@ -3940,37 +3390,20 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
 
       el.innerHTML = `
         <svg class="chart" viewBox="0 0 ${w} ${h}">
-          <!-- Grid Lines -->
-          <line x1="${pad.left}" y1="${scaleY(20)}" x2="${w - pad.right}" y2="${scaleY(20)}" class="grid-line" />
-          <line x1="${pad.left}" y1="${scaleY(25)}" x2="${w - pad.right}" y2="${scaleY(25)}" class="grid-line" />
-          
-          <!-- Proposed TO-BE Target Reference Line -->
           <line x1="${pad.left}" y1="${targetY}" x2="${w - pad.right}" y2="${targetY}" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 3" />
-          <text x="${w - pad.right - 4}" y="${targetY - 5}" fill="#B45309" font-size="9" text-anchor="end" font-weight="600">Proposed TO-BE Target: 18.5d</text>
-
-          <!-- Observed Average Reference Line -->
+          <text x="${w - pad.right - 4}" y="${targetY - 5}" fill="#B45309" font-size="9" text-anchor="end" font-weight="600">Proposed Target: 18.5d</text>
           <line x1="${pad.left}" y1="${avgY}" x2="${w - pad.right}" y2="${avgY}" stroke="#2563EB" stroke-width="1" stroke-dasharray="2 2" />
-          
-          <!-- Area Fill & Trend Line -->
           <polygon points="${areaPts}" fill="rgba(37, 99, 235, 0.08)" />
           <polyline points="${pts}" fill="none" stroke="#2563EB" stroke-width="2.5" />
-
-          <!-- Data Points -->
           ${months.map((d, i) => `
             <circle cx="${scaleX(i)}" cy="${scaleY(d.val)}" r="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" 
               onmouseover="showTooltip(event, '${d.label} 2026: <b>${d.val.toFixed(1)} days</b> average TTH')" onmouseout="hideTooltip()"/>
             <text x="${scaleX(i)}" y="${h - pad.bottom + 16}" class="axis-label" text-anchor="middle">${d.label}</text>
           `).join('')}
-
-          <!-- Y Axis Labels -->
-          <text x="${pad.left - 6}" y="${scaleY(15) + 3}" class="axis-label" text-anchor="end">15d</text>
-          <text x="${pad.left - 6}" y="${scaleY(20) + 3}" class="axis-label" text-anchor="end">20d</text>
-          <text x="${pad.left - 6}" y="${scaleY(25) + 3}" class="axis-label" text-anchor="end">25d</text>
         </svg>
       `;
     }
 
-    // Bottleneck Horizontal Bars
     function renderBottleneckBars(containerId, m) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -3997,11 +3430,10 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
             const barW = Math.max(8, (s.days / maxDays) * (w - labelW - 60));
             const isBottleneck = s.days >= 6.0;
             const barCol = isBottleneck ? '#DC2626' : (s.days >= 4.5 ? '#F59E0B' : '#2563EB');
-
             return `
               <text x="${labelW - 10}" y="${y + 15}" font-size="11" font-weight="500" fill="#334155" text-anchor="end">${s.name}</text>
               <rect x="${labelW}" y="${y}" width="${barW}" height="${barH}" rx="4" fill="${barCol}" class="chart-bar"
-                onmouseover="showTooltip(event, '${s.name}: <b>${s.days} calendar days</b> (${s.pct} of total cycle)')" onmouseout="hideTooltip()"/>
+                onmouseover="showTooltip(event, '${s.name}: <b>${s.days} calendar days</b> (${s.pct} of cycle)')" onmouseout="hideTooltip()"/>
               <text x="${labelW + barW + 8}" y="${y + 15}" font-size="11" font-weight="600" fill="${barCol}">${s.days}d</text>
             `;
           }).join('')}
@@ -4009,7 +3441,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Drop-off Horizontal Bars
     function renderDropoffBars(containerId, m) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4019,7 +3450,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const drops = [
         { stage: 'Pre-Screening Knockout', count: m.total - m.screened, col: '#DC2626' },
         { stage: 'Recruiter Shortlist', count: m.screened - m.shortlisted, col: '#F59E0B' },
-        { stage: 'Panel Interview Evaluation', count: m.interviewed - m.offers, col: '#F59E0B' },
+        { stage: 'Panel Evaluation', count: m.interviewed - m.offers, col: '#F59E0B' },
         { stage: 'Offer Rejection / Decline', count: m.offers - m.hires, col: '#64748B' }
       ];
 
@@ -4043,7 +3474,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Funnel by Source Bars
     function renderFunnelSourceBars(containerId) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4075,15 +3505,14 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
               <text x="${labelW - 10}" y="${y + 14}" font-size="11" font-weight="500" fill="#334155" text-anchor="end">${d.name}</text>
               <rect x="${labelW}" y="${y}" width="${bw}" height="${barH}" rx="3" fill="#E2E8F0" />
               <rect x="${labelW}" y="${y}" width="${Math.max(4, bw * (d.rate / 100) * 8)}" height="${barH}" rx="3" fill="#10B981" class="chart-bar"
-                onmouseover="showTooltip(event, '${d.name}: ${d.app} applied, <b>${d.hir} hired (${d.rate}% conversion)</b>')" onmouseout="hideTooltip()"/>
-              <text x="${labelW + bw + 8}" y="${y + 14}" font-size="10" font-weight="600" fill="#0F172A">${d.hir} hires (${d.rate}%)</text>
+                onmouseover="showTooltip(event, '${d.name}: ${d.app} applied, <b>${d.hir} hired (${d.rate}%)</b>')" onmouseout="hideTooltip()"/>
+              <text x="${labelW + bw + 8}" y="${y + 14}" font-size="10" font-weight="600" fill="#0F172A">${d.hir} (${d.rate}%)</text>
             `;
           }).join('')}
         </svg>
       `;
     }
 
-    // Time to Hire Distribution
     function renderTTHDistribution(containerId) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4127,7 +3556,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // TTH by Department
     function renderTTHByDept(containerId, deptMap) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4158,38 +3586,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // TTH by Source
-    function renderTTHBySource(containerId, srcMap) {
-      const el = document.getElementById(containerId);
-      if (!el) return;
-      const w = el.clientWidth || 450;
-      const h = el.clientHeight || 220;
-
-      const items = Object.entries(srcMap).map(([name, list]) => ({
-        name, avg: list.length ? (list.reduce((a,b)=>a+b,0)/list.length) : 0, count: list.length
-      })).sort((a,b) => b.avg - a.avg);
-
-      const maxVal = 28.0;
-      const labelW = 120;
-      const barH = 20;
-
-      el.innerHTML = `
-        <svg class="chart" viewBox="0 0 ${w} ${h}">
-          ${items.map((d, i) => {
-            const y = 14 + i * 36;
-            const bw = Math.max(10, (d.avg / maxVal) * (w - labelW - 70));
-            return `
-              <text x="${labelW - 10}" y="${y + 15}" font-size="11" font-weight="500" fill="#334155" text-anchor="end">${d.name}</text>
-              <rect x="${labelW}" y="${y}" width="${bw}" height="${barH}" rx="3" fill="#14B8A6" class="chart-bar"
-                onmouseover="showTooltip(event, '${d.name}: <b>${d.avg.toFixed(1)} days</b> (${d.count} hires)')" onmouseout="hideTooltip()"/>
-              <text x="${labelW + bw + 8}" y="${y + 15}" font-size="11" font-weight="600" fill="#1E293B">${d.avg.toFixed(1)}d</text>
-            `;
-          }).join('')}
-        </svg>
-      `;
-    }
-
-    // Source Volume Bars
     function renderSourceVolumeBars(containerId, sources) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4218,7 +3614,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Source Scatter Plot
     function renderSourceScatter(containerId, sources) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4227,36 +3622,28 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const pad = { top: 20, right: 30, bottom: 40, left: 50 };
 
       const pts = Object.entries(sources).map(([name, d]) => ({
-        name,
-        app: d.app,
-        tth: d.tthList.length ? (d.tthList.reduce((a,b)=>a+b,0)/d.tthList.length) : 23.0,
-        hir: d.hir
+        name, app: d.app, tth: d.tthList.length ? (d.tthList.reduce((a,b)=>a+b,0)/d.tthList.length) : 23.0, hir: d.hir
       }));
 
       const maxApp = 600;
       const minTTH = 18;
       const maxTTH = 28;
-
       const scaleX = (x) => pad.left + (x / maxApp) * (w - pad.left - pad.right);
       const scaleY = (y) => pad.top + ((maxTTH - y) / (maxTTH - minTTH)) * (h - pad.top - pad.bottom);
 
       el.innerHTML = `
         <svg class="chart" viewBox="0 0 ${w} ${h}">
-          <!-- Axes -->
           <line x1="${pad.left}" y1="${h - pad.bottom}" x2="${w - pad.right}" y2="${h - pad.bottom}" stroke="#CBD5E1" />
           <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${h - pad.bottom}" stroke="#CBD5E1" />
-
           <text x="${w/2}" y="${h - 10}" class="axis-label" text-anchor="middle">Application Volume →</text>
           <text x="${15}" y="${h/2}" class="axis-label" text-anchor="middle" transform="rotate(-90 15 ${h/2})">Avg Time to Hire (Days) →</text>
-
           ${pts.map(p => {
             const cx = scaleX(p.app);
             const cy = scaleY(p.tth);
             const r = Math.max(6, Math.min(20, p.hir * 1.5 + 5));
-
             return `
               <circle cx="${cx}" cy="${cy}" r="${r}" fill="rgba(37, 99, 235, 0.4)" stroke="#2563EB" stroke-width="2" class="chart-bar"
-                onmouseover="showTooltip(event, '<b>${p.name}</b><br/>Volume: ${p.app} applications<br/>Avg TTH: ${p.tth.toFixed(1)} days<br/>Placements: ${p.hir} hires')" onmouseout="hideTooltip()"/>
+                onmouseover="showTooltip(event, '<b>${p.name}</b><br/>Volume: ${p.app}<br/>Avg TTH: ${p.tth.toFixed(1)}d<br/>Placements: ${p.hir} hires')" onmouseout="hideTooltip()"/>
               <text x="${cx}" y="${cy - r - 4}" font-size="10" font-weight="600" fill="#1E293B" text-anchor="middle">${p.name}</text>
             `;
           }).join('')}
@@ -4264,7 +3651,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Recruiter Scatter Plot
     function renderRecruiterScatter(containerId, recMap) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4273,10 +3659,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const pad = { top: 20, right: 30, bottom: 40, left: 50 };
 
       const pts = Object.entries(recMap).map(([name, d]) => ({
-        name,
-        app: d.app,
-        hir: d.hir,
-        tth: d.tth.length ? (d.tth.reduce((a,b)=>a+b,0)/d.tth.length) : 23.0
+        name, app: d.app, hir: d.hir, tth: d.tth.length ? (d.tth.reduce((a,b)=>a+b,0)/d.tth.length) : 23.0
       }));
 
       const maxApp = 400;
@@ -4288,10 +3671,8 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
         <svg class="chart" viewBox="0 0 ${w} ${h}">
           <line x1="${pad.left}" y1="${h - pad.bottom}" x2="${w - pad.right}" y2="${h - pad.bottom}" stroke="#CBD5E1" />
           <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${h - pad.bottom}" stroke="#CBD5E1" />
-
           <text x="${w/2}" y="${h - 10}" class="axis-label" text-anchor="middle">Applications Managed →</text>
           <text x="${15}" y="${h/2}" class="axis-label" text-anchor="middle" transform="rotate(-90 15 ${h/2})">Hires Made →</text>
-
           ${pts.map(p => {
             const cx = scaleX(p.app);
             const cy = scaleY(p.hir);
@@ -4305,7 +3686,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Recruiter TTH Bars
     function renderRecruiterTTHBars(containerId, recMap) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4336,7 +3716,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Hiring Manager Hires Bars
     function renderHMHiresBars(containerId, hmMap) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4364,7 +3743,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Hiring Manager TTH Bars
     function renderHMTTHBars(containerId, hmMap) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4395,7 +3773,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Score Distribution Histogram
     function renderScoreDistribution(containerId, records) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4437,7 +3814,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Score vs Outcome Bars
     function renderScoreOutcomeBars(containerId, records) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4474,7 +3850,6 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // Financial ROI Waterfall Chart
     function renderWaterfallChart(containerId) {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -4493,12 +3868,10 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
 
       const colW = (w - pad.left - pad.right) / steps.length;
       const maxVal = 800;
-      const scaleY = (v) => pad.top + ((maxVal - v) / maxVal) * (h - pad.top - pad.bottom);
 
       el.innerHTML = `
         <svg class="chart" viewBox="0 0 ${w} ${h}">
           <line x1="${pad.left}" y1="${h - pad.bottom}" x2="${w - pad.right}" y2="${h - pad.bottom}" stroke="#CBD5E1" />
-          
           ${steps.map((s, i) => {
             const x = pad.left + i * colW + 10;
             const barWidth = colW - 20;
@@ -4516,35 +3889,23 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       `;
     }
 
-    // =========================================================================
-    // 6. GLOBAL TOOLTIP LOGIC
-    // =========================================================================
     const tipEl = document.getElementById('global-tooltip');
-
     function showTooltip(evt, html) {
       tipEl.innerHTML = html;
       tipEl.style.opacity = '1';
       moveTooltip(evt);
     }
-
     function moveTooltip(evt) {
-      const x = evt.clientX + 14;
-      const y = evt.clientY + 14;
-      tipEl.style.left = x + 'px';
-      tipEl.style.top = y + 'px';
+      tipEl.style.left = (evt.clientX + 14) + 'px';
+      tipEl.style.top = (evt.clientY + 14) + 'px';
     }
-
     function hideTooltip() {
       tipEl.style.opacity = '0';
     }
-
     document.addEventListener('mousemove', (e) => {
-      if (tipEl.style.opacity === '1') {
-        moveTooltip(e);
-      }
+      if (tipEl.style.opacity === '1') moveTooltip(e);
     });
 
-    // Initialize application
     window.addEventListener('DOMContentLoaded', initData);
   </script>
 </body>
