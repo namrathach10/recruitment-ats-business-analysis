@@ -2,7 +2,8 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-base_dir = r"C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-business-analysis\ui-ux"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_dir = os.path.join(PROJECT_ROOT, "ui-ux")
 os.makedirs(base_dir, exist_ok=True)
 
 # -------------------------------------------------------------------------

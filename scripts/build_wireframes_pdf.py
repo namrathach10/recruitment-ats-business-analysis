@@ -4,7 +4,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-base_dir = r"C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-business-analysis"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_dir = PROJECT_ROOT
 ui_dir = os.path.join(base_dir, "ui-ux")
 pdf_path = os.path.join(ui_dir, "wireframes.pdf")
 

@@ -7,7 +7,8 @@ import matplotlib.patches as patches
 import numpy as np
 import os
 
-dst_dir = r'C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-business-analysis\diagrams'
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+dst_dir = os.path.join(PROJECT_ROOT, 'diagrams')
 os.makedirs(dst_dir, exist_ok=True)
 plt.rcParams['font.sans-serif'] = 'Arial', 'DejaVu Sans', 'Helvetica'
 

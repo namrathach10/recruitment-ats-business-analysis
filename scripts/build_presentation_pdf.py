@@ -4,7 +4,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-base_dir = r"C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-business-analysis"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_dir = PROJECT_ROOT
 pres_dir = os.path.join(base_dir, "presentation")
 os.makedirs(pres_dir, exist_ok=True)
 pdf_path = os.path.join(pres_dir, "ATS-Executive-Presentation.pdf")

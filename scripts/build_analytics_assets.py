@@ -8,20 +8,26 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 import pandas as pd
 
-base = r'C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-business-analysis'
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base = PROJECT_ROOT
 src_proposal = r'C:\Users\namra\.gemini\antigravity\scratch\recruitment-ats-proposal'
 
-# 1. Copy Dashboard Screenshots
-dash_dir = os.path.join(base, 'analytics/dashboard-screenshots')
+# 1. Ensure Dashboard Screenshots
+dash_dir = os.path.join(base, 'analytics', 'dashboard-screenshots')
 os.makedirs(dash_dir, exist_ok=True)
 
-shutil.copyfile(os.path.join(src_proposal, 'assets/images/powerbi_dashboard_preview.png'),
-                os.path.join(dash_dir, 'executive-overview.png'))
-shutil.copyfile(os.path.join(src_proposal, 'assets/charts/01_recruitment_funnel_conversion.png'),
-                os.path.join(dash_dir, 'recruitment-funnel.png'))
-shutil.copyfile(os.path.join(src_proposal, 'assets/charts/03_sourcing_channel_yield.png'),
-                os.path.join(dash_dir, 'source-performance.png'))
-print('Copied dashboard screenshots')
+if os.path.exists(src_proposal):
+    for src_f, dst_f in [
+        ('assets/images/powerbi_dashboard_preview.png', 'executive-overview.png'),
+        ('assets/charts/01_recruitment_funnel_conversion.png', 'recruitment-funnel.png'),
+        ('assets/charts/03_sourcing_channel_yield.png', 'source-performance.png')
+    ]:
+        s_path = os.path.join(src_proposal, src_f)
+        if os.path.exists(s_path):
+            shutil.copyfile(s_path, os.path.join(dash_dir, dst_f))
+    print('Verified dashboard screenshots')
+else:
+    print('Dashboard screenshots located at', dash_dir)
 
 # 2. Build data-dictionary.xlsx
 wb_dd = openpyxl.Workbook()

@@ -205,6 +205,8 @@ Every deliverable is fully cross-referenced and accessible directly within this 
 | **DOC-10** | [`10-executive-presentation.md`](docs/10-executive-summary/executive-presentation.md) | Executive slide deck narrative, business case, ROI model | Markdown, PDF |
 | **PORT-01**| [`project-summary.pdf`](portfolio/project-summary.pdf) | Comprehensive 4-page executive case study document | PDF |
 | **PORT-02**| [`resume-bullets.md`](portfolio/resume-bullets.md) | Quantified resume bullet points for BSA, TPM, Architect & Analyst | Markdown |
+| **REF-01** | [`methodology.md`](references/methodology.md) | BABOK v3, BPMN 2.0, MoSCoW, C4 architecture modeling reference | Markdown |
+| **REF-02** | [`assumptions-and-limitations.md`](references/assumptions-and-limitations.md) | Operational assumptions, dependencies, financial bounds & limitations | Markdown |
 
 ---
 
@@ -273,7 +275,12 @@ recruitment-ats-business-analysis/
 │   ├── project-summary.pdf                    # Executive project case study PDF
 │   └── resume-bullets.md                      # Role-tailored quantified resume bullets
 │
+├── references/                                # Methodology, Frameworks, Assumptions & Constraints
+│   ├── methodology.md                         # BABOK v3, BPMN 2.0, MoSCoW, C4 Architecture
+│   └── assumptions-and-limitations.md         # Operational constraints, baseline assumptions & boundaries
+│
 └── scripts/                                   # Automation & Asset Generation Tooling
+    ├── build_all.py                           # Master automated build runner
     ├── generate_all_diagrams.py
     ├── build_analytics_assets.py
     ├── build_ui_images.py
