@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Novus ATS — Interactive System Prototype & Analytics</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border, #cbd5e1); border-radius: 4px; }
+    .tab-active { border-bottom: 2px solid var(--primary, #3b82f6); color: var(--primary, #3b82f6); font-weight: 600; }
+  </style>
+</head>
+<body class="bg-[var(--background,#f8fafc)] text-[var(--foreground,#0f172a)] antialiased p-4 md:p-6 min-h-screen">
+
+  <!-- Header & Navigation Bar -->
+  <header class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-4 mb-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 text-xs font-bold rounded bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200">ATS-PROPOSAL-V1</span>
+        <h1 class="text-xl font-bold tracking-tight">Novus Enterprise ATS — Interactive Workspace</h1>
+      </div>
+      <p class="text-xs text-[var(--muted-foreground,#64748b)] mt-1">Business Process Analysis & System Proposal Prototype • Cohort: 1,250 Applications</p>
+    </div>
+    
+    <!-- Module Switcher Tabs -->
+    <nav class="flex flex-wrap gap-1 bg-[var(--background,#f1f5f9)] p-1 rounded-lg border border-[var(--border,#e2e8f0)] text-xs md:text-sm font-medium">
+      <button onclick="switchTab('analytics')" id="tab-analytics" class="px-3 py-1.5 rounded-md transition-all tab-active">📊 Analytics Dashboard</button>
+      <button onclick="switchTab('kanban')" id="tab-kanban" class="px-3 py-1.5 rounded-md transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)]">📋 Recruiter Kanban</button>
+      <button onclick="switchTab('candidate')" id="tab-candidate" class="px-3 py-1.5 rounded-md transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)]">👤 Candidate Portal</button>
+      <button onclick="switchTab('scorecard')" id="tab-scorecard" class="px-3 py-1.5 rounded-md transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)]">📝 HM Scorecard</button>
+      <button onclick="switchTab('docs')" id="tab-docs" class="px-3 py-1.5 rounded-md transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)]">📚 Proposal Index</button>
+    </nav>
+  </header>
+
+  <!-- TAB 1: EXECUTIVE ANALYTICS DASHBOARD -->
+  <section id="view-analytics" class="space-y-6">
+    <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <label class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground,#64748b)]">Filter by Department:</label>
+        <select id="dept-filter" onchange="updateAnalytics()" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#cbd5e1)] text-xs rounded-md px-3 py-1.5 font-medium focus:outline-none focus:ring-1 focus:ring-blue-500">
+          <option value="ALL">All Departments (1,250 Applications)</option>
+          <option value="ENG">Engineering (500 Apps)</option>
+          <option value="PROD">Product (225 Apps)</option>
+          <option value="SALES">Sales & Marketing (225 Apps)</option>
+          <option value="OPS">Operations (175 Apps)</option>
+          <option value="FIN">Finance & HR (125 Apps)</option>
+        </select>
+      </div>
+      <div class="text-xs text-[var(--muted-foreground,#64748b)] flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Data Source: <code class="font-mono bg-[var(--background,#f1f5f9)] px-1 py-0.5 rounded">data/recruitment_sample_dataset.csv</code>
+      </div>
+    </div>
+
+    <!-- KPI Metric Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Total Applied</span>
+        <div id="stat-apps" class="text-xl font-bold mt-1 text-blue-600">1,250</div>
+        <span class="text-[10px] text-emerald-600 font-medium">100% Volume</span>
+      </div>
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Screened</span>
+        <div id="stat-screen" class="text-xl font-bold mt-1 text-slate-700">650</div>
+        <span id="stat-screen-pct" class="text-[10px] text-emerald-600 font-medium">52.0% Yield</span>
+      </div>
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Shortlisted</span>
+        <div id="stat-short" class="text-xl font-bold mt-1 text-amber-600">185</div>
+        <span id="stat-short-pct" class="text-[10px] text-amber-600 font-medium">14.8% Yield</span>
+      </div>
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Interviewed</span>
+        <div id="stat-interviews" class="text-xl font-bold mt-1 text-purple-600">96</div>
+        <span id="stat-interviews-pct" class="text-[10px] text-purple-600 font-medium">7.7% of Pool</span>
+      </div>
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Confirmed Hires</span>
+        <div id="stat-hires" class="text-xl font-bold mt-1 text-emerald-600">21</div>
+        <span id="stat-oar" class="text-[10px] text-emerald-600 font-medium">75.0% Offer Acc.</span>
+      </div>
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 shadow-sm">
+        <span class="text-xs text-[var(--muted-foreground,#64748b)]">Avg Time-to-Hire</span>
+        <div id="stat-tth" class="text-xl font-bold mt-1 text-indigo-600">23.0d</div>
+        <span class="text-[10px] text-emerald-600 font-medium">-50.5% vs AS-IS</span>
+      </div>
+    </div>
+
+    <!-- Charts & Visual Funnel -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-5 shadow-sm space-y-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--muted-foreground,#64748b)] flex items-center justify-between">
+          <span>Recruitment Stage-Gate Funnel</span>
+          <span class="text-xs font-normal lowercase">Applications to Hires</span>
+        </h3>
+        <div class="space-y-3 pt-2">
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>1. Applications Received</span>
+              <span id="bar-val-apps">1,250 (100%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-apps" class="bg-blue-600 h-full rounded-full transition-all duration-500" style="width: 100%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>2. Resumes Screened</span>
+              <span id="bar-val-screen">650 (52%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-screen" class="bg-indigo-500 h-full rounded-full transition-all duration-500" style="width: 52%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>3. Hiring Manager Shortlist</span>
+              <span id="bar-val-short">185 (14.8%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-short" class="bg-amber-500 h-full rounded-full transition-all duration-500" style="width: 14.8%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>4. Technical & Behavioral Interviews</span>
+              <span id="bar-val-interview">96 (7.7%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-interview" class="bg-purple-500 h-full rounded-full transition-all duration-500" style="width: 7.7%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>5. Formal Offers Extended</span>
+              <span id="bar-val-offers">28 (2.2%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-offers" class="bg-rose-500 h-full rounded-full transition-all duration-500" style="width: 2.2%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span>6. Executed Hires</span>
+              <span id="bar-val-hires" class="text-emerald-600 font-bold">21 (1.7%)</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="bar-hires" class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 1.7%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-5 shadow-sm space-y-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--muted-foreground,#64748b)]">Sourcing Channel Attribution & Yield</h3>
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center justify-between p-2 rounded-lg bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="text-xs font-semibold">LinkedIn Syndication</span></div>
+            <div class="text-right text-xs"><span class="font-bold">525 Apps</span> • <span class="text-emerald-600 font-medium">10 Hires (1.9%)</span></div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-indigo-500"></span><span class="text-xs font-semibold">Indeed Direct Feed</span></div>
+            <div class="text-right text-xs"><span class="font-bold">325 Apps</span> • <span class="text-emerald-600 font-medium">4 Hires (1.2%)</span></div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-teal-500"></span><span class="text-xs font-semibold">Internal Career Portal</span></div>
+            <div class="text-right text-xs"><span class="font-bold">200 Apps</span> • <span class="text-emerald-600 font-medium">3 Hires (1.5%)</span></div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-500"></span><span class="text-xs font-semibold">Employee Referrals</span></div>
+            <div class="text-right text-xs"><span class="font-bold">138 Apps</span> • <span class="text-emerald-600 font-bold">3 Hires (2.2% ⭐)</span></div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500"></span><span class="text-xs font-semibold">External Recruitment Agency</span></div>
+            <div class="text-right text-xs"><span class="font-bold">62 Apps</span> • <span class="text-emerald-600 font-medium">1 Hire (1.6%)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: RECRUITER PIPELINE KANBAN -->
+  <section id="view-kanban" class="hidden space-y-4">
+    <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="text-sm font-bold">Requisition #REQ-2026-0104: Senior Systems Software Engineer</h2>
+        <p class="text-xs text-[var(--muted-foreground,#64748b)]">Hiring Manager: David Vance • Assigned Recruiter: Sarah Jenkins • Approved Band: $150k - $175k</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="addSimulatedCandidate()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-all shadow-sm">+ Ingest New Applicant</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 overflow-x-auto pb-4">
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 min-w-[220px]">
+        <div class="flex justify-between items-center mb-3"><span class="text-xs font-bold uppercase text-slate-500">1. Applied</span><span id="cnt-applied" class="text-xs px-2 py-0.5 rounded-full bg-slate-100 font-bold">2</span></div>
+        <div id="col-applied" class="space-y-2 min-h-[300px]">
+          <div id="cand-1" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">James White</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold">LinkedIn</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Score: 78% • 6 yrs exp</p>
+            <div class="flex justify-between pt-1"><button onclick="advanceCandidate('cand-1', 'col-screened', 'cnt-applied', 'cnt-screened')" class="text-[10px] text-blue-600 font-semibold hover:underline">Advance ➔</button><button onclick="rejectCandidate('cand-1', 'cnt-applied')" class="text-[10px] text-rose-500 hover:underline">Reject</button></div>
+          </div>
+          <div id="cand-2" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">Ava Morales</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold">Portal</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Score: 84% • 7 yrs exp</p>
+            <div class="flex justify-between pt-1"><button onclick="advanceCandidate('cand-2', 'col-screened', 'cnt-applied', 'cnt-screened')" class="text-[10px] text-blue-600 font-semibold hover:underline">Advance ➔</button><button onclick="rejectCandidate('cand-2', 'cnt-applied')" class="text-[10px] text-rose-500 hover:underline">Reject</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 min-w-[220px]">
+        <div class="flex justify-between items-center mb-3"><span class="text-xs font-bold uppercase text-indigo-500">2. Screened</span><span id="cnt-screened" class="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold">1</span></div>
+        <div id="col-screened" class="space-y-2 min-h-[300px]">
+          <div id="cand-3" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">Daniel Lee</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold">Referral</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Score: 88% • Recruiter Screen OK</p>
+            <div class="flex justify-between pt-1"><button onclick="advanceCandidate('cand-3', 'col-shortlisted', 'cnt-screened', 'cnt-shortlisted')" class="text-[10px] text-blue-600 font-semibold hover:underline">Shortlist ➔</button><button onclick="rejectCandidate('cand-3', 'cnt-screened')" class="text-[10px] text-rose-500 hover:underline">Reject</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 min-w-[220px]">
+        <div class="flex justify-between items-center mb-3"><span class="text-xs font-bold uppercase text-amber-500">3. Shortlisted</span><span id="cnt-shortlisted" class="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold">1</span></div>
+        <div id="col-shortlisted" class="space-y-2 min-h-[300px]">
+          <div id="cand-4" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">Maya Lin</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold">Top Match</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Score: 96% • HM Approved</p>
+            <div class="flex justify-between pt-1"><button onclick="advanceCandidate('cand-4', 'col-interview', 'cnt-shortlisted', 'cnt-interview')" class="text-[10px] text-blue-600 font-semibold hover:underline">Invite to Panel ➔</button><button onclick="rejectCandidate('cand-4', 'cnt-shortlisted')" class="text-[10px] text-rose-500 hover:underline">Reject</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 min-w-[220px]">
+        <div class="flex justify-between items-center mb-3"><span class="text-xs font-bold uppercase text-purple-500">4. Interview</span><span id="cnt-interview" class="text-xs px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 font-bold">1</span></div>
+        <div id="col-interview" class="space-y-2 min-h-[300px]">
+          <div id="cand-5" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">Elena Rostova</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-semibold">Panel Rated</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Rating: 4.8 / 5.0 (Strong Hire)</p>
+            <div class="flex justify-between pt-1"><button onclick="advanceCandidate('cand-5', 'col-offer', 'cnt-interview', 'cnt-offer')" class="text-[10px] text-emerald-600 font-semibold hover:underline">Extend Offer ➔</button><button onclick="rejectCandidate('cand-5', 'cnt-interview')" class="text-[10px] text-rose-500 hover:underline">Reject</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-3 min-w-[220px]">
+        <div class="flex justify-between items-center mb-3"><span class="text-xs font-bold uppercase text-emerald-600">5. Offer / Hired</span><span id="cnt-offer" class="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold">1</span></div>
+        <div id="col-offer" class="space-y-2 min-h-[300px]">
+          <div id="cand-6" class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2">
+            <div class="flex justify-between items-start"><span class="text-xs font-bold">Marcus Thorne</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">Hired ✓</span></div>
+            <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">$165k Base • HRIS Synced</p>
+            <div class="text-[10px] text-emerald-600 font-bold">Onboarding Initialized</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: CANDIDATE PORTAL & SCHEDULING -->
+  <section id="view-candidate" class="hidden space-y-6">
+    <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-6 shadow-sm max-w-2xl mx-auto space-y-6">
+      <div class="border-b border-[var(--border,#e2e8f0)] pb-4">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Candidate Self-Service Portal</span>
+        <h2 class="text-lg font-bold mt-1">Application for Senior Systems Software Engineer</h2>
+        <p class="text-xs text-[var(--muted-foreground,#64748b)]">Applicant: Maya Lin (maya.lin@example.com) • Requisition #REQ-0104</p>
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-xs font-bold text-[var(--muted-foreground,#64748b)] uppercase">Application Status Tracker</label>
+        <div class="flex items-center justify-between text-xs font-medium pt-2">
+          <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">✓</div><span class="mt-1 text-[11px]">Applied</span></div>
+          <div class="flex-1 h-0.5 bg-emerald-500 mx-2"></div>
+          <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">✓</div><span class="mt-1 text-[11px]">Screened</span></div>
+          <div class="flex-1 h-0.5 bg-blue-500 mx-2"></div>
+          <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold animate-pulse">●</div><span class="mt-1 text-[11px] font-bold text-blue-600">Interview</span></div>
+          <div class="flex-1 h-0.5 bg-slate-200 mx-2"></div>
+          <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-bold">○</div><span class="mt-1 text-[11px] text-slate-400">Offer</span></div>
+        </div>
+      </div>
+
+      <div id="booking-card" class="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-xl p-5 space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="text-xl">📅</div>
+          <div>
+            <h3 class="text-sm font-bold text-blue-900 dark:text-blue-100">Schedule Your 45-Min Systems Architecture Panel</h3>
+            <p class="text-xs text-blue-700 dark:text-blue-300 mt-0.5">Please select an available slot synced live with Engineering Director David Vance's calendar:</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2" id="slot-container">
+          <button onclick="selectSlot(this, 'Thu, Oct 08 - 10:00 AM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Thu, Oct 08<br><span class="font-bold">10:00 AM PST</span></button>
+          <button onclick="selectSlot(this, 'Thu, Oct 08 - 2:00 PM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Thu, Oct 08<br><span class="font-bold">2:00 PM PST</span></button>
+          <button onclick="selectSlot(this, 'Fri, Oct 09 - 11:30 AM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Fri, Oct 09<br><span class="font-bold">11:30 AM PST</span></button>
+          <button onclick="selectSlot(this, 'Fri, Oct 09 - 3:30 PM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Fri, Oct 09<br><span class="font-bold">3:30 PM PST</span></button>
+          <button onclick="selectSlot(this, 'Mon, Oct 12 - 1:00 PM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Mon, Oct 12<br><span class="font-bold">1:00 PM PST</span></button>
+          <button onclick="selectSlot(this, 'Tue, Oct 13 - 10:00 AM')" class="slot-btn border border-blue-300 dark:border-blue-800 rounded-lg p-2.5 text-xs text-center hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all font-medium">Tue, Oct 13<br><span class="font-bold">10:00 AM PST</span></button>
+        </div>
+
+        <div class="pt-2 flex justify-between items-center">
+          <span id="selected-slot-text" class="text-xs font-semibold text-slate-600">No slot selected yet</span>
+          <button id="confirm-booking-btn" disabled onclick="confirmBooking()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all shadow-sm">Confirm Interview Time</button>
+        </div>
+      </div>
+
+      <div id="booking-success" class="hidden bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-xl p-4 text-xs space-y-1">
+        <div class="font-bold text-sm flex items-center gap-1"><span>✓</span> Interview Confirmed & Calendar Invite Dispatched!</div>
+        <p>A Microsoft Teams calendar invitation with interview briefing notes has been sent to <code>maya.lin@example.com</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: HIRING MANAGER MOBILE SCORECARD -->
+  <section id="view-scorecard" class="hidden space-y-6">
+    <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-5 shadow-sm max-w-md mx-auto space-y-5">
+      <div class="border-b border-[var(--border,#e2e8f0)] pb-3 flex justify-between items-center">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-purple-600">Panel Scorecard Form</span>
+          <h2 class="text-base font-bold">Interview Evaluation</h2>
+          <p class="text-xs text-[var(--muted-foreground,#64748b)]">Candidate: Maya Lin • Panelist: David Vance</p>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-slate-400">Scorecard SLA</span>
+          <div class="text-xs font-bold text-amber-600">Due in 18 hrs</div>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs font-semibold"><span>1. Technical Architecture</span><span id="val-c1" class="text-blue-600">5 / 5</span></div>
+        <div class="flex gap-1">
+          <button onclick="setRating('c1', 1)" class="c1-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">1</button>
+          <button onclick="setRating('c1', 2)" class="c1-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">2</button>
+          <button onclick="setRating('c1', 3)" class="c1-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">3</button>
+          <button onclick="setRating('c1', 4)" class="c1-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">4</button>
+          <button onclick="setRating('c1', 5)" class="c1-btn flex-1 py-1 text-xs border rounded bg-blue-600 text-white font-bold">5</button>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs font-semibold"><span>2. Problem Solving Rigor</span><span id="val-c2" class="text-blue-600">4 / 5</span></div>
+        <div class="flex gap-1">
+          <button onclick="setRating('c2', 1)" class="c2-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">1</button>
+          <button onclick="setRating('c2', 2)" class="c2-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">2</button>
+          <button onclick="setRating('c2', 3)" class="c2-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">3</button>
+          <button onclick="setRating('c2', 4)" class="c2-btn flex-1 py-1 text-xs border rounded bg-blue-600 text-white font-bold">4</button>
+          <button onclick="setRating('c2', 5)" class="c2-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">5</button>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs font-semibold"><span>3. Communication & Teamwork</span><span id="val-c3" class="text-blue-600">4 / 5</span></div>
+        <div class="flex gap-1">
+          <button onclick="setRating('c3', 1)" class="c3-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">1</button>
+          <button onclick="setRating('c3', 2)" class="c3-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">2</button>
+          <button onclick="setRating('c3', 3)" class="c3-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">3</button>
+          <button onclick="setRating('c3', 4)" class="c3-btn flex-1 py-1 text-xs border rounded bg-blue-600 text-white font-bold">4</button>
+          <button onclick="setRating('c3', 5)" class="c3-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">5</button>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs font-semibold"><span>4. Cultural Alignment</span><span id="val-c4" class="text-blue-600">5 / 5</span></div>
+        <div class="flex gap-1">
+          <button onclick="setRating('c4', 1)" class="c4-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">1</button>
+          <button onclick="setRating('c4', 2)" class="c4-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">2</button>
+          <button onclick="setRating('c4', 3)" class="c4-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">3</button>
+          <button onclick="setRating('c4', 4)" class="c4-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100">4</button>
+          <button onclick="setRating('c4', 5)" class="c4-btn flex-1 py-1 text-xs border rounded bg-blue-600 text-white font-bold">5</button>
+        </div>
+      </div>
+
+      <div class="bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 flex justify-between items-center">
+        <span class="text-xs font-medium">Weighted Candidate Score:</span>
+        <span id="score-aggregate" class="text-base font-bold text-emerald-600">4.50 / 5.0</span>
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-xs font-bold text-[var(--muted-foreground,#64748b)] uppercase">Hiring Recommendation:</label>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <label class="flex items-center gap-1.5 border rounded p-2 cursor-pointer hover:bg-slate-50"><input type="radio" name="rec" value="SH" checked> <span class="font-bold text-emerald-700">Strong Hire</span></label>
+          <label class="flex items-center gap-1.5 border rounded p-2 cursor-pointer hover:bg-slate-50"><input type="radio" name="rec" value="H"> <span class="text-emerald-600 font-semibold">Hire</span></label>
+          <label class="flex items-center gap-1.5 border rounded p-2 cursor-pointer hover:bg-slate-50"><input type="radio" name="rec" value="N"> <span class="text-slate-500">Neutral</span></label>
+          <label class="flex items-center gap-1.5 border rounded p-2 cursor-pointer hover:bg-slate-50"><input type="radio" name="rec" value="R"> <span class="text-rose-600">Do Not Hire</span></label>
+        </div>
+      </div>
+
+      <button onclick="submitScorecard()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-all shadow-sm">🔒 Submit Scorecard & Lock</button>
+    </div>
+  </section>
+
+  <!-- TAB 5: PROPOSAL DOCUMENTATION INDEX -->
+  <section id="view-docs" class="hidden space-y-4">
+    <div class="bg-[var(--card,#ffffff)] border border-[var(--border,#e2e8f0)] rounded-xl p-5 shadow-sm space-y-4">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-[var(--muted-foreground,#64748b)]">Complete Proposal Deliverables (10/10 Completed)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-01: Project Charter & Stakeholders</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">Problem Statement, 5-Whys Fishbone, SMART Objectives, Scope Boundaries, RACI Matrix.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-02: AS-IS Process & Bottlenecks</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">4-Lane Swimlane (46.5-day cycle), 12 Cataloged Pain Points, TIMWOOD Lean Waste Heatmap.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-03: TO-BE Process & Value Add</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">5-Lane Swimlane, 18.5-day cycle (-60.2%), Event-driven Business Rules (BR-01 to 06), 223.8% ROI.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-04: Software Requirements (SRS)</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">32 Numbered Functional Requirements (FR) across 8 Modules, 10 ISO 25010 NFRs, RTM Matrix.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-05: UML Use Cases & Specs</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">Actor-Goal Matrix, UML 2.5 Diagram, 5 Cockburn Use Cases with Alternate Flows & Exceptions.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-06: Data Model & Data Dictionary</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">3NF Relational Model, 12 Crow's Foot Tables, PostgreSQL DDL, AES-256 & GDPR Erasure.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-07: System Architecture & APIs</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">C4 Context/Container Blueprint, Workday Core HRIS REST API Contract, Threat Model.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-08: Analytics & Power BI Model</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">Kimball Star Schema, 10 DAX Measures, 1,250-record sample dataset verification.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-09: UI/UX Wireframe Concepts</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">Candidate Portal, Kanban, Dossier, Mobile Scorecard, E-Signature, WCAG 2.1 AA specs.</p>
+        </div>
+        <div class="p-3 border rounded-lg bg-[var(--background,#f8fafc)]">
+          <span class="font-bold text-blue-600">DOC-10: Executive Presentation & Summary</span>
+          <p class="text-[var(--muted-foreground,#64748b)] mt-1">10-Slide Pitch Deck, 16-Week Implementation Roadmap, ADKAR Change Plan, Resume Bullets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchTab(tabId) {
+      const views = ['analytics', 'kanban', 'candidate', 'scorecard', 'docs'];
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        const btn = document.getElementById('tab-' + v);
+        if (v === tabId) {
+          el.classList.remove('hidden');
+          btn.className = 'px-3 py-1.5 rounded-md transition-all tab-active';
+        } else {
+          el.classList.add('hidden');
+          btn.className = 'px-3 py-1.5 rounded-md transition-all text-[var(--muted-foreground,#64748b)] hover:text-[var(--foreground,#0f172a)]';
+        }
+      });
+    }
+
+    const dataByDept = {
+      ALL:   { apps: 1250, screen: 650, short: 185, int: 96, hires: 21, tth: '23.0d', oar: '75.0%' },
+      ENG:   { apps: 500,  screen: 260, short: 80,  int: 42, hires: 9,  tth: '24.1d', oar: '75.0%' },
+      PROD:  { apps: 225,  screen: 118, short: 35,  int: 18, hires: 4,  tth: '22.5d', oar: '80.0%' },
+      SALES: { apps: 225,  screen: 116, short: 32,  int: 16, hires: 4,  tth: '21.0d', oar: '80.0%' },
+      OPS:   { apps: 175,  screen: 90,  short: 24,  int: 12, hires: 3,  tth: '23.0d', oar: '75.0%' },
+      FIN:   { apps: 125,  screen: 66,  short: 14,  int: 8,  hires: 1,  tth: '25.0d', oar: '50.0%' }
+    };
+
+    function updateAnalytics() {
+      const filter = document.getElementById('dept-filter').value;
+      const d = dataByDept[filter];
+
+      document.getElementById('stat-apps').innerText = d.apps.toLocaleString();
+      document.getElementById('stat-screen').innerText = d.screen.toLocaleString();
+      document.getElementById('stat-short').innerText = d.short.toLocaleString();
+      document.getElementById('stat-interviews').innerText = d.int.toLocaleString();
+      document.getElementById('stat-hires').innerText = d.hires.toLocaleString();
+      document.getElementById('stat-tth').innerText = d.tth;
+      document.getElementById('stat-oar').innerText = d.oar + ' Offer Acc.';
+
+      const base = d.apps;
+      const pScreen = (d.screen / base * 100).toFixed(1);
+      const pShort = (d.short / base * 100).toFixed(1);
+      const pInt = (d.int / base * 100).toFixed(1);
+      const pHires = (d.hires / base * 100).toFixed(1);
+
+      document.getElementById('bar-screen').style.width = pScreen + '%';
+      document.getElementById('bar-val-screen').innerText = `${d.screen} (${pScreen}%)`;
+
+      document.getElementById('bar-short').style.width = pShort + '%';
+      document.getElementById('bar-val-short').innerText = `${d.short} (${pShort}%)`;
+
+      document.getElementById('bar-interview').style.width = pInt + '%';
+      document.getElementById('bar-val-interview').innerText = `${d.int} (${pInt}%)`;
+
+      document.getElementById('bar-hires').style.width = Math.max(pHires, 2) + '%';
+      document.getElementById('bar-val-hires').innerText = `${d.hires} (${pHires}%)`;
+    }
+
+    function advanceCandidate(cardId, targetColId, sourceCntId, targetCntId) {
+      const card = document.getElementById(cardId);
+      const targetCol = document.getElementById(targetColId);
+      if (!card || !targetCol) return;
+
+      targetCol.appendChild(card);
+
+      const srcCnt = document.getElementById(sourceCntId);
+      const tgtCnt = document.getElementById(targetCntId);
+      if (srcCnt) srcCnt.innerText = Math.max(0, parseInt(srcCnt.innerText) - 1);
+      if (tgtCnt) tgtCnt.innerText = parseInt(tgtCnt.innerText) + 1;
+    }
+
+    function rejectCandidate(cardId, cntId) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.style.opacity = '0.3';
+        card.style.pointerEvents = 'none';
+        card.innerHTML += '<div class="text-[10px] text-rose-600 font-bold mt-1">Disqualified (Rejection Queued)</div>';
+        const cnt = document.getElementById(cntId);
+        if (cnt) cnt.innerText = Math.max(0, parseInt(cnt.innerText) - 1);
+      }
+    }
+
+    let candCounter = 10;
+    function addSimulatedCandidate() {
+      candCounter++;
+      const col = document.getElementById('col-applied');
+      const cnt = document.getElementById('cnt-applied');
+      const card = document.createElement('div');
+      card.id = 'cand-' + candCounter;
+      card.className = 'bg-[var(--background,#f8fafc)] border border-[var(--border,#e2e8f0)] rounded-lg p-3 shadow-xs space-y-2';
+      card.innerHTML = `
+        <div class="flex justify-between items-start">
+          <span class="text-xs font-bold">New Applicant #${candCounter}</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold">Just Applied</span>
+        </div>
+        <p class="text-[11px] text-[var(--muted-foreground,#64748b)]">Score: 82% • Auto-Parsed</p>
+        <div class="flex justify-between pt-1">
+          <button onclick="advanceCandidate('${card.id}', 'col-screened', 'cnt-applied', 'cnt-screened')" class="text-[10px] text-blue-600 font-semibold hover:underline">Advance ➔</button>
+          <button onclick="rejectCandidate('${card.id}', 'cnt-applied')" class="text-[10px] text-rose-500 hover:underline">Reject</button>
+        </div>
+      `;
+      col.prepend(card);
+      cnt.innerText = parseInt(cnt.innerText) + 1;
+    }
+
+    let selectedSlot = null;
+    function selectSlot(btn, slotText) {
+      document.querySelectorAll('.slot-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+      });
+      btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+      selectedSlot = slotText;
+      document.getElementById('selected-slot-text').innerText = 'Selected: ' + slotText;
+      document.getElementById('confirm-booking-btn').disabled = false;
+    }
+
+    function confirmBooking() {
+      if (!selectedSlot) return;
+      document.getElementById('booking-card').classList.add('hidden');
+      document.getElementById('booking-success').classList.remove('hidden');
+    }
+
+    const ratings = { c1: 5, c2: 4, c3: 4, c4: 5 };
+    function setRating(comp, val) {
+      ratings[comp] = val;
+      document.getElementById('val-' + comp).innerText = val + ' / 5';
+
+      document.querySelectorAll('.' + comp + '-btn').forEach((b, idx) => {
+        if (idx + 1 === val) {
+          b.className = `${comp}-btn flex-1 py-1 text-xs border rounded bg-blue-600 text-white font-bold`;
+        } else {
+          b.className = `${comp}-btn flex-1 py-1 text-xs border rounded hover:bg-slate-100`;
+        }
+      });
+
+      const avg = ((ratings.c1 + ratings.c2 + ratings.c3 + ratings.c4) / 4).toFixed(2);
+      document.getElementById('score-aggregate').innerText = avg + ' / 5.0';
+    }
+
+    function submitScorecard() {
+      alert('Scorecard locked and submitted! Consensus rating updated in candidate dossier.');
+    }
+  </script>
+</body>
+</html>

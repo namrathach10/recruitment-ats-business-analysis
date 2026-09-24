@@ -14,6 +14,7 @@ PROJECT_ROOT = os.path.dirname(SCRIPTS_DIR)
 BUILD_STEPS = [
     ("Diagrams", "generate_all_diagrams.py"),
     ("Analytics Assets", "build_analytics_assets.py"),
+    ("Web Intelligence Dashboard", "build_dashboard_html.py"),
     ("UI Mockups", "build_ui_images.py"),
     ("Wireframes PDF", "build_wireframes_pdf.py"),
     ("Executive Presentation PDF", "build_presentation_pdf.py"),

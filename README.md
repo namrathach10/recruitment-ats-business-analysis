@@ -254,6 +254,7 @@ recruitment-ats-business-analysis/
 │   └── recruitment_sample_dataset_anonymized.csv  # 1,250 records with synthetic IDs
 │
 ├── analytics/                                 # Power BI & KPI Engineering Assets
+│   ├── recruitment-intelligence-dashboard.html # Interactive Enterprise Recruitment Intelligence Web Dashboard
 │   ├── Recruitment_ATS_Dashboard.pbix         # Power BI report template & model archive
 │   ├── data-dictionary.xlsx                   # Enterprise data dictionary workbook
 │   ├── kpi-definitions.xlsx                   # Metric formula catalog & thresholds
@@ -281,12 +282,14 @@ recruitment-ats-business-analysis/
 │
 └── scripts/                                   # Automation & Asset Generation Tooling
     ├── build_all.py                           # Master automated build runner
-    ├── generate_all_diagrams.py
-    ├── build_analytics_assets.py
-    ├── build_ui_images.py
-    ├── build_wireframes_pdf.py
-    ├── build_presentation_pdf.py
-    └── build_project_summary_pdf.py
+    ├── serve_dashboard.py                     # Local web server launcher for Recruitment Intelligence
+    ├── build_dashboard_html.py                # Compiles self-contained web intelligence dashboard
+    ├── generate_all_diagrams.py               # Generates all 7 architecture diagrams
+    ├── build_analytics_assets.py              # Generates Excel models & verifies dashboard
+    ├── build_ui_images.py                     # Generates 3 UI mockup PNGs
+    ├── build_wireframes_pdf.py                # Compiles wireframes.pdf
+    ├── build_presentation_pdf.py              # Compiles ATS-Executive-Presentation.pdf
+    └── build_project_summary_pdf.py           # Compiles project-summary.pdf
 ```
 
 ---
