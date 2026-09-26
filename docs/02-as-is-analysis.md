@@ -114,7 +114,7 @@ flowchart TD
 
 ## 3. Stage-by-Stage Operational Walkthrough & Lead Time Analysis
 
-The end-to-end recruitment lifecycle currently averages **46.5 Calendar Days (318 Total Elapsed Business Hours)**. The breakdown below details the activities, manual handoffs, friction points, and specific stage durations.
+The end-to-end recruitment lifecycle currently averages **46.5 Calendar Days**. The breakdown below details the activities, manual handoffs, friction points, and specific stage durations.
 
 ```mermaid
 gantt
@@ -191,14 +191,14 @@ flowchart LR
     end
 ```
 
-### 5.1 Value-Add (VA) vs. Non-Value-Add (NVA) Ratio
+### 5.1 Value-Add (Active Effort) vs. Non-Value-Add (Waiting) Lead Time Analysis
 
-$$\text{Process Efficiency Ratio} = \frac{\text{Value-Add Time}}{\text{Total Elapsed Cycle Time}} \times 100$$
-
-$$\text{Process Efficiency Ratio} = \frac{26.0\text{ Hours}}{372.0\text{ Operating Hours}} \times 100 = \mathbf{6.99\%}$$
+* **Total Baseline Cycle Time:** **46.5 Calendar Days**
+* **Total Active Value-Add Work:** Approximately **26.0 Hours** (~3.25 workdays of active reviewing, interviewing, and drafting across all participants).
+* **Non-Value-Add Waiting Latency:** **~43.2 Calendar Days** (representing roughly **93% of the total elapsed cycle**).
 
 > **Key Analytical Finding:**  
-> **93.01% of the total time in the current recruitment lifecycle is pure waste and delay (waiting for emails, manual data transfer, chasing reminders).** Only ~7% of total elapsed time involves active evaluation or decision-making.
+> The overwhelming majority of the current recruitment lifecycle is idle administrative latency: awaiting email replies, scheduling ping-pong across calendars, delayed feedback collection, and manual spreadsheet synchronization.
 
 ---
 
@@ -208,22 +208,22 @@ $$\text{Process Efficiency Ratio} = \frac{26.0\text{ Hours}}{372.0\text{ Operati
 flowchart TD
     subgraph Data Security and Compliance Exposure Points
         EX["Local Excel Files<br/>No encryption, no access logging,<br/>stored on personal laptops"]
-        PST["Outlook .PST / Mailboxes<br/>Personal data retained indefinitely,<br/>violates GDPR Right to be Forgotten"]
+        PST["Outlook .PST / Mailboxes<br/>Personal data retained indefinitely,<br/>unmanaged candidate records"]
         JBS["External Job Board Accounts<br/>Shared team passwords, no 2FA,<br/>untracked resume downloads"]
         PRN["Printed Paper CVs<br/>Left on conference tables and desks,<br/>confidential salary notes exposed"]
     end
 
     EX -->|Risk 1| R1["Data Breach & PII Leakage"]
-    PST -->|Risk 2| R2["GDPR Fine Exposure (up to 4% turnover)"]
+    PST -->|Risk 2| R2["Heightened Data Privacy Risk"]
     JBS -->|Risk 3| R3["Credential Hijacking & Data Exfiltration"]
     PRN -->|Risk 4| R4["Physical Confidentiality Violation"]
 ```
 
 ### 6.1 Regulatory Vulnerabilities
-1. **GDPR / Privacy Compliance:**  
-   Under Article 17 of the GDPR (*Right to Erasure*), a candidate may request full deletion of their data. In the current AS-IS environment, satisfying this request requires manually searching through 8 distinct recruiter inboxes, 40+ hiring manager inboxes, and multiple decentralized Excel sheets—making 100% verified compliance virtually impossible.
-2. **EEOC / Anti-Bias Recordkeeping:**  
-   The Equal Employment Opportunity Commission requires organizations to preserve all personnel and recruitment records for at least one year. In the current state, unstandardized rejections and unrecorded candidate evaluations expose the organization to substantial civil liability in the event of an audit or dispute.
+1. **Data Privacy Governance (e.g., GDPR):**  
+   Under privacy frameworks such as Article 17 of the GDPR (*Right to Erasure*), an applicant may request complete deletion of their personal records. In the current AS-IS environment, satisfying this request requires manually searching through 8 distinct recruiter inboxes, 40+ hiring manager inboxes, and multiple decentralized Excel sheets—making verified compliance with data subject erasure requests virtually impossible.
+2. **Employment Recordkeeping Guidelines (e.g., EEOC):**  
+   Equal employment opportunity recordkeeping guidelines require organizations to maintain applicant records for defined audit periods. In the current state, unstandardized rejections and unrecorded candidate evaluations expose the organization to significant operational and compliance vulnerabilities in the event of an audit or dispute.
 3. **Information Security & Access Control:**  
    Candidate resumes contain sensitive Personally Identifiable Information (PII), including home addresses, personal phone numbers, and employment history. Storing these on unencrypted local drives violates corporate information security standards.
 

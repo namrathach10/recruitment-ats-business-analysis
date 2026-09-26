@@ -24,8 +24,8 @@ The proposed ATS interacts with **4 Primary Human Actors** and **2 Secondary Sys
 | **Recruiter** | Primary (Human) | Talent Acquisition specialist managing end-to-end requisition pipelines. | Post jobs, parse & triage resumes, manage Kanban stages, schedule panels, draft offer packages, review analytics. | Continuous daily usage (5–8 hrs/day) |
 | **Hiring Manager** | Primary (Human) | Functional department head seeking to fill team vacancies. | Create requisitions, review shortlisted candidate profiles, conduct interviews, submit rubrics, approve offers. | 2–4 times weekly (1–2 hrs/day) |
 | **System Administrator** | Primary (Human) | Enterprise IT / SecOps administrator managing identity and compliance. | Manage RBAC roles, configure SSO, audit system logs, execute GDPR erasure requests, monitor health. | Weekly maintenance & as-needed |
-| **Calendar Service** | Secondary (System) | Microsoft 365 Exchange / Google Calendar API. | Provide real-time free/busy interviewer availability, inject calendar event holds and video links. | Real-time automated API calls |
-| **Enterprise HRIS** | Secondary (System) | Workday / SAP SuccessFactors Core HR platform. | Ingest new-hire employee profile data, trigger downstream IT provisioning and payroll enrollment. | Event-driven upon offer acceptance |
+| **Calendar Service** | Secondary (System) | Microsoft 365 Exchange / Google Calendar API (Proposed illustrative integration). | Provide real-time free/busy interviewer availability, inject calendar event holds and video links. | Real-time automated API calls |
+| **Enterprise HRIS** | Secondary (System) | Workday / SAP SuccessFactors Core HR platform (Proposed illustrative integration). | Ingest new-hire employee profile data, trigger downstream IT provisioning and payroll enrollment. | Event-driven upon offer acceptance |
 
 ---
 

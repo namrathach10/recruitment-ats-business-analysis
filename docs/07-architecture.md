@@ -230,6 +230,7 @@ When a candidate accepts an offer, the ATS dispatches an authenticated JSON payl
 ---
 
 ## 5. Security Architecture & Threat Mitigation Framework
+*(Proposed Technical Design Specifications)*
 
 ```mermaid
 flowchart LR

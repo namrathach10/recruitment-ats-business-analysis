@@ -14,7 +14,7 @@
 
 ## 1. Data Architecture Principles & Normalization Strategy
 
-> **Context:** Conceptual 3NF relational data model and enterprise data dictionary designed for Novus Enterprise Technologies (fictional enterprise scenario).
+> **Context:** Conceptual 3NF relational data model and enterprise data dictionary designed for Novus Enterprise Technologies (fictional enterprise scenario). Technical controls (such as AES-256 encryption, SSO integration, and audit logging) represent proposed architectural design specifications.
 
 To eliminate the severe data fragmentation, duplication, and synchronization collisions identified in the AS-IS analysis (where 8 recruiters maintained conflicting Excel spreadsheets), the proposed ATS information architecture is modeled strictly in **Third Normal Form (3NF)**.
 
@@ -379,6 +379,7 @@ CREATE INDEX idx_candidates_email ON candidates(email);
 ---
 
 ## 5. Data Privacy, Encryption & Security Governance
+*(Proposed Technical Design Specifications)*
 
 ```mermaid
 flowchart TD

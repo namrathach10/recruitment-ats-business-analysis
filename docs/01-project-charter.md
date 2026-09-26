@@ -70,13 +70,13 @@ flowchart TD
 
 ### 2.4 Quantification of Inaction (Cost of Doing Nothing)
 
-| Operational Dimension | Current AS-IS Metric | Business Consequence | Annual Financial / Strategic Impact |
+| Operational Dimension | Current AS-IS Metric | Business Consequence | Annual Scenario Impact (Illustrative) |
 | :--- | :--- | :--- | :--- |
-| **Time-to-Hire** | 46.5 Calendar Days | Stalled engineering & sales product delivery; lost candidate interest | Estimated \$420,000 in lost project productivity |
-| **Agency Spend** | 35% of positions routed to external recruiters | Inefficient bypass of internal recruiters due to capacity crunch | \$380,000 per annum paid in 18-22% agency commissions |
+| **Time-to-Hire** | 46.5 Calendar Days | Stalled engineering & sales product delivery; lost candidate interest | Illustrative scenario estimate: \$420,000 in delayed project productivity |
+| **Agency Spend** | 35% of positions routed to external recruiters | Inefficient bypass of internal recruiters due to capacity crunch | Illustrative scenario assumption: \$380,000/year in external agency commissions |
 | **Candidate Drop-Off** | 28% drop-off post-application | Top talent withdraws due to lack of timely status visibility | Severe brand impairment in competitive talent market |
 | **Data Redundancy & Errors** | 8 disparate recruiter spreadsheets | Multiple recruiters contact same candidate; mismatched notes | 15+ recruiter hours wasted per week on manual data reconciliation |
-| **Regulatory Risk** | Resumes held in Outlook inboxes indefinitely | Non-compliance with GDPR 'Right to be Forgotten' & EEOC records | Potential regulatory penalties up to 4% global turnover or civil fines |
+| **Data Governance Risk** | Resumes held in Outlook inboxes indefinitely | Inability to track data retention or satisfy privacy requests (such as GDPR right-to-erasure) or EEOC recordkeeping | Heightened data privacy and governance vulnerabilities across unmanaged personal inboxes |
 
 ---
 
@@ -174,7 +174,7 @@ To ensure project feasibility, budget discipline, and architectural clarity, the
 * Management will enforce adherence to the new ATS, discouraging off-platform hiring.
 
 #### Constraints
-* **Regulatory Compliance:** Must comply strictly with GDPR (data minimization, consent, right of deletion) and EEOC non-discrimination logging.
+* **Regulatory Governance:** Designed to support data privacy principles (e.g. GDPR data minimization and consent) and non-discrimination record-keeping guidelines (e.g. EEOC).
 * **Budgetary Constraints:** System implementation and software licensing capped within annual HR Capital Expenditure allowance.
 * **Timeline Constraint:** Phased roll-out must achieve minimum viable production (MVP) within 16 weeks to support upcoming Q1 peak hiring.
 
@@ -189,7 +189,7 @@ To ensure project feasibility, budget discipline, and architectural clarity, the
 
 ### 5.1 Stakeholder Register
 
-| Stakeholder ID | Stakeholder Role | Department / Group | Primary Interests & Business Goals | Pain Points with Current Process | Influence (1-5) | Impact (1-5) | Engagement Strategy |
+| Stakeholder ID | Simulated Stakeholder Persona | Department / Group | Primary Interests & Business Goals | Pain Points with Current Process | Influence (1-5) | Impact (1-5) | Engagement Strategy |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | **SH-01** | **Job Candidate** (Internal & External) | External Market / Internal Staff | Transparent hiring process, rapid feedback, easy application, mobile accessibility. | Black hole applications; never informed of rejection; clunky forms. | 2 | 5 | Provide self-service candidate portal, instant confirmation, status tracking. |
 | **SH-02** | **Corporate Recruiter** | Talent Acquisition (HR) | Candidate pipeline velocity, automated scheduling, centralized candidate history, eliminating manual data entry. | Managing multiple spreadsheets; lost candidate emails; endless scheduling ping-pong. | 4 | 5 | Involve as primary user group in daily backlog refinement and UI workflow design. |

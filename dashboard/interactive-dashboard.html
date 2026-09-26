@@ -2879,15 +2879,15 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
     function renderFinancialPage(container, m) {
       container.innerHTML = `
         <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Agency Spend Avoidance</div><div class="kpi-val" style="color: var(--success);">$290,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
-          <div class="kpi-card"><div class="kpi-label">Recruiter Productivity</div><div class="kpi-val" style="color: var(--success);">$150,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
-          <div class="kpi-card"><div class="kpi-label">Coordination Savings</div><div class="kpi-val" style="color: var(--success);">$85,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
-          <div class="kpi-card"><div class="kpi-label">Net Annual Benefit</div><div class="kpi-val" style="color: var(--primary-accent);">$525,000</div><div class="kpi-subtext">Recurring operational cash flow</div></div>
-          <div class="kpi-card"><div class="kpi-label">Implementation Capex</div><div class="kpi-val">($210,000)</div><div class="kpi-subtext">One-time capital expenditure</div></div>
-          <div class="kpi-card"><div class="kpi-label">3-Year ROI / Payback</div><div class="kpi-val" style="color: var(--success);">3.4x / 7.2 Mo</div><div class="kpi-subtext">340% 3-year net return</div></div>
+          <div class="kpi-card"><div class="kpi-label">Agency Fee Reduction</div><div class="kpi-val" style="color: var(--success);">$228,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Recruiter Capacity</div><div class="kpi-val" style="color: var(--success);">$112,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Gross Projected Benefit</div><div class="kpi-val" style="color: var(--primary-accent);">$340,000</div><div class="kpi-subtext"><span class="badge badge-neutral">Proposed Estimate</span></div></div>
+          <div class="kpi-card"><div class="kpi-label">Year 1 Estimated Outlay</div><div class="kpi-val">($105,000)</div><div class="kpi-subtext">Licensing & implementation</div></div>
+          <div class="kpi-card"><div class="kpi-label">Net Projected Benefit</div><div class="kpi-val" style="color: var(--success);">$235,000</div><div class="kpi-subtext">Year 1 net operational value</div></div>
+          <div class="kpi-card"><div class="kpi-label">Model Type</div><div class="kpi-val" style="font-size: 16px; font-weight: 600; color: var(--text-secondary);">Illustrative Scenario</div><div class="kpi-subtext">Simulated business case</div></div>
         </div>
         <div class="card">
-          <div class="card-header"><span class="card-title">Financial ROI Waterfall Model</span></div>
+          <div class="card-header"><span class="card-title">Illustrative Business Case Model (Financial Flow)</span></div>
           <div id="waterfall-chart" style="height: 250px;"></div>
         </div>
       `;
@@ -3343,7 +3343,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
                 <tr><td><b>Offer Acceptance Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Hires / Total Offers Extended) * 100</code></td><td><code>offer_status, current_stage</code></td><td>Percentage of offers accepted versus declined. Validates compensation competitiveness.</td></tr>
                 <tr><td><b>Interview Conversion Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Interviewed / Total Applications) * 100</code></td><td><code>interview_date, application_id</code></td><td>Measures top-of-funnel applicant qualification yield.</td></tr>
                 <tr><td><b>Proposed TO-BE Target</b></td><td><span class="badge badge-warning">Target Baseline</span></td><td><code>18.5 Calendar Days</code> (Defined in Proposal)</td><td>Process Model Specifications</td><td>The engineered SLA benchmark enabled by automated parsing, self-service scheduling, and mobile rubrics.</td></tr>
-                <tr><td><b>Net Annual Financial Benefit</b></td><td><span class="badge badge-success">Business Case Estimate</span></td><td><code>Gross Operational Savings - Recurring Opex</code></td><td>Project Charter Cost Model</td><td>Projected recurring annual benefit ($525,000/yr) combining agency fee avoidance, recruiter productivity, and scheduling automation.</td></tr>
+                <tr><td><b>Net Annual Financial Benefit</b></td><td><span class="badge badge-success">Business Case Estimate</span></td><td><code>Gross Operational Savings - Year 1 Outlay</code></td><td>Project Charter Cost Model</td><td>Illustrative business case model ($235,000/yr net; $340,000 gross benefit vs $105,000 Year 1 outlay) combining agency fee reduction ($228k) and recruiter capacity ($112k).</td></tr>
               </tbody>
             </table>
           </div>
@@ -3858,16 +3858,16 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       const pad = { top: 20, right: 30, bottom: 40, left: 60 };
 
       const steps = [
-        { label: 'Baseline Friction', val: 730, col: '#DC2626', isTotal: true },
-        { label: 'Agency Savings', val: -290, col: '#16A34A' },
-        { label: 'Recruiter Time', val: -150, col: '#16A34A' },
-        { label: 'Scheduling Auto', val: -85, col: '#16A34A' },
-        { label: 'Capex Investment', val: 210, col: '#2563EB' },
-        { label: 'Net Annual Benefit', val: 525, col: '#0F172A', isTotal: true }
+        { label: 'Agency Baseline', val: 380, col: '#DC2626', isTotal: true },
+        { label: 'Agency Reduction', val: -228, col: '#16A34A' },
+        { label: 'Recruiter Capacity', val: -112, col: '#16A34A' },
+        { label: 'Gross Benefit', val: 340, col: '#0F172A', isTotal: true },
+        { label: 'Year 1 Outlay', val: 105, col: '#2563EB' },
+        { label: 'Net Benefit', val: 235, col: '#16A34A', isTotal: true }
       ];
 
       const colW = (w - pad.left - pad.right) / steps.length;
-      const maxVal = 800;
+      const maxVal = 450;
 
       el.innerHTML = `
         <svg class="chart" viewBox="0 0 ${w} ${h}">

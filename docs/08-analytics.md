@@ -266,7 +266,7 @@ AVERAGEX(
 ## 7. Sample Dataset Schema & Summary Verification
 
 The generated CSV dataset is saved at:  
-`C:/Users/namra/.gemini/antigravity/scratch/recruitment-ats-proposal/data/recruitment_sample_dataset.csv`
+`data/recruitment_sample_dataset_anonymized.csv`
 
 ### Verified Cohort Summary Statistics:
 * **Total Applications Recorded:** 1,250

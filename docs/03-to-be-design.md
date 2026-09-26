@@ -143,10 +143,11 @@ gantt
 | **10** | **Handover to Onboarding** | 3.0 Days | **1.5 Days** | -1.5 Days (-50%) | Automated API data payload push directly into Core HRIS (Workday / SuccessFactors). |
 | **TOTAL**| **End-to-End Recruitment Cycle** | **46.5 Days** | **18.5 Days** | **-28.0 Days (-60.2%)** | **Unified, automated, event-driven Information System** |
 
-### 3.2 Process Efficiency Ratio Leap
-* **AS-IS Process Efficiency:** $\frac{26.0\text{ Active Hours}}{372.0\text{ Operating Hours}} = \mathbf{6.99\%}$
-* **TO-BE Process Efficiency:** $\frac{31.5\text{ Active Value Hours}}{148.0\text{ Operating Hours}} = \mathbf{38.5\%}$
-* **Result:** Non-value-added waiting time collapses from **93.0% to 61.5%**, converting idle administrative latency into productive candidate relationship-building.
+### 3.2 Summary of Proposed Cycle Compression
+* **Manual AS-IS Baseline:** **46.5 Calendar Days**
+* **Proposed TO-BE Target:** **18.5 Calendar Days** (a proposed 60.2% compression across administrative waiting intervals).
+* **Observed Synthetic Dataset Benchmark:** **23.0 Calendar Days** empirical average across the 21 hires in the 1,250 synthetic records.
+* **Key Automation Drivers:** Instant knockout pre-screening, candidate self-service calendar booking, mobile evaluation scorecards, and one-click digital offer generation.
 
 ---
 
@@ -188,45 +189,43 @@ This matrix establishes direct traceability between the 12 AS-IS pain points ide
 
 | AS-IS Pain Point ID | Problem Description | TO-BE System Solution & Enabler | Measurable Business Value Realized |
 | :---: | :--- | :--- | :--- |
-| **PP-01** | Unstandardized Requisition Forms | Standardized digital requisition builder with pre-approved salary bands and JD library. | 100% elimination of requisition rework; approval cycle cut by 5.5 days. |
+| **PP-01** | Unstandardized Requisition Forms | Standardized digital requisition builder with pre-approved salary bands and JD library. | Elimination of requisition rework; approval cycle cut by 5.5 days. |
 | **PP-02** | Requisitions Lost in Email Threads | Automated multi-tier approval routing with automated 24-hour escalation reminders. | Approval latency reduced from 7.5 days to 2.0 days. |
 | **PP-03** | Manual Copy-Paste Job Board Posting | One-click job syndication to LinkedIn, Indeed, and internal portal via open APIs. | Recruiter administrative posting time reduced from 3 hours to 10 minutes per job. |
-| **PP-04** | Resumes Scattered in Inbox Attachments | Centralized cloud candidate database with searchable resumes, skills, and historical notes. | Zero lost resumes; 100% centralized talent pool searchable across all roles. |
-| **PP-05** | Conflicting Recruiter Excel Spreadsheets | Single Source of Truth (SSOT) multi-tenant database with role-based access control. | Total elimination of duplicate candidate outreach and conflicting tracker files. |
-| **PP-06** | "Black Hole" Candidate Communication | Automated event-driven status emails and 24/7 self-service Candidate Tracking Portal. | Candidate drop-off reduced from 28% to <10%; candidate NPS up by +45 pts. |
+| **PP-04** | Resumes Scattered in Inbox Attachments | Centralized cloud candidate database with searchable resumes, skills, and historical notes. | Zero lost resumes; centralized talent pool searchable across all roles. |
+| **PP-05** | Conflicting Recruiter Excel Spreadsheets | Single Source of Truth (SSOT) database with role-based access control. | Total elimination of duplicate candidate outreach and conflicting tracker files. |
+| **PP-06** | "Black Hole" Candidate Communication | Automated event-driven status emails and 24/7 self-service Candidate Tracking Portal. | Candidate drop-off reduced from 28% to <10%. |
 | **PP-07** | Manual Resume Screening Overload | Automated knockout questions and keyword/skill parsing to surface top-ranked matches. | Recruiter resume triage time reduced by 54% (6.5 days to 3.0 days). |
 | **PP-08** | Hiring Manager Review Delays | Dedicated Hiring Manager portal with consolidated candidate dossiers and 1-click reviews. | HM review turnaround reduced from 5.5 days to 2.0 days. |
 | **PP-09** | 6.8 Emails per Scheduled Interview | Candidate self-service calendar booking synced in real time with Microsoft 365 / Google. | Scheduling elapsed time slashed from 4.5 days to under 24 hours. |
-| **PP-10** | Subjective / Unrecorded Interview Feedback | Embedded digital evaluation rubrics with mandatory competency scoring and notes. | 100% audit-ready evaluation records; eliminated hiring bias; higher quality hires. |
-| **PP-11** | Manual Word Offer Drafting Errors | Dynamic offer letter generator pre-populated from approved salary bands and e-signature. | Offer generation time cut by 58%; zero clerical compensation errors. |
-| **PP-12** | Outdated Quarterly Excel Metrics | Live Power BI Recruitment Analytics Dashboard with real-time KPI funnel metrics. | Real-time visibility into hiring velocity, source ROI, and recruiter bottlenecks. |
+| **PP-10** | Subjective / Unrecorded Interview Feedback | Embedded digital evaluation rubrics with mandatory competency scoring and notes. | Standardized evaluation records; reduced hiring bias; higher quality hires. |
+| **PP-11** | Manual Word Offer Drafting Errors | Dynamic offer letter generator pre-populated from approved salary bands and e-signature. | Offer generation time cut by 58%; eliminated clerical compensation errors. |
+| **PP-12** | Outdated Quarterly Excel Metrics | Live Power BI Recruitment Analytics Dashboard with real-time KPI funnel metrics. | Continuous visibility into hiring velocity, source ROI, and recruiter bottlenecks. |
 
 ---
 
-## 6. Strategic Business Impact & Financial ROI Justification
+## 6. Strategic Business Impact & Illustrative Business Case
 
-### 6.1 Direct Financial Return on Investment (Annual Projection)
+> **Modeling Note:** The figures below represent an **illustrative business-case scenario model** developed for learning purposes to simulate how enterprise operational savings are evaluated in a system proposal.
 
 ```mermaid
 flowchart LR
-    A["<b>Annual Direct Savings</b><br/>• Agency Fee Reduction: $228,000<br/>• Recruiter Capacity Hours: $112,000<br/>• Total Annual Benefit: $340,000"]
-    B["<b>Implementation & SaaS Cost</b><br/>• ATS Platform Licenses: $65,000<br/>• Implementation & Training: $40,000<br/>• Year 1 Total Investment: $105,000"]
+    A["<b>Illustrative Scenario Savings</b><br/>• Agency Fee Reduction: $228,000<br/>• Recruiter Capacity Hours: $112,000<br/>• Total Projected Benefit: $340,000"]
+    B["<b>Illustrative Investment Estimate</b><br/>• ATS Platform Licenses: $65,000<br/>• Implementation & Training: $40,000<br/>• Year 1 Estimated Outlay: $105,000"]
     
-    A --> C["<b>Year 1 Net ROI: 223.8%</b><br/>Payback Period: 3.7 Months"]
+    A --> C["<b>Illustrative Business Case Model</b><br/>Projected Net Operational Benefit"]
     B --> C
 ```
 
-1. **Recruitment Agency Cost Avoidance:**  
-   * Baseline: \$380,000 annual external agency spend (35% of all hires).  
-   * Target: 60% reduction in agency reliance due to faster internal screening and talent rediscovery.  
-   * **Direct Annual Savings: \$228,000**.
-2. **Recruiter Administrative Productivity Reinvestment:**  
-   * 8 Recruiters spending 65% of time on manual coordination = 208 hours/week wasted.  
-   * Automated ATS saves 135 recruiter hours/week = equivalent to 3.3 additional FTE recruiter capacity.  
-   * **Monetized Productivity Value: ~\$112,000 per annum**.
-3. **Total Year 1 Benefit:** **\$340,000** against an estimated system implementation and licensing investment of **\$105,000**.  
-   * **Net Year 1 Financial Return (ROI):** **223.8%**  
-   * **Capital Payback Period:** **3.7 Months**.
+1. **Recruitment Agency Cost Avoidance Assumption:**  
+   * Baseline Scenario: \$380,000 annual external agency spend (35% of all hires).  
+   * Target Scenario: 60% reduction in agency reliance due to faster internal screening and talent rediscovery.  
+   * **Illustrative Annual Savings: \$228,000**.
+2. **Recruiter Administrative Productivity Reinvestment Assumption:**  
+   * 8 Recruiters spending significant time on manual coordination.  
+   * Automated ATS saves ~135 recruiter hours/week across the team, reallocated toward active sourcing.  
+   * **Monetized Productivity Estimate: ~\$112,000 per annum**.
+3. **Illustrative Summary:** Total estimated benefit of **\$340,000** against an illustrative implementation and licensing estimate of **\$105,000**.
 
 ---
 *End of Deliverable 3. Next Phase: Deliverable 4 — Software Requirements Specification (SRS) with 30+ Numbered Functional & Non-Functional Requirements.*

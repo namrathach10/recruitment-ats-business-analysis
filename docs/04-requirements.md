@@ -7,14 +7,14 @@
 **Project Type:** Personal Learning Project / Business Systems Analysis Portfolio  
 **Author / Role:** Business Analyst / Business Systems Analysis (Student Portfolio Project)  
 **Target Organization:** Novus Enterprise Technologies (Fictional mid-sized enterprise scenario)  
-**Specification Standard:** ISO/IEC/IEEE 29148:2018 (Systems and Software Engineering — Requirements Engineering)  
+**Specification Reference:** Referencing the ISO/IEC/IEEE 29148:2018 framework (Requirements Engineering)  
 **Dependencies:** Cross-referenced with ATS-BA-DOC-001 (Charter), DOC-002 (AS-IS), and DOC-003 (TO-BE)  
 
 ---
 
 ## 1. Requirements Engineering Framework & Conventions
 
-> **Framing Note:** These requirements represent a **proposed Software Requirements Specification (SRS)** formulated for a fictional enterprise scenario to demonstrate professional requirements engineering, traceability, and MoSCoW prioritization.
+> **Framing Note:** This SRS defines proposed requirements for the conceptual ATS solution. Requirements were created for this personal learning project and were not elicited from a real organization.
 
 ### 1.1 Requirements Classification Scheme
 Every requirement in this specification is assigned a unique tracking identifier, descriptive title, MoSCoW priority classification, and traceability mapping.

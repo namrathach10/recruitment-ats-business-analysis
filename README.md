@@ -1,59 +1,73 @@
-# Enterprise Recruitment & Applicant Tracking System (ATS)
-## Business Process Analysis & Information System Proposal
+# Recruitment & Applicant Tracking System (ATS)
+## Business Analysis & Systems Project — Student Portfolio
 
-[![Role: Business Analyst Portfolio](https://img.shields.io/badge/Role-Business%20Analyst%20%7C%20BSA%20Portfolio-blue.svg?style=flat-square)](#10-author--attribution)
-[![Project: Personal Learning Project](https://img.shields.io/badge/Project-Personal%20Learning%20Project-059669.svg?style=flat-square)](#1-executive-summary)
-[![Methodology: BABOK & C4 Architecture](https://img.shields.io/badge/Methodology-BABOK%20%7C%20Agile%20%7C%20C4-8b5cf6.svg?style=flat-square)](#8-deliverables-inventory--traceability-matrix)
-[![Dataset: 1,250 Synthetic Records](https://img.shields.io/badge/Dataset-1%2C250%20Synthetic%20Records-d97706.svg?style=flat-square)](#5-data-analytics--telemetry-1250-synthetic-records)
+[![Role: Business Analyst Portfolio](https://img.shields.io/badge/Role-Business%20Analyst%20%7C%20Student%20Portfolio-blue.svg?style=flat-square)](#skills-demonstrated)
+[![Project: Personal Learning Project](https://img.shields.io/badge/Project-Personal%20Learning%20Project-059669.svg?style=flat-square)](#project-overview)
+[![Methodology: BABOK & C4 Architecture](https://img.shields.io/badge/Methodology-BABOK%20%7C%20Agile%20%7C%20C4-8b5cf6.svg?style=flat-square)](#documentation)
+[![Dataset: 1,250 Synthetic Records](https://img.shields.io/badge/Dataset-1%2C250%20Synthetic%20Records-d97706.svg?style=flat-square)](#synthetic-dataset)
 
 > **Portfolio & Learning Project Note:**  
-> This repository contains an **end-to-end Business Process Analysis, Conceptual Architecture Specification, and Information System Proposal** developed as a **Personal Learning Project** by a 4th-year Computer Science & Engineering student pursuing roles in **Business Analysis, Business Systems Analysis (BSA), and Information Systems Management**.  
+> This repository contains an **end-to-end Business Process Analysis, Requirements Specification, Conceptual System Architecture, and Analytics Project** developed as a **Personal Learning Project** by a 4th-year Computer Science & Engineering student pursuing careers in **Business Analysis, Business Systems Analysis (BSA), and Information Management**.  
 >  
-> The project explores **Novus Enterprise Technologies (a fictional mid-sized enterprise scenario: 1,800 FTEs, 350+ annual hires)** to simulate realistic operational diagnostic techniques, process re-engineering (BABOK/BPMN), requirements elicitation (MoSCoW), 3NF data modeling, conceptual cloud architecture (C4), Power BI telemetry, and an interactive prototype.
+> The project explores **Novus Enterprise Technologies (a fictional mid-sized enterprise scenario: 1,800 FTEs, ~350 annual hiring demand)** to simulate realistic operational diagnosis, process re-engineering (BABOK/BPMN 2.0), requirements elicitation (MoSCoW), 3NF data modeling, conceptual cloud architecture (C4), Power BI analytics telemetry, and an interactive browser prototype.
 
 ---
 
 ## Table of Contents
-1. [Executive Summary](#1-executive-summary)
-2. [The Business Problem & Operational Baseline](#2-the-business-problem--operational-baseline)
-3. [Business Process Engineering (AS-IS vs. TO-BE)](#3-business-process-engineering-as-is-vs-to-be)
-4. [Conceptual System Architecture & Data Modeling](#4-conceptual-system-architecture--data-modeling)
-5. [Data Analytics & Telemetry (1,250 Synthetic Records)](#5-data-analytics--telemetry-1250-synthetic-records)
-6. [Business Case & Financial Analysis](#6-business-case--financial-analysis)
-7. [Implementation Roadmap & Change Governance](#7-implementation-roadmap--change-governance)
-8. [Deliverables Inventory & Traceability Matrix](#8-deliverables-inventory--traceability-matrix)
-9. [Repository Directory Structure](#9-repository-directory-structure)
-10. [Author & Attribution](#10-author--attribution)
+1. [Project Overview](#project-overview)
+2. [What I Worked On](#what-i-worked-on)
+3. [The Business Problem & Operational Baseline](#the-business-problem--operational-baseline)
+4. [AS-IS Process Analysis](#as-is-process-analysis)
+5. [Proposed TO-BE Solution & Operating Model](#proposed-to-be-solution--operating-model)
+6. [Conceptual System Architecture & Data Model](#conceptual-system-architecture--data-model)
+7. [Synthetic Dataset](#synthetic-dataset)
+8. [Power BI Dashboard](#power-bi-dashboard)
+9. [Interactive Prototype](#interactive-prototype)
+10. [Documentation & Traceability](#documentation--traceability)
+11. [Project Limitations](#project-limitations)
+12. [Skills Demonstrated](#skills-demonstrated)
+13. [Repository Directory Structure](#repository-directory-structure)
 
 ---
 
-## 1. Executive Summary
+## Project Overview
 
-In this project, I evaluated talent acquisition operations within **Novus Enterprise (a fictional mid-sized enterprise scenario)** facing severe operational friction, including an unsustainable **46.5-day baseline Time-to-Hire**, an alarming **28% candidate abandonment rate**, and **$380,000 in annual agency spend** driven by internal screening and scheduling bottlenecks.
+In this personal learning project, I conducted an independent operational study of talent acquisition within **Novus Enterprise Technologies (a fictional mid-sized enterprise scenario)**. 
 
-Adopting the role of a **Business Systems Analyst**, I conducted an end-to-end operational diagnostic and formulated a comprehensive **Information System Proposal** for a unified, cloud-native Applicant Tracking System (ATS).
+The fictional scenario models an organization experiencing significant recruitment drag:
+* **Baseline Time-to-Hire:** **46.5 calendar days** (manual AS-IS baseline).
+* **Candidate Abandonment:** **28%** drop-off rate during prolonged screening and scheduling handoffs.
+* **Agency Dependency:** **$380,000 / year** illustrative spend on external contingency recruiters to bypass internal screening delays.
 
-### Key Proposed Outcomes & Targets:
-* **Time-to-Hire Reduction:** Decreases from a **46.5-day manual baseline** toward a **18.5-day target SLA** *(the synthetic dataset observation demonstrates an empirical average of **23.0 days** across 1,250 records)*.
-* **Candidate Abandonment Curbed:** Reduces candidate drop-off from **28.0%** to **< 10.0%** via self-service interview booking and transparent stage tracking.
-* **Scorecard Turnaround Slashed:** Decreases evaluation turnaround from **3.8 calendar days** to **< 24 hours** via calibrated mobile scorecards.
-* **Recruiter Administrative Savings:** Automates manual triage and coordination, saving an estimated **12–14 hours per recruiter per week**.
-* **Financial Business Case:** Demonstrates estimated net operational savings of **~$182,500 – $340,000 / year** by reducing external agency dependency from 35% to 10%.
+To resolve these operational bottlenecks, I formulated a comprehensive **Information System Proposal** for a unified Applicant Tracking System (ATS), documented formal functional requirements, designed a conceptual cloud architecture, created a synthetic dataset of 1,250 applicant records, built an analytical dashboard in Power BI, and implemented an interactive prototype.
 
 ---
 
-## 2. The Business Problem & Operational Baseline
+## What I Worked On
 
-Prior to this proposal, talent acquisition at Novus Enterprise was managed across disconnected point solutions: email inboxes, local desktop spreadsheets, paper evaluation notes, and standalone job board portals.
+As part of this project, I independently produced:
+* **Operational Process Modeling:** Mapped legacy AS-IS workflows and engineered automated TO-BE swimlane processes using BPMN 2.0 notation.
+* **Requirements Engineering:** Authored a 28-FR and 15-NFR Software Requirements Specification (SRS) structured under MoSCoW prioritization.
+* **System Design & Modeling:** Developed UML 2.5 use case diagrams, sequence flows, and a normalized Third Normal Form (3NF) relational data model with 12 entities.
+* **Conceptual Cloud Architecture:** Designed a modular, microservices-oriented C4 architectural model with illustrative REST/webhook integration contracts for HRIS, calendar, and e-signature services.
+* **Data Engineering & Telemetry:** Generated an anonymized synthetic dataset of 1,250 historical applicant records modeling recruitment funnel progression.
+* **Analytics Implementation:** Built a multi-page recruitment intelligence dashboard in Microsoft Power BI using custom DAX measures.
+* **Interactive Prototype:** Developed a self-contained web prototype demonstrating candidate self-service scheduling, recruiter Kanban pipeline triage, and manager evaluation scorecards.
+
+---
+
+## The Business Problem & Operational Baseline
+
+The fictional baseline assumes recruitment was managed across disconnected tools: email inboxes, local desktop spreadsheets, paper evaluation notes, and standalone job board portals.
 
 ### Root-Cause Analysis Matrix
 
-| Friction Area | AS-IS Pain Point | Root Cause | Target TO-BE SLA |
+| Friction Area | AS-IS Operational Friction | Root Cause Identified | Proposed Design Target |
 | :--- | :--- | :--- | :--- |
-| **Intake & Screening** | 65% recruiter time lost to manual data entry; resumes untracked in personal inboxes. | Absence of centralized resume parsing and automated knockout question engine. | Resume parsed & scored in **< 30 seconds**. |
-| **Interview Coordination** | Takes **4.8 calendar days** to schedule panel interviews via back-and-forth emails. | Lack of two-way calendar sync with Google Workspace / Microsoft Graph. | Candidate self-service booking in **< 5 minutes**. |
-| **Scorecard Collection** | Takes **3.8 days** to collect panel notes; candidates accept competing offers. | Scorecards distributed as loose email notes without a structured mobile rubric. | Standardized rubric submitted in **< 24 hours**. |
-| **Compliance & Governance** | 40+ hours per quarter spent assembling manual EEO audit logs; PII unencrypted. | Zero centralized database audit trails; disparate, insecure spreadsheet storage. | Designed to support **GDPR/data governance auditability**. |
+| **Intake & Screening** | Resumes untracked in personal email inboxes; recruiters lose time to manual data entry. | Absence of centralized resume parsing and automated knockout question screening. | Automated parsing & knockout evaluation in **< 30 seconds**. |
+| **Interview Coordination** | Takes **4.8 calendar days** to coordinate panel interview availability via back-and-forth emails. | Lack of two-way calendar synchronization with corporate email platforms. | Candidate self-service slot booking in **< 5 minutes**. |
+| **Scorecard Collection** | Takes **3.8 calendar days** on average to collect interview evaluation notes. | Scorecards distributed as loose email notes without a standardized rubric. | Calibrated evaluation rubric submitted in **< 24 hours**. |
+| **Data Governance** | Candidate PII stored unencrypted in local spreadsheets and email archives. | Absence of a centralized relational database with role-based access control. | Centralized database designed to support **data privacy and retention governance**. |
 
 ```mermaid
 flowchart TD
@@ -69,16 +83,15 @@ flowchart TD
         
         D["Data & Visibility Gaps"] --> D1["Zero visibility into recruitment conversion funnel"]
         D --> D2["Candidate PII unencrypted in personal inboxes"]
-        D --> D3["Inability to compute accurate Cost-per-Hire"]
+        D --> D3["Inability to compute accurate recruitment metrics"]
     end
 ```
 
 ---
 
-## 3. Business Process Engineering (AS-IS vs. TO-BE)
+## AS-IS Process Analysis
 
-### AS-IS Process Baseline
-The legacy workflow suffered from sequential handoff delays, feedback dead-ends, and a **46.5-day average cycle**:
+The legacy operational workflow suffered from sequential handoff delays, feedback dead-ends, and a **46.5-calendar-day baseline cycle time**:
 
 ```mermaid
 sequenceDiagram
@@ -95,7 +108,7 @@ sequenceDiagram
     R->>HM: Forwards resume attachment via email
     Note over HM: 4.5 days average review delay
     HM->>R: Approves candidate for interview via email
-    R->>C: Email proposing 3 interview time slots
+    R->>C: Email proposing interview time slots
     C->>R: Replies with availability conflicts
     Note over R,C: 4.8 calendar days elapsed for scheduling
     R->>HM: Sends manual calendar invite
@@ -104,65 +117,66 @@ sequenceDiagram
     Note over R: Candidate accepts competing offer due to delay (28% drop-off)
 ```
 
-*Detailed Document Reference:* [`docs/02-as-is-analysis.md`](docs/02-as-is-analysis.md)
+*Detailed Analysis Document:* [`docs/02-as-is-analysis.md`](docs/02-as-is-analysis.md)
 
 ---
 
-### TO-BE Target Operating Model
-The proposed target operating model streamlines candidate progression into five automated, integrated stages:
+## Proposed TO-BE Solution & Operating Model
+
+The proposed target operating model streamlines the recruitment lifecycle into five automated, integrated stages:
 
 ```mermaid
 flowchart LR
-    A["1. Application Ingestion<br/>• Multi-channel sync<br/>• Auto-knockout rules<br/>• Instant OCR parsing"] --> B["2. Automated Screening<br/>• Match scoring<br/>• Kanban triage<br/>• 1-click HM review"]
-    B --> C["3. Self-Service Booking<br/>• Two-way calendar sync<br/>• Automated reminders<br/>• Dynamic panel scheduling"]
+    A["1. Application Ingestion<br/>• Multi-channel sync<br/>• Auto-knockout rules<br/>• Instant OCR parsing"] --> B["2. Automated Screening<br/>• Keyword triage<br/>• Kanban workflow<br/>• 1-click HM review"]
+    B --> C["3. Self-Service Booking<br/>• Two-way calendar sync<br/>• Automated reminders<br/>• Panel scheduling"]
     C --> D["4. Standardized Rubric<br/>• Mobile scorecard<br/>• Calibrated 1-5 ratings<br/>• Automated SLA alert (<24h)"]
-    D --> E["5. Digital Offer & Handover<br/>• 1-click comp approval<br/>• DocuSign e-signature<br/>• HRIS auto-sync"]
+    D --> E["5. Digital Offer & Handover<br/>• Comp approval workflow<br/>• Digital signature dispatch<br/>• HRIS data handover"]
 ```
 
-#### Key Proposed Innovations:
-1. **Automated Ingestion:** Multi-channel job syndication, instant OCR resume parsing, and auto-scoring against knockout criteria.
-2. **Self-Service Calendar Booking:** Dynamic two-way calendar availability eliminates recruiter scheduling delays.
-3. **Calibrated Mobile Rubric:** Structured 1-to-5 competency evaluation submitted in under 2 minutes immediately post-interview.
-4. **Automated Offer & e-Signature:** Standardized compensation approval workflows with automated e-signature dispatch.
+### Metric Interpretation & Velocity Targets:
+* **46.5 Calendar Days:** The baseline manual AS-IS process duration established in the fictional scenario.
+* **18.5 Calendar Days:** The **proposed target SLA / design estimate** under the fully optimized TO-BE operating model.
+* **23.0 Calendar Days:** The **observed empirical average** calculated across the 21 hires in the 1,250-record synthetic dataset (range: 15 to 30 days).  
+*(Note: The 23.0-day result represents an analytical finding from the synthetic dataset, not real-world performance of a deployed system.)*
 
-*Detailed Document Reference:* [`docs/03-to-be-design.md`](docs/03-to-be-design.md)
+*Detailed Process Design Document:* [`docs/03-to-be-design.md`](docs/03-to-be-design.md)
 
 ---
 
-## 4. Conceptual System Architecture & Data Modeling
+## Conceptual System Architecture & Data Model
 
 ### Proposed Conceptual Cloud Architecture
-For this personal learning project, I designed a **conceptual cloud-native architecture** based on microservices, event streaming, and role-based security isolation:
+For this personal learning project, I designed a **conceptual cloud-native architecture** demonstrating multi-tier micro-modular principles:
 
 ```mermaid
 graph TD
-    subgraph Client Layer
-        CP["Candidate Portal<br/>(React / Next.js)"]
-        RW["Recruiter Workbench<br/>(React / Tailwind)"]
-        MP["Manager Mobile App<br/>(PWA Scorecards)"]
+    subgraph Presentation Layer
+        CP["Candidate Career Portal<br/>(Proposed: Next.js / React)"]
+        RW["Recruiter Workbench<br/>(Proposed: React SPA Kanban)"]
+        MP["Manager Evaluation App<br/>(Proposed: Mobile-First PWA)"]
     end
 
-    subgraph Security & API Gateway Layer
-        WAF["WAF & DDoS Shield"]
-        GW["Kong API Gateway / ALB<br/>• JWT Authentication & Rate Limiting"]
+    subgraph Gateway & Security Layer
+        WAF["WAF & Security Filter"]
+        GW["API Gateway<br/>• JWT Authentication & Rate Limiting"]
     end
 
-    subgraph Microservices Tier
-        MS1["Job & Requisition Service"]
+    subgraph Conceptual Microservices
+        MS1["Requisition & Job Service"]
         MS2["Candidate Ingestion & OCR Service"]
         MS3["Scheduling & Calendar Service"]
-        MS4["Evaluation & Scorecard Service"]
-        MS5["Offer & e-Signature Service"]
+        MS4["Scorecard & Evaluation Service"]
+        MS5["Offer & Handover Service"]
     end
 
     subgraph Data & Storage Tier
-        KAFKA["Apache Kafka Event Bus"]
-        DB[(Amazon Aurora PostgreSQL 15)]
-        CACHE[(Amazon ElastiCache Redis)]
-        S3[(Encrypted Cloud Object Store)]
+        KAFKA["Event Bus (Conceptual Kafka)"]
+        DB[(Primary Relational DB - Aurora PostgreSQL)]
+        CACHE[(Session Cache - Redis)]
+        S3[(Encrypted Document Store)]
     end
 
-    subgraph Proposed Enterprise Integrations (Illustrative)
+    subgraph Illustrative Enterprise Integrations
         WD["Core HRIS (Workday / SuccessFactors)"]
         CAL["Calendar API (MS Graph / Google Workspace)"]
         DS["e-Signature API (DocuSign)"]
@@ -182,18 +196,14 @@ graph TD
     MS1 & MS5 <--> WD
 ```
 
-#### Proposed Enterprise Integrations (Illustrative Architecture Design):
-* **Core HRIS:** Bi-directional REST sync for department hierarchies and automated new-hire intake provisioning.
-* **Calendar Engine:** Two-way integration with Microsoft Graph / Google Calendar APIs for real-time interviewer availability.
-* **DocuSign e-Signature:** Secure webhook integration managing offer letter delivery and signature tracking.
-* **Event-Driven Messaging:** Decoupled Kafka topics handling candidate stage transitions, notifications, and analytics pipelines.
+*Note: All architecture tiers, microservices, and external integrations represent an **illustrative system proposal** developed for learning and evaluation.*
 
-*Detailed Document Reference:* [`docs/07-architecture.md`](docs/07-architecture.md)
+*Detailed Architecture Document:* [`docs/07-architecture.md`](docs/07-architecture.md)
 
 ---
 
-### Normalized 3NF Enterprise Relational Data Model
-The proposed PostgreSQL schema enforces 3NF normalization across core recruiting entities to guarantee referential integrity and support downstream BI reporting:
+### Normalized 3NF Relational Data Model
+The proposed relational schema models 12 core recruiting entities normalized to Third Normal Form (3NF):
 
 ```mermaid
 erDiagram
@@ -245,118 +255,110 @@ erDiagram
     }
 ```
 
-*Detailed Document Reference:* [`docs/06-data-model.md`](docs/06-data-model.md)
+*Detailed Data Model Document:* [`docs/06-data-model.md`](docs/06-data-model.md)
 
 ---
 
-## 5. Data Analytics & Telemetry (1,250 Synthetic Records)
+## Synthetic Dataset
 
-To substantiate the system proposal with quantitative evidence, a **synthetic recruitment dataset of 1,250 candidate records** was generated, structured, and analyzed.
+To substantiate the business analysis proposal and drive the reporting models, I authored a **synthetic dataset of 1,250 historical applicant records**:
 
-### Executive Overview Dashboard
-Executive-level telemetry monitoring application volume, placement yield, time-to-hire velocity, and stage bottlenecks:
+* **File Location:** [`data/recruitment_sample_dataset_anonymized.csv`](data/recruitment_sample_dataset_anonymized.csv)
+* **Dataset Documentation:** [`data/README.md`](data/README.md)
+* **Zero Real PII:** Candidate names are standardized (`Candidate_0001` through `Candidate_1250`) and email addresses utilize the RFC 2606 reserved `.example.com` domain.
 
-![Executive Overview Dashboard](dashboard/screenshots/executive-overview.png)
+### Funnel Progression Summary:
 
----
+| Stage | Candidates | Cohort % | Stage-to-Stage Yield |
+| :--- | :---: | :---: | :---: |
+| **1. Applications** | 1,250 | 100.0% | Initial Cohort Volume |
+| **2. Screened** | 650 | 52.0% | 52.0% Screening Pass Rate |
+| **3. Shortlisted** | 185 | 14.8% | 28.5% Shortlist Rate |
+| **4. Interviewed** | 96 | 7.7% | 51.9% Interview Conversion |
+| **5. Offers Extended** | 28 | 2.2% | 29.2% Offer Extension Rate |
+| **6. Confirmed Hires** | **21** | **1.7%** | **75.0% Offer Acceptance Rate** (21 / 28) |
 
-### Recruitment Pipeline Conversion Funnel
-Funnel attrition analytics tracking candidate progression through the 5 standardized stages:
-
-![Recruitment Funnel Dashboard](dashboard/screenshots/recruitment-funnel.png)
-
----
-
-### Sourcing Channel Performance & Quality Analysis
-Empirical sourcing channel attribution comparing application volume against confirmed hire yield:
-
-![Sourcing Performance Dashboard](dashboard/screenshots/source-performance.png)
+* **Observed Time-to-Hire:** **23.0 Calendar Days** empirical average across the 21 hired records.
 
 ---
 
-### Recruitment Velocity & Time Efficiency Analysis
-Pinpointing calendar latency across interview coordination, scorecard submission, and offer turnaround:
+## Power BI Dashboard
 
-![Time Efficiency Dashboard](dashboard/screenshots/time-efficiency.png)
+I built an interactive analytical dashboard in **Microsoft Power BI** driven by the 1,250 synthetic records to monitor recruitment velocity, stage attrition, source channels, and evaluator calibration.
 
----
+* **Power BI File:** [`dashboard/Recruitment_ATS_Dashboard.pbix`](dashboard/Recruitment_ATS_Dashboard.pbix)
+* **Custom DAX Measures:** Documented in [`docs/08-analytics.md`](docs/08-analytics.md)
 
-### Candidate Telemetry & Data Explorer
-Searchable candidate explorer demonstrating data hygiene, pagination, and zero-PII anonymized records:
+### Visual Telemetry Preview:
 
-![Data Explorer Dashboard](dashboard/screenshots/data-explorer.png)
+| Executive Overview | Recruitment Funnel |
+| :---: | :---: |
+| ![Executive Overview Dashboard](dashboard/screenshots/executive-overview.png) | ![Recruitment Funnel Dashboard](dashboard/screenshots/recruitment-funnel.png) |
 
----
-
-### Key Empirical Findings from Synthetic Dataset:
-* **Funnel Velocity:** 1,250 Applications &rarr; 650 Screened (52.0%) &rarr; 185 Shortlisted (14.8%) &rarr; 96 Interviewed (7.7%) &rarr; 28 Offers (2.2%) &rarr; **21 Hires (75.0% Offer Acceptance)**.
-* **Time-to-Hire Breakdown:**
-  * **46.5 Days:** Baseline manual AS-IS process duration.
-  * **18.5 Days:** Proposed target SLA (TO-BE system design estimate).
-  * **23.0 Days:** Observed empirical average across the 21 hires in the synthetic dataset.
-* **Referral Sourcing Superiority:** Employee Referrals yielded an **11.4% hire conversion rate** (vs. 0.7% for LinkedIn and 0.3% for job boards) with significantly higher evaluation scores (4.6 vs 2.8 average).
-
-### Analytics & Data Assets:
-* **Interactive Web Intelligence Dashboard:** [`dashboard/interactive-dashboard.html`](dashboard/interactive-dashboard.html) *(Self-contained HTML file featuring 13 interactive analytics views and operational workflows)*
-* **Power BI Report Package:** [`dashboard/Recruitment_ATS_Dashboard.pbix`](dashboard/Recruitment_ATS_Dashboard.pbix)
-* **Synthetic Dataset (CSV):** [`data/recruitment_sample_dataset_anonymized.csv`](data/recruitment_sample_dataset_anonymized.csv)
-* **Dataset Documentation & Schema:** [`data/README.md`](data/README.md)
-* **Detailed Analytics Specification:** [`docs/08-analytics.md`](docs/08-analytics.md)
+| Sourcing Performance | Time & Efficiency |
+| :---: | :---: |
+| ![Sourcing Performance Dashboard](dashboard/screenshots/source-performance.png) | ![Time Efficiency Dashboard](dashboard/screenshots/time-efficiency.png) |
 
 ---
 
-## 6. Business Case & Financial Analysis
+## Interactive Prototype
 
-As part of the business analysis exercise, I developed an illustrative **Cost-Benefit Analysis** evaluating the potential operational savings of replacing manual workflows with an automated ATS:
+To illustrate the proposed user experience for candidates, recruiters, and hiring managers, I created a self-contained, browser-based interactive prototype:
 
-| Operational Area | Baseline AS-IS Condition | Proposed System Impact | Estimated Annual Benefit |
-| :--- | :--- | :--- | :--- |
-| **External Agency Fees** | $380,000 / year (35% of requisitions outsourced) | Shift agency share from 35% down to 10% through talent rediscovery & automated sourcing | **+$180,000 / year** |
-| **Recruiter Productivity** | 15+ hours/recruiter/week spent on data entry and email scheduling | Automated parsing, self-service booking, and Kanban pipeline triage | **+$95,000 / year** (reallocated capacity) |
-| **Scheduling Coordination** | 4.8 calendar days lost per interview round | Candidate self-service calendar slot selection via MS Graph / Google APIs | **+$45,000 / year** |
-| **Total Projected Benefit** | High operational overhead | Substantial reduction in cycle latency and recruitment agency reliance | **~$320,000 / year** |
-
-*Note: Financial projections represent a conceptual business case model developed for this learning scenario.*
-
----
-
-## 7. Implementation Roadmap & Change Governance
-
-The proposed implementation roadmap outlines a phased 24-week rollout strategy designed to minimize operational disruption:
-
-```text
-Week 01-06: Phase 1 — Foundation & Master Data Sync (HRIS Data Mapping, Relational Schema, Auth/RBAC)
-Week 07-14: Phase 2 — Core ATS & Workflow Automation (Intake, Kanban Pipeline, Calendar Sync, Scorecards)
-Week 15-24: Phase 3 — Analytics Dashboards, Pilot Rollout, User Training & Enterprise Cutover
-```
-
-*Change Management Strategy:* Includes role-based workshops for 45 hiring managers, 8 full-time recruiters, and HR leadership, supported by standardized scoring rubrics and quick-reference job aids.
+* **Interactive Prototype File:** [`dashboard/interactive-dashboard.html`](dashboard/interactive-dashboard.html) *(Open in any modern browser)*
+* **Key Demonstration Modules:**
+  * **Candidate Portal Prototype:** Application tracker with stage timeline and self-service panel interview slot booking.
+  * **Recruiter Kanban Workbench:** Drag-and-drop candidate pipeline stage transitions with live stage counters.
+  * **Manager Evaluation Scorecard:** Split-screen candidate dossier with calibrated 1-to-5 star competency rating rubrics.
+  * **Executive Analytics Suite:** 8 interactive analytics views reflecting the 1,250 synthetic records with dynamic client-side filtering.
+  * **Data Explorer:** Searchable candidate registry with pagination and real-time filtered CSV export.
 
 ---
 
-## 8. Deliverables Inventory & Traceability Matrix
+## Documentation & Traceability
 
-Every project deliverable is fully documented and accessible within this repository:
+All 9 deliverables follow professional business analysis standards and are accessible directly via GitHub-relative links:
 
-| Deliverable Ref | Title & Link | Scope & Content | Primary Formats |
-| :--- | :--- | :--- | :--- |
-| **DOC-01** | [`01-project-charter.md`](docs/01-project-charter.md) | Business problem statement, scope boundary, stakeholder RACI, governance | Markdown |
-| **DOC-02** | [`02-as-is-analysis.md`](docs/02-as-is-analysis.md) | AS-IS process mapping, cycle latency, bottleneck root-cause analysis | Markdown |
-| **DOC-03** | [`03-to-be-design.md`](docs/03-to-be-design.md) | TO-BE operating model, 5-stage automated candidate journey, value realization | Markdown |
-| **DOC-04** | [`04-requirements.md`](docs/04-requirements.md) | 28 Functional & 15 Non-Functional requirements (MoSCoW prioritized) | Markdown |
-| **DOC-05** | [`05-uml-use-cases.md`](docs/05-uml-use-cases.md) | Actor hierarchy, detailed use cases, activity & sequence diagrams | Markdown |
-| **DOC-06** | [`06-data-model.md`](docs/06-data-model.md) | Normalized 3NF entity architecture, referential integrity, schema definitions | Markdown |
-| **DOC-07** | [`07-architecture.md`](docs/07-architecture.md) | Conceptual C4 architecture, microservices, API contracts, threat model | Markdown |
-| **DOC-08** | [`08-analytics.md`](docs/08-analytics.md) | Recruitment KPI framework, Power BI custom DAX library, funnel analytics | Markdown |
-| **DOC-09** | [`09-ui-ux.md`](docs/09-ui-ux.md) | UI wireframes, design system tokens, Nielsen Norman usability heuristics | Markdown |
+| Ref | Deliverable Title & Link | Focus & Methodology |
+| :---: | :--- | :--- |
+| **DOC-01** | [`01-project-charter.md`](docs/01-project-charter.md) | Business problem statement, scope boundary, simulated stakeholder personas |
+| **DOC-02** | [`02-as-is-analysis.md`](docs/02-as-is-analysis.md) | AS-IS process analysis, BPMN swimlanes, 46.5-day baseline latency diagnostics |
+| **DOC-03** | [`03-to-be-design.md`](docs/03-to-be-design.md) | TO-BE operating model, 5-stage automated flow, 18.5-day target SLA design |
+| **DOC-04** | [`04-requirements.md`](docs/04-requirements.md) | Proposed Software Requirements Specification (28 FRs, 15 NFRs, MoSCoW, RTM) |
+| **DOC-05** | [`05-uml-use-cases.md`](docs/05-uml-use-cases.md) | UML 2.5 use case diagrams, actor-goal matrix, detailed specifications |
+| **DOC-06** | [`06-data-model.md`](docs/06-data-model.md) | Normalized 3NF entity-relationship model, SQL schema, data dictionary |
+| **DOC-07** | [`07-architecture.md`](docs/07-architecture.md) | Conceptual C4 architecture, microservices breakdown, illustrative API contracts |
+| **DOC-08** | [`08-analytics.md`](docs/08-analytics.md) | Recruitment KPI framework, Power BI custom DAX measure library, funnel metrics |
+| **DOC-09** | [`09-ui-ux.md`](docs/09-ui-ux.md) | Role-specific UI wireframes, design system tokens, usability specifications |
 
 ---
 
-## 9. Repository Directory Structure
+## Project Limitations
+
+> **Transparency Disclosure:**  
+> * **Fictional Scenario:** Novus Enterprise Technologies is a fictional organization created for this academic and portfolio learning project. All operational metrics, employee personas, and business scenario assumptions are illustrative.
+> * **Conceptual Solution:** The ATS software requirements, architecture, and enterprise integrations represent a proposed conceptual design rather than a deployed production software system.
+> * **Synthetic Data:** The 1,250 applicant records are synthetic data generated for modeling purposes; no real candidate personal data was accessed or utilized.
+> * **Analytics & Prototype Scope:** The Microsoft Power BI report and browser-based HTML prototype were developed as interactive portfolio demonstrations of the proposed solution.
+
+---
+
+## Skills Demonstrated
+
+* **Business Systems Analysis (BSA):** Process modeling (AS-IS / TO-BE), swimlane mapping (BPMN 2.0), root-cause analysis (Fishbone, 5-Whys), MoSCoW requirements prioritization.
+* **Requirements Engineering:** Functional decomposition, Non-Functional Requirements (ISO 25010), Requirements Traceability Matrix (RTM).
+* **System Architecture & Modeling:** UML 2.5 use cases, C4 conceptual architecture, Third Normal Form (3NF) relational database design.
+* **Data Analytics & BI:** Kimball star schema dimensional modeling, custom DAX measure authoring, recruitment funnel analytics in Microsoft Power BI.
+* **Prototyping & UX Design:** Wireframe design, Nielsen Norman usability heuristics, client-side HTML5/JavaScript interactive prototype development.
+
+---
+
+## Repository Directory Structure
 
 ```text
 recruitment-ats-business-analysis/
 │
+├── .gitignore
 ├── README.md
 │
 ├── docs/
@@ -375,11 +377,8 @@ recruitment-ats-business-analysis/
 │   └── recruitment_sample_dataset_anonymized.csv
 │
 └── dashboard/
-    │
     ├── Recruitment_ATS_Dashboard.pbix
-    │
     ├── interactive-dashboard.html
-    │
     └── screenshots/
         ├── executive-overview.png
         ├── recruitment-funnel.png
@@ -389,14 +388,4 @@ recruitment-ats-business-analysis/
 ```
 
 ---
-
-## 10. Author & Attribution
-
-* **Author:** Business Analyst / Business Systems Analysis (Student Portfolio Project)
-* **Academic Background:** 4th-Year Computer Science & Engineering (B.Tech / B.E.)
-* **Focus Areas:** Business Systems Analysis, Business Process Re-engineering, Requirements Engineering, Data Architecture & Telemetry
-* **Methodological Standards Applied:** BABOK Guide (IIBA), BPMN 2.0 (OMG), C4 Software Architecture Model, Nielsen Norman Usability Heuristics, WCAG 2.1 AA
-* **Tools & Technologies Utilized:** Python, PostgreSQL, Power BI, Microsoft Excel, Markdown, Mermaid.js, Git
-
----
-*This repository is maintained as a personal academic and professional portfolio project demonstrating end-to-end business analysis and system design capabilities.*
+*Maintained as a student portfolio project demonstrating business systems analysis, software modeling, and data analytics.*

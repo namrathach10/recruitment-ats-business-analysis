@@ -14,7 +14,7 @@
 
 ## 1. UI/UX Design System & Information Architecture Principles
 
-> **Note on Persona & Mockup Data:** All candidate names (e.g., Maya Lin), recruiter names (e.g., Sarah Jenkins), hiring managers (e.g., David Vance), and requisition details displayed in these wireframes represent **fictional sample data** created for illustrative UI/UX modeling and usability demonstration.
+> **Note on Persona & Mockup Data:** All candidate names (e.g., Maya Lin), recruiter names (e.g., Sarah Jenkins), hiring managers (e.g., David Vance), and requisition details displayed in these wireframes represent **fictional sample data** created for illustrative UI/UX modeling and usability demonstration. Wireframes represent conceptual interface specifications and prototyping artifacts, rather than screenshots of a deployed enterprise production system.
 
 To eliminate the frustration, cognitive fatigue, and communication gaps identified in current operations, the user experience is structured around three role-specific design philosophies:
 
@@ -236,7 +236,7 @@ flowchart LR
 
 ## 7. Usability & Accessibility Compliance Guidelines
 
-1. **Accessibility Standards (WCAG 2.1 Level AA):**  
+1. **Accessibility Standards (Designed with WCAG 2.1 Level AA principles in mind):**  
    * Minimum text contrast ratio of **4.5:1** for normal text and **3:1** for large text components.
    * Full keyboard navigability (`Tab`, `Shift+Tab`, `Enter`, `Escape`) across all candidate application forms and calendar pickers.
    * Explicit `aria-label` and `aria-live` attributes on real-time stage updates and error banners.
