@@ -2658,13 +2658,13 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
 
         <div class="card">
           <div class="card-header">
-            <div class="card-title-group"><span class="card-title">Operational Recruitment Health Baseline</span><span class="card-subtitle">Real-time status check against defined operational SLA performance bands.</span></div>
+            <div class="card-title-group"><span class="card-title">Operational Recruitment Health Baseline</span><span class="card-subtitle">Interactive status view against defined operational performance bands.</span></div>
           </div>
           <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Velocity Health</span><span class="badge badge-warning">Attention</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px;">${m.avgTTH} Days</div>
-              <p style="font-size: 11px; color: var(--neutral);">Current TTH exceeds 18.5d target SLA; scheduling automation recommended.</p>
+              <p style="font-size: 11px; color: var(--neutral);">Observed TTH exceeds the proposed 18.5-day TO-BE target.</p>
             </div>
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Conversion Health</span><span class="badge badge-success">Healthy</span></div>
@@ -2905,10 +2905,10 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
               <span class="card-title">Novus Careers — Candidate Application Portal</span>
               <span class="card-subtitle">Candidate: Maya Lin | Target: Senior Systems Software Engineer (#REQ-2026-0104)</span>
             </div>
-            <span class="badge badge-info">Live Interactive Prototype</span>
+            <span class="badge badge-info">Interactive Prototype</span>
           </div>
 
-          <!-- 5-Stage Live Progress Bar -->
+          <!-- 5-Stage Application Progress Bar -->
           <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; position: relative;">
               <div style="position: absolute; top: 14px; left: 40px; right: 40px; height: 3px; background-color: #CBD5E1; z-index: 1;"></div>
@@ -3237,7 +3237,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
 
       container.innerHTML = `
         <div class="card">
-          <div class="card-header"><span class="card-title">Dataset Health & Quality Telemetry</span><span class="badge badge-success">Audit Verified</span></div>
+          <div class="card-header"><span class="card-title">Dataset Health & Quality Telemetry</span><span class="badge badge-success">Data Quality Checked</span></div>
           <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; font-size: 12px;">
             <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Total Records</span><div style="font-size: 18px; font-weight: 700;">${ALL_RECORDS.length}</div></div>
             <div style="background-color: var(--bg-main); padding: 10px; border-radius: 6px;"><span style="color: var(--neutral); font-size: 11px;">Attributes</span><div style="font-size: 18px; font-weight: 700;">23 Columns</div></div>
