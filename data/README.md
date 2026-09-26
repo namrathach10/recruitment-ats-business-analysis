@@ -56,4 +56,4 @@
 * **Interviews Conducted:** 96 (7.68%)
 * **Formal Offers Extended:** 28 (2.24%)
 * **Confirmed Hires:** 21 (75.0% Offer Acceptance Rate)
-* **Average Time-to-Hire:** **23.0 Calendar Days** (Legacy baseline: 46.5 days)
+* **Average Time-to-Hire:** **23.0 Calendar Days** (Observed synthetic dataset average vs. 46.5-day manual AS-IS baseline and 18.5-day proposed target SLA)
