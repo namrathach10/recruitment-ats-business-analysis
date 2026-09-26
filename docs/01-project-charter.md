@@ -16,7 +16,7 @@
 ### 1.1 Executive Summary
 Novus Enterprise Technologies is a **fictional mid-sized enterprise scenario** created to simulate realistic operational friction and escalating recruitment costs across decentralized corporate business units. In this operational baseline, talent acquisition is managed via fragmented email correspondence, manual desktop spreadsheets, third-party job boards, and disparate calendar invites.
 
-This fragmentation has resulted in an average **Time-to-Hire of 46.5 calendar days**, a **28% candidate abandonment rate** during screening and scheduling stages, compliance vulnerabilities regarding resume data privacy (GDPR / EEOC), and substantial reliance on external recruitment agencies (estimated at 35% of all requisitions) incurred to bypass internal screening bottlenecks.
+This fragmentation has resulted in an average **Time-to-Hire of 46.5 calendar days**, a **28% candidate abandonment rate** during screening and scheduling stages, heightened data governance risks across decentralized inboxes (including candidate data privacy, retention, and employment-recordkeeping challenges), and substantial reliance on external recruitment agencies (estimated at 35% of all requisitions) incurred to bypass internal screening bottlenecks.
 
 This document establishes the charter for an end-to-end **Business Process Analysis and Information System Proposal** for a unified, cloud-native **Recruitment & Applicant Tracking System (ATS)**. The initiative redesigns the talent acquisition lifecycle into a standardized, auditable, and automated digital ecosystem from job requisition inception through candidate offer acceptance and onboarding handover.
 

@@ -122,8 +122,8 @@ flowchart TD
 *(Proposed Technical Architecture Specifications)*
 
 ### 3.1 Presentation Tier
-* **Candidate Career Portal (Proposed):** Proposed architecture specifies a Next.js framework (Server-Side Rendered for SEO), designed to be responsive down to mobile viewports, and structured in alignment with WCAG 2.1 AA accessibility guidelines. Features conceptual job search, frictionless application submission, live application progress tracker, and calendar self-booking.
-* **Internal Staff Workstation (Proposed):** Proposed Single Page Application (SPA) designed for recruiters and hiring managers. Features conceptual drag-and-drop Kanban pipeline boards, candidate profile split-screens, real-time stage counters, and mobile-optimized interview scorecard forms.
+* **Candidate Career Portal (Proposed):** Proposed architecture specifies a Next.js framework (Server-Side Rendered for SEO), designed to be responsive down to mobile viewports, and structured in alignment with WCAG 2.1 AA accessibility guidelines. Features conceptual job search, frictionless application submission, application progress tracking, and calendar self-booking.
+* **Internal Staff Workstation (Proposed):** Proposed Single Page Application (SPA) designed for recruiters and hiring managers. Features conceptual drag-and-drop Kanban pipeline boards, candidate profile split-screens, interactive stage counters, and mobile-optimized interview scorecard forms.
 
 ### 3.2 Security & Gateway Tier
 * **Web Application Firewall (WAF):** Mitigates DDoS attacks, SQL injection attempts, cross-site scripting (XSS), and applies rate limiting to protect public application endpoints from automated bot spam.

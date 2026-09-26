@@ -386,7 +386,7 @@ flowchart TD
     subgraph Data Security Architecture
         REST["Data-at-Rest Encryption (AES-256)<br/>• Column-level encryption on salary & phone<br/>• Encrypted S3 object store for PDF resumes"]
         TRAN["Data-in-Transit Encryption (TLS 1.3)<br/>• HTTPS on all web endpoints<br/>• mTLS on Core HRIS REST API bridge"]
-        GDPR["GDPR Compliance Subsystem<br/>• Automated cascading data pseudonymization<br/>• Complete purge audit logging"]
+        GDPR["GDPR Data Governance Workflow<br/>• Automated cascading data pseudonymization<br/>• Complete purge audit logging"]
     end
 ```
 

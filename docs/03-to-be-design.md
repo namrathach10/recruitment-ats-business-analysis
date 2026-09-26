@@ -22,7 +22,7 @@ flowchart LR
     subgraph Core TO-BE Design Principles
         P1["<b>1. Single Source of Truth (SSOT)</b><br/>Zero local spreadsheets; all data resides in secure relational database"]
         P2["<b>2. Automated Stage-Gate Engine</b><br/>Event-driven triggers, SLAs, and automated status notifications"]
-        P3["<b>3. Zero-Friction Self-Service</b><br/>Candidate portal with live stage tracking and calendar booking"]
+        P3["<b>3. Zero-Friction Self-Service</b><br/>Candidate portal with application stage tracking and calendar booking"]
         P4["<b>4. Objective Rubric Evaluations</b><br/>Standardized digital scorecards eliminating subjective bias"]
     end
 ```
@@ -136,7 +136,7 @@ gantt
 | **03** | **Application Intake & Parsing** | 4.0 Days | **0.5 Days** | -3.5 Days (-87%) | Instant resume parsing; automated knockout questions filter non-viable candidates instantly. |
 | **04** | **Recruiter Screening & Triage** | 6.5 Days | **3.0 Days** | -3.5 Days (-54%) | Centralized candidate card view; quick-action shortlisting buttons; standardized notes. |
 | **05** | **Hiring Manager Review** | 5.5 Days | **2.0 Days** | -3.5 Days (-64%) | Dedicated Hiring Manager portal with consolidated candidate dossiers and mobile approvals. |
-| **06** | **Interview Scheduling** | 4.5 Days | **1.0 Day** | -3.5 Days (-78%) | Self-service calendar sync (Outlook 365 / Google Calendar); candidate selects live slot. |
+| **06** | **Interview Scheduling** | 4.5 Days | **1.0 Day** | -3.5 Days (-78%) | Self-service calendar sync (Outlook 365 / Google Calendar); candidate selects open time slot. |
 | **07** | **Interview & Scorecard Submission**| 6.0 Days | **4.0 Days** | -2.0 Days (-33%) | Embedded digital rubric scorecards; automated prompt sent immediately post-interview. |
 | **08** | **Hiring Decision Deliberation** | 3.5 Days | **1.5 Days** | -2.0 Days (-57%) | Automated scorecard aggregation; clear consensus view ranking candidates by objective score. |
 | **09** | **Offer Generation & E-Signature**| 6.0 Days | **2.5 Days** | -3.5 Days (-58%) | Dynamic offer letter generation from approved compensation grids; integrated e-signature. |
@@ -200,7 +200,7 @@ This matrix establishes direct traceability between the 12 AS-IS pain points ide
 | **PP-09** | 6.8 Emails per Scheduled Interview | Candidate self-service calendar booking synced in real time with Microsoft 365 / Google. | Scheduling elapsed time slashed from 4.5 days to under 24 hours. |
 | **PP-10** | Subjective / Unrecorded Interview Feedback | Embedded digital evaluation rubrics with mandatory competency scoring and notes. | Standardized evaluation records; reduced hiring bias; higher quality hires. |
 | **PP-11** | Manual Word Offer Drafting Errors | Dynamic offer letter generator pre-populated from approved salary bands and e-signature. | Offer generation time cut by 58%; eliminated clerical compensation errors. |
-| **PP-12** | Outdated Quarterly Excel Metrics | Live Power BI Recruitment Analytics Dashboard with real-time KPI funnel metrics. | Continuous visibility into hiring velocity, source ROI, and recruiter bottlenecks. |
+| **PP-12** | Outdated Quarterly Excel Metrics | Power BI Recruitment Analytics Dashboard with interactive KPI and funnel metrics. | Continuous visibility into hiring velocity, source yield, and recruiter bottlenecks. |
 
 ---
 
@@ -228,4 +228,4 @@ flowchart LR
 3. **Illustrative Summary:** Total estimated benefit of **\$340,000** against an illustrative implementation and licensing estimate of **\$105,000**.
 
 ---
-*End of Deliverable 3. Next Phase: Deliverable 4 — Software Requirements Specification (SRS) with 30+ Numbered Functional & Non-Functional Requirements.*
+*End of Deliverable 3. Next Phase: Deliverable 4 — Software Requirements Specification (SRS) with 33 Functional + 10 Non-Functional Requirements.*

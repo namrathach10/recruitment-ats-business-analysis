@@ -33,7 +33,7 @@ Every requirement in this specification is assigned a unique tracking identifier
 
 ```mermaid
 flowchart TD
-    subgraph ATS System Modules (32 Functional Requirements)
+    subgraph ATS System Modules (33 Functional Requirements)
         M1["Module 1: User & RBAC Management<br/>(FR-UM-01 to 04)"]
         M2["Module 2: Job Requisitions & Posting<br/>(FR-JM-01 to 04)"]
         M3["Module 3: Candidate & Talent Pool<br/>(FR-CM-01 to 04)"]
