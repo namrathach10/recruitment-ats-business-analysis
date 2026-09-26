@@ -77,11 +77,16 @@
       width: var(--sidebar-collapsed-width);
     }
 
+    #sidebar.collapsed .brand-text {
+      display: none;
+    }
+
     .sidebar-header {
-      height: var(--header-height);
+      min-height: var(--header-height);
+      height: auto;
       display: flex;
       align-items: center;
-      padding: 0 16px;
+      padding: 10px 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       gap: 12px;
     }
@@ -840,6 +845,9 @@
       <div class="brand-text">
         <span class="brand-title">Recruitment Intelligence</span>
         <span class="brand-sub">Business Analysis Portfolio</span>
+        <div style="margin-top: 4px;">
+          <span style="display: inline-block; background: rgba(37,99,235,0.22); color: #93C5FD; border: 1px solid rgba(147,197,253,0.3); font-size: 8px; font-weight: 700; padding: 1.5px 5px; border-radius: 3px; letter-spacing: 0.4px; line-height: 1.3;">SYNTHETIC DATA • PROPOSED SYSTEM</span>
+        </div>
       </div>
     </div>
 
@@ -878,7 +886,7 @@
         <span>Financial Impact</span>
       </a>
 
-      <div class="nav-label" style="margin-top: 10px;">Operational Workflows</div>
+      <div class="nav-label" style="margin-top: 10px;">ATS Workflow Prototypes</div>
       <a class="nav-item" onclick="navigate('prototype_candidate')">
         <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <span>Candidate Portal</span>
@@ -929,7 +937,10 @@
           <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <div class="page-heading">
-          <h1 class="page-title" id="header-page-title">Recruitment Overview</h1>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <h1 class="page-title" id="header-page-title">Recruitment Overview</h1>
+            <span class="badge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; font-size: 9px; font-weight: 700; letter-spacing: 0.4px;">SYNTHETIC DATA • PROPOSED SYSTEM</span>
+          </div>
           <span class="page-subtitle" id="header-page-subtitle">Executive view of recruitment volume, conversion, velocity and hiring outcomes.</span>
         </div>
       </div>
@@ -2530,10 +2541,10 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
       recruiter: { title: "Recruiter Performance", sub: "Operational workload distribution and recruitment outcomes by recruiter." },
       hiring_manager: { title: "Hiring Manager Insights", sub: "Understand hiring demand, decision velocity and recruitment outcomes." },
       quality: { title: "Candidate Quality & Assessment", sub: "Analyze evaluation score distributions and candidate progression." },
-      financial: { title: "Financial Impact", sub: "Translate recruitment process performance into validated financial business impact." },
-      prototype_candidate: { title: "Operational ATS: Candidate Career Portal", sub: "Interactive candidate self-service application tracking and panel booking." },
-      prototype_kanban: { title: "Operational ATS: Recruiter Kanban Workbench", sub: "Interactive drag-and-drop candidate pipeline velocity management." },
-      prototype_scorecard: { title: "Operational ATS: Hiring Manager Evaluation", sub: "Calibrated 1-to-5 competency interview rubric and decision capture." },
+      financial: { title: "Financial Impact", sub: "Translate recruitment process performance into an illustrative financial business case." },
+      prototype_candidate: { title: "ATS Workflow Prototype: Candidate Portal", sub: "Interactive candidate self-service application tracking and panel booking." },
+      prototype_kanban: { title: "ATS Workflow Prototype: Recruiter Kanban", sub: "Interactive drag-and-drop candidate pipeline velocity management." },
+      prototype_scorecard: { title: "ATS Workflow Prototype: Manager Scorecard", sub: "Calibrated 1-to-5 competency interview rubric and decision capture." },
       explorer: { title: "Data Explorer", sub: "Explore, search, filter and export the 1,250 historical recruitment records." },
       methodology: { title: "Definitions & Methodology", sub: "Analytical formulas, data dictionary mappings, and architectural assumptions." }
     };
@@ -2895,7 +2906,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
     }
 
     // =========================================================================
-    // OPERATIONAL ATS PROTOTYPE VIEWS (Interactive Workflows)
+    // ATS WORKFLOW PROTOTYPE VIEWS (Interactive Workflows)
     // =========================================================================
     function renderCandidatePrototype(container) {
       container.innerHTML = `
