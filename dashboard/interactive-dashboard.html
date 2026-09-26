@@ -948,9 +948,9 @@
         </select>
 
         <select id="flt-date" class="filter-select" onchange="updateFilter('dateRange', this.value)">
-          <option value="all">Period: All Time (Q1-Q2 2026)</option>
+          <option value="all">Period: All Dates (Jan - May 2026)</option>
           <option value="q1">Q1 2026 (Jan - Mar)</option>
-          <option value="q2">Q2 2026 (Apr - Jun)</option>
+          <option value="q2">Q2 2026 (Apr - May)</option>
           <option value="jan">January 2026</option>
           <option value="feb">February 2026</option>
           <option value="mar">March 2026</option>
@@ -2669,7 +2669,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Conversion Health</span><span class="badge badge-success">Healthy</span></div>
               <div style="font-size: 18px; font-weight: 700; color: var(--success); margin-bottom: 4px;">${m.offerAcceptance}%</div>
-              <p style="font-size: 11px; color: var(--neutral);">Offer acceptance meets enterprise benchmark (≥ 75%), reflecting compensation parity.</p>
+              <p style="font-size: 11px; color: var(--neutral);">Offer acceptance is 75.0% in the synthetic sample, based on 21 accepted offers out of 28 extended offers.</p>
             </div>
             <div style="background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;"><span style="font-weight: 600; font-size: 12px;">Candidate Flow</span><span class="badge badge-info">Optimal</span></div>
@@ -3342,7 +3342,7 @@ APP-2026-2250,CAND-1250,Candidate_1250,candidate_1250@example.com,Engineering,Se
                 <tr><td><b>Time to Hire (TTH)</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>hired_date - applied_date</code> (Calendar Days)</td><td><code>applied_date, hired_date</code></td><td>Elapsed calendar days from application to hire acceptance. Measures process latency.</td></tr>
                 <tr><td><b>Offer Acceptance Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Hires / Total Offers Extended) * 100</code></td><td><code>offer_status, current_stage</code></td><td>Percentage of offers accepted versus declined. Validates compensation competitiveness.</td></tr>
                 <tr><td><b>Interview Conversion Rate</b></td><td><span class="badge badge-info">Observed Metric</span></td><td><code>(Interviewed / Total Applications) * 100</code></td><td><code>interview_date, application_id</code></td><td>Measures top-of-funnel applicant qualification yield.</td></tr>
-                <tr><td><b>Proposed TO-BE Target</b></td><td><span class="badge badge-warning">Target Baseline</span></td><td><code>18.5 Calendar Days</code> (Defined in Proposal)</td><td>Process Model Specifications</td><td>The engineered SLA benchmark enabled by automated parsing, self-service scheduling, and mobile rubrics.</td></tr>
+                <tr><td><b>Proposed TO-BE Target</b></td><td><span class="badge badge-warning">Target Baseline</span></td><td><code>18.5 Calendar Days</code> (Defined in Proposal)</td><td>Process Model Specifications</td><td>The proposed process-performance target enabled by automated parsing, self-service scheduling, and structured digital rubrics.</td></tr>
                 <tr><td><b>Net Annual Financial Benefit</b></td><td><span class="badge badge-success">Business Case Estimate</span></td><td><code>Gross Operational Savings - Year 1 Outlay</code></td><td>Project Charter Cost Model</td><td>Illustrative business case model ($235,000/yr net; $340,000 gross benefit vs $105,000 Year 1 outlay) combining agency fee reduction ($228k) and recruiter capacity ($112k).</td></tr>
               </tbody>
             </table>

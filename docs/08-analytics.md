@@ -39,7 +39,7 @@ $$\text{Average Time-to-Hire} = \frac{\sum_{i=1}^{N} \text{TTH}_i}{N_{\text{Hire
 
 * **AS-IS Baseline:** **46.5 Days** (manual legacy process duration).
 * **Proposed Target SLA (TO-BE Design Estimate):** **18.5 Days** (fully automated workflow target).
-* **Synthetic Dataset Observation:** **23.0 Days** (empirical average across 21 hires in the 1,250 synthetic records; range: 15–30 days).
+* **Synthetic Dataset Observation:** **23.0 Days** (empirical average across 21 hires in the 1,250 synthetic records; range: 20–28 days).
 
 ### 2.2 Conversion: Offer Acceptance Rate (OAR)
 Measures the competitiveness of company compensation packages and the closing efficacy of hiring teams:

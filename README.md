@@ -137,7 +137,7 @@ flowchart LR
 ### Metric Interpretation & Velocity Targets:
 * **46.5 Calendar Days:** The baseline manual AS-IS process duration established in the fictional scenario.
 * **18.5 Calendar Days:** The **proposed target SLA / design estimate** under the fully optimized TO-BE operating model.
-* **23.0 Calendar Days:** The **observed empirical average** calculated across the 21 hires in the 1,250-record synthetic dataset (range: 15 to 30 days).  
+* **23.0 Calendar Days:** The **observed empirical average** calculated across the 21 hires in the 1,250-record synthetic dataset (range: 20 to 28 days).  
 *(Note: The 23.0-day result represents an analytical finding from the synthetic dataset, not real-world performance of a deployed system.)*
 
 *Detailed Process Design Document:* [`docs/03-to-be-design.md`](docs/03-to-be-design.md)
