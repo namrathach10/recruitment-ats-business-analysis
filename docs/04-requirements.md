@@ -128,9 +128,9 @@ The system's non-functional attributes are structured in accordance with the **I
 flowchart LR
     subgraph ISO 25010 System Quality Architecture
         Q1["<b>Performance & Speed</b><br/>• Page loads < 1.5s<br/>• 500 concurrent users"]
-        Q2["<b>Security & Privacy</b><br/>• AES-256 / TLS 1.3<br/>• GDPR Article 17 compliant"]
+        Q2["<b>Security & Privacy</b><br/>• AES-256 / TLS 1.3<br/>• Designed for GDPR Art. 17"]
         Q3["<b>Reliability & Uptime</b><br/>• 99.9% availability<br/>• RTO < 1 hr, RPO < 15 min"]
-        Q4["<b>Usability & Access</b><br/>• WCAG 2.1 AA<br/>• Mobile responsive"]
+        Q4["<b>Usability & Access</b><br/>• Designed for WCAG 2.1 AA<br/>• Mobile responsive"]
     end
 ```
 
@@ -141,9 +141,9 @@ flowchart LR
 | **NFR-SEC-01** | **Data Encryption** | All Personally Identifiable Information (PII) and resume documents shall be encrypted at rest using AES-256 and in transit using TLS 1.3 cryptographic protocols. | Security Architecture Audit |
 | **NFR-SEC-02** | **Access Control & RBAC** | The system shall strictly enforce principle of least privilege via granular Role-Based Access Control, preventing hiring managers from viewing unassigned candidate files. | Penetration & Access Testing |
 | **NFR-SEC-03** | **Regulatory Governance** | The system shall be designed to support GDPR data privacy mandates (consent tracking, right-to-erasure), EEOC record-keeping mandates, and SOC 2 data governance controls. | Compliance Verification Review |
-| **NFR-REL-01** | **System Availability** | The production system shall maintain an operational uptime SLA of 99.9% (excluding scheduled maintenance windows during off-peak weekend hours). | Cloud Monitoring (Datadog) |
+| **NFR-REL-01** | **System Availability** | The proposed system architecture shall be designed to target an operational uptime SLA of 99.9% (excluding scheduled maintenance windows during off-peak weekend hours). | Cloud Monitoring Simulation |
 | **NFR-REL-02** | **Disaster Recovery** | Recovery Point Objective (RPO) shall be $\le 15$ minutes; Recovery Time Objective (RTO) shall be $\le 1$ hour in the event of an infrastructure failover. | Disaster Recovery Simulation |
-| **NFR-USE-01** | **Web Accessibility** | The Candidate Portal and public career site shall comply fully with WCAG 2.1 Level AA accessibility standards, including screen-reader compatibility and keyboard navigation. | Accessibility Scan (Lighthouse) |
+| **NFR-USE-01** | **Web Accessibility** | The Candidate Portal and public career site shall be designed in alignment with WCAG 2.1 Level AA accessibility guidelines, including screen-reader compatibility and keyboard navigation. | Automated Accessibility Audit (Lighthouse) |
 | **NFR-USE-02** | **Responsive Design** | The Candidate and Hiring Manager interfaces shall render responsively across mobile (iOS/Android), tablet, and desktop viewports (320px to 4K resolutions). | Cross-Browser / Multi-Device Test |
 | **NFR-MNT-01** | **Extensibility & APIs** | The system shall expose documented RESTful OpenAPI 3.0 endpoints with rate limiting, supporting seamless integration with Microsoft 365, LinkedIn, and core HRIS. | API Contract Verification |
 

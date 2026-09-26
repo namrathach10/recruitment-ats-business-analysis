@@ -47,8 +47,8 @@ flowchart TD
     ATS_CORE <-->|Authenticates staff via SSO| SSO
     ATS_CORE <-->|Queries availability, syncs invites| CAL
     ATS_CORE -->|Syndicates job requisitions| JB
-    ATS_CORE -->|Pushes new-hire onboarding payload| HRIS
-    ATS_CORE -->|Feeds real-time recruitment data| PBI
+    ATS_CORE -.->|Proposed new-hire onboarding payload| HRIS
+    ATS_CORE -.->|Would feed recruitment data mart| PBI
 ```
 
 ---
@@ -119,10 +119,11 @@ flowchart TD
 ---
 
 ## 3. Detailed Component Breakdown by Tier
+*(Proposed Technical Architecture Specifications)*
 
 ### 3.1 Presentation Tier
-* **Candidate Career Portal:** Built with Next.js (Server-Side Rendered for SEO), responsive down to mobile viewports, WCAG 2.1 AA accessible. Features job search, frictionless application submission, live application progress tracker, and calendar self-booking.
-* **Internal Staff Workstation:** React Single Page Application (SPA) designed for recruiters and hiring managers. Features drag-and-drop Kanban pipeline boards, candidate profile split-screens, real-time stage counters, and mobile-optimized interview scorecard forms.
+* **Candidate Career Portal (Proposed):** Proposed architecture specifies a Next.js framework (Server-Side Rendered for SEO), designed to be responsive down to mobile viewports, and structured in alignment with WCAG 2.1 AA accessibility guidelines. Features conceptual job search, frictionless application submission, live application progress tracker, and calendar self-booking.
+* **Internal Staff Workstation (Proposed):** Proposed Single Page Application (SPA) designed for recruiters and hiring managers. Features conceptual drag-and-drop Kanban pipeline boards, candidate profile split-screens, real-time stage counters, and mobile-optimized interview scorecard forms.
 
 ### 3.2 Security & Gateway Tier
 * **Web Application Firewall (WAF):** Mitigates DDoS attacks, SQL injection attempts, cross-site scripting (XSS), and applies rate limiting to protect public application endpoints from automated bot spam.

@@ -275,8 +275,8 @@ The generated CSV dataset is saved at:
 * **Interviews Conducted:** 96 (7.68%)
 * **Formal Offers Extended:** 28 (2.24%)
 * **Offers Accepted / Hired:** 21 (1.68% of apps; 75.0% of offers)
-* **Average Time-to-Hire:** **23.0 Calendar Days** (Target: $\le 24$ days; AS-IS: 46.5 days)
-* **Top Sourcing Channel by Quality:** Employee Referrals yielded a 2.17% hire conversion rate, compared to 1.23% for Indeed and 1.90% for LinkedIn.
+* **Average Time-to-Hire:** **23.0 Calendar Days** (Proposed Target SLA: $\le 18.5$ days; AS-IS Baseline: 46.5 days)
+* **Highest Observed Sourcing Channel Conversion:** Employee Referrals yielded the highest observed hire-conversion rate in the synthetic sample at 2.17%, compared to 1.23% for Indeed and 1.90% for LinkedIn.
 
 ---
 *End of Deliverable 8. Next Phase: Deliverable 9 — UI/UX Wireframe Concepts & Interface Mockup Specifications.*

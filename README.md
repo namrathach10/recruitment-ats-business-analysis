@@ -39,7 +39,7 @@ The fictional scenario models an organization experiencing significant recruitme
 * **Candidate Abandonment:** **28%** drop-off rate during prolonged screening and scheduling handoffs.
 * **Agency Dependency:** **$380,000 / year** illustrative spend on external contingency recruiters to bypass internal screening delays.
 
-To resolve these operational bottlenecks, I formulated a comprehensive **Information System Proposal** for a unified Applicant Tracking System (ATS), documented formal functional requirements, designed a conceptual cloud architecture, created a synthetic dataset of 1,250 applicant records, built an analytical dashboard in Power BI, and implemented an interactive prototype.
+To resolve these operational bottlenecks, I formulated a comprehensive **Information System Proposal** for a unified Applicant Tracking System (ATS), documented formal functional requirements, designed a conceptual cloud architecture, created a synthetic dataset of 1,250 applicant records, built an analytical dashboard in Power BI, and developed an interactive prototype.
 
 ---
 

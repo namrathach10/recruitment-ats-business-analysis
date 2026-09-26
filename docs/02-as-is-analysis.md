@@ -137,20 +137,20 @@ gantt
     Offer Drafting, Approval & Signing (6.0 days)   :40.5, 46.5
 ```
 
-### 3.1 Stage-by-Stage Lead Time Table
+### 3.1 Stage-by-Stage Lead Time Breakdown
 
-| Stage # | Stage Name | Primary Actor | Process Activity & Tool | Value-Add Time (Work) | Non-Value-Add Time (Wait) | Total Stage Duration |
-| :---: | :--- | :--- | :--- | :---: | :---: | :---: |
-| **01** | **Requisition & Headcount Approval** | Hiring Manager, VP HR | Word doc drafted, emailed to VP, budget verified via email thread. | 2.5 Hours | 7.2 Days | **7.5 Days** |
-| **02** | **Job Description & Sourcing Posting** | Recruiter | Manual copywriting, logging into 4 job boards separately, copy-pasting. | 3.0 Hours | 2.6 Days | **3.0 Days** |
-| **03** | **Application Intake & Ingestion** | Candidate, Recruiter | Resumes land in inbox; recruiter downloads PDFs and retypes into Excel. | 4.0 Hours | 3.5 Days | **4.0 Days** |
-| **04** | **Resume Screening & Recruiter Screen** | Recruiter | Manual reading of 60+ CVs per job; phone screen notes taken on notepad. | 5.5 Hours | 5.8 Days | **6.5 Days** |
-| **05** | **Hiring Manager Shortlist Review** | Hiring Manager | Recruiter emails 5–8 resumes; HM reviews between meetings; leaves in inbox. | 1.5 Hours | 5.3 Days | **5.5 Days** |
-| **06** | **Interview Scheduling & Logistics** | Recruiter, Candidate | 6–8 back-and-forth emails checking candidate and interviewer calendar availability. | 2.0 Hours | 4.2 Days | **4.5 Days** |
-| **07** | **Interview Execution & Feedback Collection** | Hiring Manager, Panel | 2–3 rounds of interviews; interviewers forget to send feedback; recruiter chases. | 4.0 Hours | 5.5 Days | **6.0 Days** |
-| **08** | **Hiring Decision & Compensation Review** | Hiring Manager, VP HR | Ad-hoc meeting or email thread to debate candidate rating and salary band. | 1.5 Hours | 3.3 Days | **3.5 Days** |
-| **09** | **Offer Drafting, Approval & Acceptance** | Recruiter, Candidate | Manual Word template creation; approval via email; scanned signature return. | 2.0 Hours | 5.7 Days | **6.0 Days** |
-| **TOTAL** | **End-to-End Recruitment Cycle** | **All Actors** | **Disconnected, manual, email-dependent pipeline** | **26.0 Hours (~3.25 Days)** | **43.2 Days (~93% Waste)** | **46.5 Days** |
+| Stage # | Stage Name | Primary Actor | Process Activity & Operational Bottleneck | Typical Stage Duration |
+| :---: | :--- | :--- | :--- | :---: |
+| **01** | **Requisition & Headcount Approval** | Hiring Manager, VP HR | Word doc drafted, emailed to VP, budget verified via multi-day email thread. | **7.5 Calendar Days** |
+| **02** | **Job Description & Sourcing Posting** | Recruiter | Manual copywriting, logging into 4 job boards separately, manual copy-pasting. | **3.0 Calendar Days** |
+| **03** | **Application Intake & Ingestion** | Candidate, Recruiter | Resumes land in personal inbox; recruiter downloads PDFs and retypes into Excel. | **4.0 Calendar Days** |
+| **04** | **Resume Screening & Recruiter Screen** | Recruiter | Manual reading of 60+ CVs per job; phone screen notes recorded on local notepad. | **6.5 Calendar Days** |
+| **05** | **Hiring Manager Shortlist Review** | Hiring Manager | Recruiter emails 5–8 resumes; HM reviews between meetings; leaves in inbox. | **5.5 Calendar Days** |
+| **06** | **Interview Scheduling & Logistics** | Recruiter, Candidate | 6–8 back-and-forth emails checking candidate and interviewer calendar availability. | **4.5 Calendar Days** |
+| **07** | **Interview Execution & Feedback Collection** | Hiring Manager, Panel | 2–3 rounds of interviews; interviewers forget to send feedback; recruiter chases. | **6.0 Calendar Days** |
+| **08** | **Hiring Decision & Compensation Review** | Hiring Manager, VP HR | Ad-hoc meeting or email thread to debate candidate rating and salary band. | **3.5 Calendar Days** |
+| **09** | **Offer Drafting, Approval & Acceptance** | Recruiter, Candidate | Manual Word template creation; approval via email; scanned signature return. | **6.0 Calendar Days** |
+| **TOTAL** | **End-to-End Recruitment Cycle** | **All Actors** | **Disconnected, manual, email-dependent pipeline across 8 recruiters** | **46.5 Calendar Days** |
 
 ---
 
@@ -182,7 +182,7 @@ To rigorously substantiate the business case for an information system, the curr
 ```mermaid
 flowchart LR
     subgraph Lean Waste Classification in Current Recruitment
-        W1["<b>Waiting (43.2 Days)</b><br/>Waiting for HM reviews, approvals, and candidate replies"]
+        W1["<b>Waiting Latency</b><br/>Waiting for HM reviews, approvals, and candidate replies"]
         W2["<b>Defects & Rework</b><br/>Typographical errors in offers, mismatched candidate notes"]
         W3["<b>Overprocessing</b><br/>Entering candidate info twice (Job board → Inbox → Excel)"]
         W4["<b>Motion & Transport</b><br/>Emailed attachments bouncing between 5 different inboxes"]
@@ -191,11 +191,11 @@ flowchart LR
     end
 ```
 
-### 5.1 Value-Add (Active Effort) vs. Non-Value-Add (Waiting) Lead Time Analysis
+### 5.1 Elapsed Duration vs. Idle Waiting Latency Analysis
 
 * **Total Baseline Cycle Time:** **46.5 Calendar Days**
-* **Total Active Value-Add Work:** Approximately **26.0 Hours** (~3.25 workdays of active reviewing, interviewing, and drafting across all participants).
-* **Non-Value-Add Waiting Latency:** **~43.2 Calendar Days** (representing roughly **93% of the total elapsed cycle**).
+* **Process Flow Characteristic:** The majority of the 46.5 calendar days represents idle queue latency—applications sitting in inboxes, scheduling back-and-forth delays, and feedback collection lag.
+* **Elimination Opportunity:** The proposed ATS targets automating routine handoffs (instant parsing, self-scheduling, structured rubric alerts) to eliminate unnecessary waiting time across the pipeline.
 
 > **Key Analytical Finding:**  
 > The overwhelming majority of the current recruitment lifecycle is idle administrative latency: awaiting email replies, scheduling ping-pong across calendars, delayed feedback collection, and manual spreadsheet synchronization.

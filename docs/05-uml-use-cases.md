@@ -23,7 +23,7 @@ The proposed ATS interacts with **4 Primary Human Actors** and **2 Secondary Sys
 | **Candidate** | Primary (Human) | External job seeker or internal employee applying for open positions. | Search vacancies, submit applications, upload resumes, select interview slots, review & e-sign offer. | Ad-hoc / Daily during job search |
 | **Recruiter** | Primary (Human) | Talent Acquisition specialist managing end-to-end requisition pipelines. | Post jobs, parse & triage resumes, manage Kanban stages, schedule panels, draft offer packages, review analytics. | Continuous daily usage (5–8 hrs/day) |
 | **Hiring Manager** | Primary (Human) | Functional department head seeking to fill team vacancies. | Create requisitions, review shortlisted candidate profiles, conduct interviews, submit rubrics, approve offers. | 2–4 times weekly (1–2 hrs/day) |
-| **System Administrator** | Primary (Human) | Enterprise IT / SecOps administrator managing identity and compliance. | Manage RBAC roles, configure SSO, audit system logs, execute GDPR erasure requests, monitor health. | Weekly maintenance & as-needed |
+| **System Administrator** | Primary (Human) | Enterprise IT / SecOps administrator managing identity and compliance. | Manage RBAC roles, configure SSO, audit system logs, execute candidate data erasure requests, monitor health. | Weekly maintenance & as-needed |
 | **Calendar Service** | Secondary (System) | Microsoft 365 Exchange / Google Calendar API (Proposed illustrative integration). | Provide real-time free/busy interviewer availability, inject calendar event holds and video links. | Real-time automated API calls |
 | **Enterprise HRIS** | Secondary (System) | Workday / SAP SuccessFactors Core HR platform (Proposed illustrative integration). | Ingest new-hire employee profile data, trigger downstream IT provisioning and payroll enrollment. | Event-driven upon offer acceptance |
 
@@ -60,7 +60,7 @@ flowchart LR
     subgraph System Admin Subsystem
         UC_ADM1(["UC-ADM-01: Configure RBAC Permissions"])
         UC_ADM2(["UC-ADM-02: Audit System Logs & PII Access"])
-        UC_ADM3(["UC-ADM-03: Process GDPR Data Erasure"])
+        UC_ADM3(["UC-ADM-03: Process Data Erasure Request (Proposed Workflow)"])
     end
 
     CANDIDATE((👤 Candidate)) --> UC_CAN1
@@ -304,7 +304,7 @@ ACTOR(S):           Primary: Candidate; Supporting: Recruiter, Enterprise HRIS A
 TRIGGER:            Candidate receives formal "Offer Extended" email notification.
 PRECONDITIONS:      1. Executive and Finance approvals recorded for the compensation package.
                     2. Candidate status is 'Offered'.
-POSTCONDITIONS:     1. Legally binding cryptographic signature recorded.
+POSTCONDITIONS:     1. Electronic signature and audit trail recorded.
                     2. Candidate status updated to 'Hired'.
                     3. Employee profile payload transmitted to Core HRIS API.
 ================================================================================
@@ -314,7 +314,7 @@ MAIN SUCCESS SCENARIO (Happy Path):
 2. Candidate navigates to "My Offers" tab and opens the formal Offer Package.
 3. System renders digital offer document detailing Job Title, Base Salary, Equity, Benefits, and Proposed Start Date.
 4. Candidate reviews document terms and selects "Accept Offer".
-5. Candidate executes cryptographic digital signature by typing legal name and agreeing to digital consent terms.
+5. Candidate executes electronic digital signature by typing legal name and agreeing to digital consent terms.
 6. System captures candidate digital signature, IP address, user agent, and timestamp.
 7. System generates sealed, tamper-evident PDF document stored in encrypted file repository.
 8. System updates application state to `HIRED` and requisition filled headcount by $+1$.

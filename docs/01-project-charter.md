@@ -16,7 +16,7 @@
 ### 1.1 Executive Summary
 Novus Enterprise Technologies is a **fictional mid-sized enterprise scenario** created to simulate realistic operational friction and escalating recruitment costs across decentralized corporate business units. In this operational baseline, talent acquisition is managed via fragmented email correspondence, manual desktop spreadsheets, third-party job boards, and disparate calendar invites.
 
-This fragmentation has resulted in an average **Time-to-Hire of 46.5 calendar days**, a **28% candidate abandonment rate** during screening and scheduling stages, compliance vulnerabilities regarding resume data privacy (GDPR / EEOC), and an annual spend of **$380,000 in redundant external recruitment agency fees** incurred to bypass internal screening bottlenecks.
+This fragmentation has resulted in an average **Time-to-Hire of 46.5 calendar days**, a **28% candidate abandonment rate** during screening and scheduling stages, compliance vulnerabilities regarding resume data privacy (GDPR / EEOC), and substantial reliance on external recruitment agencies (estimated at 35% of all requisitions) incurred to bypass internal screening bottlenecks.
 
 This document establishes the charter for an end-to-end **Business Process Analysis and Information System Proposal** for a unified, cloud-native **Recruitment & Applicant Tracking System (ATS)**. The initiative redesigns the talent acquisition lifecycle into a standardized, auditable, and automated digital ecosystem from job requisition inception through candidate offer acceptance and onboarding handover.
 
@@ -72,8 +72,8 @@ flowchart TD
 
 | Operational Dimension | Current AS-IS Metric | Business Consequence | Annual Scenario Impact (Illustrative) |
 | :--- | :--- | :--- | :--- |
-| **Time-to-Hire** | 46.5 Calendar Days | Stalled engineering & sales product delivery; lost candidate interest | Illustrative scenario estimate: \$420,000 in delayed project productivity |
-| **Agency Spend** | 35% of positions routed to external recruiters | Inefficient bypass of internal recruiters due to capacity crunch | Illustrative scenario assumption: \$380,000/year in external agency commissions |
+| **Time-to-Hire** | 46.5 Calendar Days | Stalled engineering & sales product delivery; lost candidate interest | Prolonged vacancy drag and lost competitive talent |
+| **Agency Spend** | 35% of positions routed to external recruiters | Inefficient bypass of internal recruiters due to capacity crunch | Substantial contingency agency fee spend |
 | **Candidate Drop-Off** | 28% drop-off post-application | Top talent withdraws due to lack of timely status visibility | Severe brand impairment in competitive talent market |
 | **Data Redundancy & Errors** | 8 disparate recruiter spreadsheets | Multiple recruiters contact same candidate; mismatched notes | 15+ recruiter hours wasted per week on manual data reconciliation |
 | **Data Governance Risk** | Resumes held in Outlook inboxes indefinitely | Inability to track data retention or satisfy privacy requests (such as GDPR right-to-erasure) or EEOC recordkeeping | Heightened data privacy and governance vulnerabilities across unmanaged personal inboxes |
@@ -94,14 +94,14 @@ The proposed ATS directly supports Novus Enterprise's 3-Year Strategic Imperativ
 flowchart LR
     O1["OBJ 1: Cycle Reduction<br/><b>Reduce Time-to-Hire</b><br/>46.5 days → 18.5d target SLA<br/>(23.0d in dataset cohort)"]
     O2["OBJ 2: Experience & Retention<br/><b>Lower Abandonment</b><br/>28% → <10%<br/>via self-service tracking"]
-    O3["OBJ 3: Cost Efficiency<br/><b>Slash Agency Fees</b><br/>Cut agency reliance by 60%<br/>Saving ~$230k/yr"]
+    O3["OBJ 3: Cost Efficiency<br/><b>Lower Agency Reliance</b><br/>Cut external agency reliance by 60%<br/>via faster internal screening"]
     O4["OBJ 4: Administrative Productivity<br/><b>Automate Workflows</b><br/>Save 65% recruiter admin time<br/>via auto-notifications & scheduling"]
     O5["OBJ 5: Compliance & Security<br/><b>Data Governance</b><br/>Centralized RBAC & automated<br/>data retention schedules"]
 ```
 
 * **Objective 1 (Cycle Time Reduction):** Reduce the end-to-end average Time-to-Hire from **46.5 calendar days** toward an **18.5-calendar-day target SLA** (with synthetic cohort testing demonstrating an empirical average of **23.0 days** across 1,250 records).
 * **Objective 2 (Candidate Conversion):** Decrease candidate drop-off and withdrawal rates from **28% to under 10%** by implementing automated status notifications and a self-service candidate tracking portal.
-* **Objective 3 (Direct Agency Cost Avoidance):** Reduce external recruitment agency reliance by **60%** within the first full operating year, generating an estimated direct cost savings of **\$228,000 annually**.
+* **Objective 3 (Agency Reliance Reduction):** Reduce external recruitment agency reliance by **60%** within the first full operating year by improving internal applicant triage velocity and candidate engagement.
 * **Objective 4 (Administrative Efficiency):** Reduce recruiter manual administrative hours spent on data entry, email chasing, and schedule coordination by **65%**, redirecting recruiter capacity toward active talent sourcing and relationship building.
 * **Objective 5 (Compliance & Governance):** **Designed to support GDPR-related and EEOC data governance requirements** through automated audit logging, centralized role-based data access (RBAC), and automated data purging schedules.
 
@@ -176,7 +176,7 @@ To ensure project feasibility, budget discipline, and architectural clarity, the
 #### Constraints
 * **Regulatory Governance:** Designed to support data privacy principles (e.g. GDPR data minimization and consent) and non-discrimination record-keeping guidelines (e.g. EEOC).
 * **Budgetary Constraints:** System implementation and software licensing capped within annual HR Capital Expenditure allowance.
-* **Timeline Constraint:** Phased roll-out must achieve minimum viable production (MVP) within 16 weeks to support upcoming Q1 peak hiring.
+* **Timeline Planning:** Proposal models a conceptual 16-week phased delivery roadmap to illustrate an achievable implementation schedule.
 
 #### Dependencies
 * Integration access to Microsoft 365 Graph API for corporate calendar availability.
@@ -197,7 +197,7 @@ To ensure project feasibility, budget discipline, and architectural clarity, the
 | **SH-04** | **VP of Human Resources** | Executive Leadership | Recruitment cost reduction, lower time-to-hire, employer brand reputation, headcount plan delivery. | Agency fee overspending; lack of strategic recruitment data for board reports. | 5 | 4 | Weekly steering committee updates; executive dashboard demonstrations; milestone sign-offs. |
 | **SH-05** | **System Administrator / IT Security** | Enterprise IT & Infosec | Security architecture, SSO integration, role-based access control, data encryption, high availability. | Shadow IT spreadsheets containing PII; unvetted SaaS tools; unauthorized file sharing. | 4 | 3 | Technical architecture reviews; compliance verification sessions; security audits. |
 | **SH-06** | **Legal & Compliance Officer** | Corporate Legal / Risk | Adherence to labor laws, EEOC/OFCCP compliance, GDPR data subject rights, fair evaluation audit trails. | Inability to audit hiring decisions or verify fair evaluation rubrics in email threads. | 3 | 4 | Review requirement specifications for data retention, consent mechanisms, and audit logging. |
-| **SH-07** | **Chief Financial Officer (CFO)** | Executive Finance | Recruitment ROI, agency fee minimization, headcount budget control against authorized requisitions. | Unbudgeted hiring requisitions; inability to forecast talent acquisition spend. | 5 | 3 | Deliver clear business case, ROI calculations, and requisition financial approval controls. |
+| **SH-07** | **Chief Financial Officer (CFO)** | Executive Finance | Recruitment cost efficiency, agency fee reduction, headcount budget control against authorized requisitions. | Unbudgeted hiring requisitions; inability to forecast talent acquisition spend. | 5 | 3 | Deliver clear business case, illustrative business-case assumptions, and requisition financial approval controls. |
 
 ### 5.2 Stakeholder Power-Interest Matrix (Mendelow's Grid)
 
@@ -331,10 +331,10 @@ quadrantChart
 
 | Role | Simulated Stakeholder Persona | Baseline Status | Review Date | Alignment Comments |
 | :--- | :--- | :---: | :---: | :--- |
-| **Executive Sponsor Simulation** | VP of Human Resources | **ALIGNED** | 2026-09-24 | Scope and business objectives aligned with corporate talent scenario. |
-| **Business Systems Analyst (Author)** | B.Tech CSE (Student Portfolio) | **BASELINED** | 2026-09-24 | Baseline established for AS-IS process modeling and requirements. |
-| **Enterprise IT Architecture Lead** | Chief Technology Officer Persona | **ALIGNED** | 2026-09-24 | Approved scope boundaries; SSO & API integration model endorsed. |
-| **Legal & Compliance Representative** | Compliance Lead Persona | **ALIGNED** | 2026-09-24 | Scope includes mandatory GDPR data governance controls. |
+| **Executive Sponsor Simulation** | VP of Human Resources | **Scenario Alignment** | 2026-09-24 | Scope and business objectives aligned with corporate talent scenario. |
+| **Business Systems Analyst (Author)** | B.Tech CSE (Student Portfolio) | **Portfolio Baseline** | 2026-09-24 | Baseline established for AS-IS process modeling and requirements. |
+| **Enterprise IT Architecture Lead** | Chief Technology Officer Persona | **Scenario Alignment** | 2026-09-24 | Proposed scope boundaries; SSO & API integration model aligned. |
+| **Legal & Compliance Representative** | Compliance Lead Persona | **Scenario Alignment** | 2026-09-24 | Proposed scope includes essential GDPR data governance controls. |
 
 ---
 *End of Deliverable 1. Next Phase: Deliverable 2 — Comprehensive AS-IS Process Modeling, Pain-Point Inventory & Bottleneck Heatmap.*
