@@ -78,7 +78,7 @@ flowchart TD
 | :---: | :--- | :--- | :---: | :--- |
 | **FR-AM-01** | Configurable Stage-Gate Recruitment Pipeline | The system shall support a configurable recruitment pipeline for each job, comprising default stages: Applied, Screened, Shortlisted, Interview 1, Interview 2, Offered, Hired, and Disqualified. | **Must** | Recruiter |
 | **FR-AM-02** | Automated Knockout Screening Questions | The system shall allow recruiters to attach weighted or disqualifying knockout screening questions (e.g. work authorization, certifications) to job applications, auto-tagging non-qualifying submissions. | **Must** | Recruiter |
-| **FR-AM-03** | Interactive Kanban & Grid Pipeline Board | The system shall display candidates in an interactive visual Kanban board allowing recruiters to drag-and-drop candidates between stages with real-time stage counter metrics. | **Must** | Recruiter |
+| **FR-AM-03** | Interactive Kanban & Grid Pipeline Board | The system shall display candidates in an interactive visual Kanban board allowing recruiters to drag-and-drop candidates between stages with dynamic stage counter metrics. | **Must** | Recruiter |
 | **FR-AM-04** | Bulk Candidate Action Processing | The system shall allow recruiters to select multiple candidates simultaneously to perform batch actions: bulk stage advancement, bulk rejection with customized templates, or batch tagging. | **Should** | Recruiter |
 
 ### Module 5: Interview Scheduling & Collaborative Evaluation
@@ -86,7 +86,7 @@ flowchart TD
 | Requirement ID | Requirement Name | Detailed Specification | MoSCoW | Actor |
 | :---: | :--- | :--- | :---: | :--- |
 | **FR-IM-01** | Bi-Directional Corporate Calendar Sync | The system shall integrate bi-directionally with Microsoft 365 Exchange and Google Workspace to detect interviewer calendar availability and inject confirmed bookings automatically. | **Must** | Recruiter |
-| **FR-IM-02** | Candidate Self-Service Slot Booking | The system shall generate a secure, tokenized self-service scheduling link dispatched to the candidate, allowing them to choose from real-time available interviewer time slots. | **Must** | Candidate |
+| **FR-IM-02** | Candidate Self-Service Slot Booking | The system shall generate a secure, tokenized self-service scheduling link dispatched to the candidate, allowing them to choose from available interviewer time slots. | **Must** | Candidate |
 | **FR-IM-03** | Multi-Stage Panel Interview Configuration | The system shall allow recruiters to configure single or multi-interviewer panels, attach video conference links (Teams / Zoom / Google Meet), and distribute interview briefs to the panel. | **Must** | Recruiter |
 | **FR-IM-04** | Standardized Digital Scorecards & Rubrics | The system shall provide interviewers with a digital scorecard containing quantitative rating scales (1–5) for specific job competencies and mandatory qualitative justification notes. | **Must** | Hiring Manager |
 | **FR-IM-05** | Consolidated Feedback Review & Blind Mode | The system shall consolidate all completed interview scorecards into a unified panel summary, optionally supporting 'blind evaluation' where interviewers cannot view peer ratings until submitting their own. | **Should** | Hiring Manager |
@@ -113,10 +113,10 @@ flowchart TD
 
 | Requirement ID | Requirement Name | Detailed Specification | MoSCoW | Actor |
 | :---: | :--- | :--- | :---: | :--- |
-| **FR-RA-01** | Core Recruitment KPI Calculation Engine | The system shall compute real-time operational recruitment metrics: Time-to-Hire, Time-in-Stage, Source Effectiveness, Offer Acceptance Rate, and Cost-per-Hire. | **Must** | Management |
+| **FR-RA-01** | Core Recruitment KPI Calculation Engine | The system shall compute interactive operational recruitment metrics: Time-to-Hire, Time-in-Stage, Source Effectiveness, Offer Acceptance Rate, and Cost-per-Hire. | **Must** | Management |
 | **FR-RA-02** | Interactive Visual Recruitment Funnel | The system shall visualize candidate drop-off and conversion rates across each stage of the recruitment funnel, filterable by date range, department, recruiter, and job requisition. | **Must** | Recruiter / VP HR |
 | **FR-RA-03** | Recruiter Productivity & SLA Adherence Metrics | The system shall track recruiter and hiring manager SLA compliance (e.g. time to review applications, time to submit scorecards), highlighting workflow bottlenecks. | **Should** | VP HR |
-| **FR-RA-04** | Automated Data Export & BI API Bridge | The system shall provide automated CSV/Excel data export capabilities and a secure REST/OData API endpoint for live data ingestion into Microsoft Power BI. | **Must** | BI Analyst |
+| **FR-RA-04** | Automated Data Export & BI API Bridge | The system shall provide automated CSV/Excel data export capabilities and a secure REST/OData API endpoint for automated data ingestion into Microsoft Power BI. | **Must** | BI Analyst |
 
 ---
 

@@ -130,13 +130,13 @@ The proposed target operating model streamlines the recruitment lifecycle into f
 flowchart LR
     A["1. Application Ingestion<br/>• Multi-channel sync<br/>• Auto-knockout rules<br/>• Instant OCR parsing"] --> B["2. Automated Screening<br/>• Keyword triage<br/>• Kanban workflow<br/>• 1-click HM review"]
     B --> C["3. Self-Service Booking<br/>• Two-way calendar sync<br/>• Automated reminders<br/>• Panel scheduling"]
-    C --> D["4. Standardized Rubric<br/>• Mobile scorecard<br/>• Calibrated 1-5 ratings<br/>• Automated SLA alert (<24h)"]
+    C --> D["4. Standardized Rubric<br/>• Mobile scorecard<br/>• Calibrated 1-5 ratings<br/>• Automated reminder alert (<24h)"]
     D --> E["5. Digital Offer & Handover<br/>• Comp approval workflow<br/>• Digital signature dispatch<br/>• HRIS data handover"]
 ```
 
 ### Metric Interpretation & Velocity Targets:
 * **46.5 Calendar Days:** The baseline manual AS-IS process duration established in the fictional scenario.
-* **18.5 Calendar Days:** The **proposed target SLA / design estimate** under the fully optimized TO-BE operating model.
+* **18.5 Calendar Days:** The **proposed TO-BE process-performance target** under the fully optimized operating model.
 * **23.0 Calendar Days:** The **observed empirical average** calculated across the 21 hires in the 1,250-record synthetic dataset (range: 20 to 28 days).  
 *(Note: The 23.0-day result represents an analytical finding from the synthetic dataset, not real-world performance of a deployed system.)*
 
@@ -309,10 +309,10 @@ To illustrate the proposed user experience for candidates, recruiters, and hirin
 * **Interactive Prototype File:** [`dashboard/interactive-dashboard.html`](dashboard/interactive-dashboard.html) *(Open in any modern browser)*
 * **Key Demonstration Modules:**
   * **Candidate Portal Prototype:** Application tracker with stage timeline and self-service panel interview slot booking.
-  * **Recruiter Kanban Workbench:** Drag-and-drop candidate pipeline stage transitions with live stage counters.
+  * **Recruiter Kanban Workbench:** Drag-and-drop candidate pipeline stage transitions with dynamic stage counters.
   * **Manager Evaluation Scorecard:** Split-screen candidate dossier with calibrated 1-to-5 star competency rating rubrics.
   * **Executive Analytics Suite:** 8 interactive analytics views reflecting the 1,250 synthetic records with dynamic client-side filtering.
-  * **Data Explorer:** Searchable candidate registry with pagination and real-time filtered CSV export.
+  * **Data Explorer:** Searchable candidate registry with pagination and dynamically filtered CSV export.
 
 ---
 
@@ -324,8 +324,8 @@ All 9 deliverables follow professional business analysis standards and are acces
 | :---: | :--- | :--- |
 | **DOC-01** | [`01-project-charter.md`](docs/01-project-charter.md) | Business problem statement, scope boundary, simulated stakeholder personas |
 | **DOC-02** | [`02-as-is-analysis.md`](docs/02-as-is-analysis.md) | AS-IS process analysis, BPMN swimlanes, 46.5-day baseline latency diagnostics |
-| **DOC-03** | [`03-to-be-design.md`](docs/03-to-be-design.md) | TO-BE operating model, 5-stage automated flow, 18.5-day target SLA design |
-| **DOC-04** | [`04-requirements.md`](docs/04-requirements.md) | Proposed Software Requirements Specification (28 FRs, 15 NFRs, MoSCoW, RTM) |
+| **DOC-03** | [`03-to-be-design.md`](docs/03-to-be-design.md) | TO-BE operating model, 5-stage automated flow, 18.5-day proposed performance target |
+| **DOC-04** | [`04-requirements.md`](docs/04-requirements.md) | Proposed Software Requirements Specification (33 FRs, 10 NFRs, MoSCoW, RTM) |
 | **DOC-05** | [`05-uml-use-cases.md`](docs/05-uml-use-cases.md) | UML 2.5 use case diagrams, actor-goal matrix, detailed specifications |
 | **DOC-06** | [`06-data-model.md`](docs/06-data-model.md) | Normalized 3NF entity-relationship model, SQL schema, data dictionary |
 | **DOC-07** | [`07-architecture.md`](docs/07-architecture.md) | Conceptual C4 architecture, microservices breakdown, illustrative API contracts |

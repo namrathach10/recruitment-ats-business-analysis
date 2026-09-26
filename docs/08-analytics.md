@@ -14,7 +14,7 @@
 
 ## 1. Recruitment Analytics Strategy & KPI Framework
 
-To resolve the complete absence of real-time management visibility identified in the AS-IS analysis (where metrics were manually stitched together from spreadsheets once a quarter), the proposed ATS features an enterprise **Recruitment Intelligence Framework**.
+To resolve the complete absence of continuous management visibility identified in the AS-IS analysis (where metrics were manually stitched together from spreadsheets once a quarter), the proposed ATS features an enterprise **Recruitment Intelligence Framework**.
 
 ```mermaid
 flowchart TD
@@ -38,7 +38,7 @@ $$\text{Time-to-Hire (Days)} = \text{Date}_{\text{Offer Signed}} - \text{Date}_{
 $$\text{Average Time-to-Hire} = \frac{\sum_{i=1}^{N} \text{TTH}_i}{N_{\text{Hired Candidates}}}$$
 
 * **AS-IS Baseline:** **46.5 Days** (manual legacy process duration).
-* **Proposed Target SLA (TO-BE Design Estimate):** **18.5 Days** (fully automated workflow target).
+* **Proposed TO-BE Process-Performance Target:** **18.5 Days** (fully automated workflow target).
 * **Synthetic Dataset Observation:** **23.0 Days** (empirical average across 21 hires in the 1,250 synthetic records; range: 20–28 days).
 
 ### 2.2 Conversion: Offer Acceptance Rate (OAR)
@@ -275,7 +275,7 @@ The generated CSV dataset is saved at:
 * **Interviews Conducted:** 96 (7.68%)
 * **Formal Offers Extended:** 28 (2.24%)
 * **Offers Accepted / Hired:** 21 (1.68% of apps; 75.0% of offers)
-* **Average Time-to-Hire:** **23.0 Calendar Days** (Proposed Target SLA: $\le 18.5$ days; AS-IS Baseline: 46.5 days)
+* **Average Time-to-Hire:** **23.0 Calendar Days** (Proposed TO-BE Process-Performance Target: $\le 18.5$ days; AS-IS Baseline: 46.5 days)
 * **Highest Observed Sourcing Channel Conversion:** Employee Referrals yielded the highest observed hire-conversion rate in the synthetic sample at 2.17%, compared to 1.23% for Indeed and 1.90% for LinkedIn.
 
 ---

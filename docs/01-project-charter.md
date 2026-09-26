@@ -66,7 +66,7 @@ flowchart TD
 4. **Why are there no scorecards or consolidated review platforms?**  
    *Because the organization has never deployed a centralized Applicant Tracking System integrated with corporate authentication, role-based workflows, and automated communication.*
 5. **Root Cause:**  
-   *Absence of an integrated Information System that enforces systematic workflow states, centralizes candidate data, automates repetitive administrative communication, and provides real-time visibility to both candidates and internal decision-makers.*
+   *Absence of an integrated Information System that enforces systematic workflow states, centralizes candidate data, automates repetitive administrative communication, and provides transparent operational visibility to both candidates and internal decision-makers.*
 
 ### 2.4 Quantification of Inaction (Cost of Doing Nothing)
 
@@ -92,14 +92,14 @@ The proposed ATS directly supports Novus Enterprise's 3-Year Strategic Imperativ
 
 ```mermaid
 flowchart LR
-    O1["OBJ 1: Cycle Reduction<br/><b>Reduce Time-to-Hire</b><br/>46.5 days → 18.5d target SLA<br/>(23.0d in dataset cohort)"]
+    O1["OBJ 1: Cycle Reduction<br/><b>Reduce Time-to-Hire</b><br/>46.5 days → 18.5d target<br/>(23.0d in dataset cohort)"]
     O2["OBJ 2: Experience & Retention<br/><b>Lower Abandonment</b><br/>28% → <10%<br/>via self-service tracking"]
     O3["OBJ 3: Cost Efficiency<br/><b>Lower Agency Reliance</b><br/>Cut external agency reliance by 60%<br/>via faster internal screening"]
     O4["OBJ 4: Administrative Productivity<br/><b>Automate Workflows</b><br/>Save 65% recruiter admin time<br/>via auto-notifications & scheduling"]
     O5["OBJ 5: Compliance & Security<br/><b>Data Governance</b><br/>Centralized RBAC & automated<br/>data retention schedules"]
 ```
 
-* **Objective 1 (Cycle Time Reduction):** Reduce the end-to-end average Time-to-Hire from **46.5 calendar days** toward an **18.5-calendar-day target SLA** (with synthetic cohort testing demonstrating an empirical average of **23.0 days** across 1,250 records).
+* **Objective 1 (Cycle Time Reduction):** Reduce the end-to-end average Time-to-Hire from **46.5 calendar days** toward an **18.5-calendar-day process-performance target** (with synthetic cohort testing demonstrating an empirical average of **23.0 days** across 1,250 records).
 * **Objective 2 (Candidate Conversion):** Decrease candidate drop-off and withdrawal rates from **28% to under 10%** by implementing automated status notifications and a self-service candidate tracking portal.
 * **Objective 3 (Agency Reliance Reduction):** Reduce external recruitment agency reliance by **60%** within the first full operating year by improving internal applicant triage velocity and candidate engagement.
 * **Objective 4 (Administrative Efficiency):** Reduce recruiter manual administrative hours spent on data entry, email chasing, and schedule coordination by **65%**, redirecting recruiter capacity toward active talent sourcing and relationship building.
@@ -109,12 +109,12 @@ flowchart LR
 
 | Metric / KPI | Current Baseline (AS-IS) | Target State (TO-BE) | Measurement Frequency |
 | :--- | :---: | :---: | :--- |
-| **Average Time-to-Hire** | 46.5 Days | 18.5 Days (Target SLA) | Monthly aggregated by department |
+| **Average Time-to-Hire** | 46.5 Days | 18.5 Days (Proposed Target) | Monthly aggregated by department |
 | **Candidate Drop-Off Rate** | 28% | < 10% | Weekly funnel stage analysis |
 | **Resume Screening Turnaround Time** | 6.5 Days | ≤ 48 Hours | Weekly recruiter SLA audit |
 | **Hiring Manager Feedback Lag** | 5.2 Days | ≤ 24 Hours post-interview | Post-interview scorecard tracking |
 | **Offer Acceptance Rate** | 68% | ≥ 85% | Monthly cohort analysis |
-| **Recruitment Analytics Visibility** | Zero (Manual Excel rollup quarterly) | Real-time Power BI Dashboard | Continuous daily refresh |
+| **Recruitment Analytics Visibility** | Zero (Manual Excel rollup quarterly) | Interactive Power BI Dashboard | Continuous daily refresh |
 
 ---
 
@@ -272,7 +272,7 @@ quadrantChart
 │   re-typing, transparent application status, timely scheduling updates.     │
 │ • Frustrations: Submitting resumes into "black holes", waiting 3 weeks with │
 │   no reply, receiving generic rejection emails months later.                │
-│ • ATS Success Metric: Application completed in < 5 minutes; real-time stage │
+│ • ATS Success Metric: Application completed in < 5 minutes; interactive stage │
 │   tracking dashboard accessible 24/7.                                       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

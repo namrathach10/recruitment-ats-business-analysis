@@ -100,11 +100,11 @@ flowchart TD
 
 ## 3. AS-IS vs. TO-BE Cycle Time Comparison (Stage-by-Stage)
 
-Through workflow automation, automated calendar booking, and strict stage SLAs, the end-to-end recruitment lifecycle is projected to decrease from **46.5 days to 18.5 calendar days**—a **60.2% reduction in overall cycle time**.
+Through workflow automation, automated calendar booking, and structured stage turnaround targets, the end-to-end recruitment lifecycle is projected to decrease from **46.5 days to 18.5 calendar days**—a **60.2% reduction in overall cycle time**.
 
 > **Metric Clarification:**  
 > * **46.5 Calendar Days:** The baseline manual AS-IS process duration.  
-> * **18.5 Calendar Days:** The **proposed target SLA / design estimate** under the fully optimized TO-BE operating model.  
+> * **18.5 Calendar Days:** The **proposed TO-BE process-performance target** under the fully optimized TO-BE operating model.  
 > * **23.0 Calendar Days:** The **empirical observation from the 1,250 synthetic candidate records** (averaging 23.0 days across 21 hires, with a range of 20 to 28 days). Both the target estimate and empirical observation demonstrate a massive reduction from the 46.5-day baseline.
 
 ```mermaid

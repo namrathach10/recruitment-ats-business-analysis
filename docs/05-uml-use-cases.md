@@ -24,7 +24,7 @@ The proposed ATS interacts with **4 Primary Human Actors** and **2 Secondary Sys
 | **Recruiter** | Primary (Human) | Talent Acquisition specialist managing end-to-end requisition pipelines. | Post jobs, parse & triage resumes, manage Kanban stages, schedule panels, draft offer packages, review analytics. | Continuous daily usage (5–8 hrs/day) |
 | **Hiring Manager** | Primary (Human) | Functional department head seeking to fill team vacancies. | Create requisitions, review shortlisted candidate profiles, conduct interviews, submit rubrics, approve offers. | 2–4 times weekly (1–2 hrs/day) |
 | **System Administrator** | Primary (Human) | Enterprise IT / SecOps administrator managing identity and compliance. | Manage RBAC roles, configure SSO, audit system logs, execute candidate data erasure requests, monitor health. | Weekly maintenance & as-needed |
-| **Calendar Service** | Secondary (System) | Microsoft 365 Exchange / Google Calendar API (Proposed illustrative integration). | Provide real-time free/busy interviewer availability, inject calendar event holds and video links. | Real-time automated API calls |
+| **Calendar Service** | Secondary (System) | Microsoft 365 Exchange / Google Calendar API (Proposed illustrative integration). | Provide synchronized free/busy interviewer availability, inject calendar event holds and video links. | Automated API calls |
 | **Enterprise HRIS** | Secondary (System) | Workday / SAP SuccessFactors Core HR platform (Proposed illustrative integration). | Ingest new-hire employee profile data, trigger downstream IT provisioning and payroll enrollment. | Event-driven upon offer acceptance |
 
 ---
@@ -230,7 +230,7 @@ POSTCONDITIONS:     1. Interview session is booked in ATS database.
 MAIN SUCCESS SCENARIO (Happy Path):
 1. Candidate clicks the tokenized scheduling link in their invitation email.
 2. System validates the token security and expiration timestamp (< 72 hours).
-3. System calls Microsoft 365 Graph API to query real-time availability of assigned interviewers.
+3. System calls Microsoft 365 Graph API to query current availability of assigned interviewers.
 4. Candidate views dynamic calendar showing open, mutually available 45-minute slots over the next 5 business days.
 5. Candidate selects preferred date and time slot (e.g. Thursday, 2:00 PM).
 6. Candidate confirms selection and enters optional accommodations note.

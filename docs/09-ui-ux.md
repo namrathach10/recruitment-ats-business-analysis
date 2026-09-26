@@ -21,7 +21,7 @@ To eliminate the frustration, cognitive fatigue, and communication gaps identifi
 ```mermaid
 flowchart LR
     subgraph Role-Specific UX Philosophies
-        UX_CAN["<b>Candidate UX: Transparency & Frictionless</b><br/>• Mobile-first responsive layout<br/>• 24/7 Live stage-gate status bar<br/>• 1-Click calendar slot selection"]
+        UX_CAN["<b>Candidate UX: Transparency & Frictionless</b><br/>• Mobile-first responsive layout<br/>• 24/7 Application stage-gate status bar<br/>• 1-Click calendar slot selection"]
         UX_REC["<b>Recruiter UX: Velocity & High Density</b><br/>• Drag-and-drop interactive Kanban<br/>• Split-screen resume & scorecard review<br/>• Bulk stage-gate actions"]
         UX_HM["<b>Hiring Manager UX: Brevity & Mobility</b><br/>• 2-Minute candidate summary dossiers<br/>• One-thumb mobile scorecard entry<br/>• Calibrated 1-to-5 competency rubrics"]
     end
@@ -40,7 +40,7 @@ flowchart LR
 ├──────────────────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                                  │
 │  Welcome back, Maya!                                                                             │
-│  Here is the live status of your active application:                                             │
+│  Here is the current status of your active application:                                             │
 │                                                                                                  │
 │  ┌────────────────────────────────────────────────────────────────────────────────────────────┐  │
 │  │  Senior Systems Software Engineer                                                          │  │
@@ -75,7 +75,7 @@ flowchart LR
 ## 3. Interface Mockup 2: Recruiter Interactive Pipeline Kanban Board
 
 **Target Viewport:** Desktop Ultra-Wide / 1080p Workspace (Recruiter View)  
-**Primary User Goal:** Manage candidate flow across stages with drag-and-drop velocity and real-time stage counters.
+**Primary User Goal:** Manage candidate flow across stages with drag-and-drop velocity and dynamic stage counters.
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -239,7 +239,7 @@ flowchart LR
 1. **Accessibility Standards (Designed with WCAG 2.1 Level AA principles in mind):**  
    * Minimum text contrast ratio of **4.5:1** for normal text and **3:1** for large text components.
    * Full keyboard navigability (`Tab`, `Shift+Tab`, `Enter`, `Escape`) across all candidate application forms and calendar pickers.
-   * Explicit `aria-label` and `aria-live` attributes on real-time stage updates and error banners.
+   * Explicit `aria-label` and `aria-live` attributes on dynamic stage updates and error banners.
 2. **Error Prevention & Resilience:**  
    * Destructive actions (e.g. Reject Candidate, Delete Profile) require an explicit secondary confirmation modal.
    * Form drafts automatically save state to `localStorage` every 30 seconds to prevent data loss from accidental session timeouts.
