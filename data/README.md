@@ -1,7 +1,7 @@
 # Synthetic Recruitment Dataset Documentation
 
 **File Name:** `recruitment_sample_dataset_anonymized.csv`  
-**Record Count:** 1,250 Historical Application Records  
+**Record Count:** 1,250 Synthetic Application Records  
 **Data Class:** Synthetic Portfolio Benchmark Data (Anonymized)  
 **Schema Compliance:** ANSI SQL & ISO 8601 Date Formatting  
 
@@ -14,7 +14,7 @@
 > 
 > * **No Personally Identifiable Information (PII):** Candidate names have been replaced with standardized identifiers (`Candidate_0001` through `Candidate_1250`).
 > * **Synthetic Email Addresses:** All email fields follow the format `candidate_xxxx@example.com` (using the RFC 2606 reserved `.example.com` domain).
-> * **Empirical Modeling Purpose:** The operational metrics (application stages, knockout results, stage progression dates, interview scores, and salary distributions) were generated using statistical distributions modeled on enterprise recruitment benchmarks to validate the ATS proposal's business case and Power BI analytics models.
+> * **Empirical Modeling Purpose:** The operational metrics (application stages, knockout results, stage progression dates, interview scores, and salary distributions) were synthetically generated using plausible recruitment distributions to support the ATS proposal, process analysis, and Power BI analytics models.
 
 ---
 
