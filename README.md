@@ -1,6 +1,11 @@
 # Recruitment & Applicant Tracking System (ATS)
 ## Business Analysis & Systems Project — Student Portfolio
 
+> 🌐 **Live Interactive Dashboard:**  
+> Experience the full recruitment analytics prototype directly in your browser:  
+> 👉 [**Launch Live Interactive ATS Dashboard**](https://namrathach10.github.io/recruitment-ats-business-analysis/)
+---
+
 [![Role: Business Analyst Portfolio](https://img.shields.io/badge/Role-Business%20Analyst%20%7C%20Student%20Portfolio-blue.svg?style=flat-square)](#skills-demonstrated)
 [![Project: Personal Learning Project](https://img.shields.io/badge/Project-Personal%20Learning%20Project-059669.svg?style=flat-square)](#project-overview)
 [![Methodology: BABOK & C4 Architecture](https://img.shields.io/badge/Methodology-BABOK%20%7C%20Agile%20%7C%20C4-8b5cf6.svg?style=flat-square)](#documentation)
