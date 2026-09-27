@@ -283,13 +283,6 @@ To substantiate the business analysis proposal and drive the reporting models, I
 
 ---
 
-## Power BI Dashboard
-
-I built an interactive analytical dashboard in **Microsoft Power BI** driven by the 1,250 synthetic records to monitor recruitment velocity, stage attrition, source channels, and evaluator calibration.
-
-* **Power BI File:** [`dashboard/Recruitment_ATS_Dashboard.pbix`](dashboard/Recruitment_ATS_Dashboard.pbix)
-* **Custom DAX Measures:** Documented in [`docs/08-analytics.md`](docs/08-analytics.md)
-
 ### Visual Telemetry Preview:
 
 | Executive Overview | Recruitment Funnel |
@@ -351,42 +344,6 @@ All 9 deliverables follow professional business analysis standards and are acces
 * **System Architecture & Modeling:** UML 2.5 use cases, C4 conceptual architecture, Third Normal Form (3NF) relational database design.
 * **Data Analytics & BI:** Kimball star schema dimensional modeling, custom DAX measure authoring, recruitment funnel analytics in Microsoft Power BI.
 * **Prototyping & UX Design:** Wireframe design, Nielsen Norman usability heuristics, client-side HTML5/JavaScript interactive prototype development.
-
----
-
-## Repository Directory Structure
-
-```text
-recruitment-ats-business-analysis/
-│
-├── .gitignore
-├── README.md
-│
-├── docs/
-│   ├── 01-project-charter.md
-│   ├── 02-as-is-analysis.md
-│   ├── 03-to-be-design.md
-│   ├── 04-requirements.md
-│   ├── 05-uml-use-cases.md
-│   ├── 06-data-model.md
-│   ├── 07-architecture.md
-│   ├── 08-analytics.md
-│   └── 09-ui-ux.md
-│
-├── data/
-│   ├── README.md
-│   └── recruitment_sample_dataset_anonymized.csv
-│
-└── dashboard/
-    ├── Recruitment_ATS_Dashboard.pbix
-    ├── interactive-dashboard.html
-    └── screenshots/
-        ├── executive-overview.png
-        ├── recruitment-funnel.png
-        ├── time-efficiency.png
-        ├── source-performance.png
-        └── data-explorer.png
-```
 
 ---
 *Maintained as a student portfolio project demonstrating business systems analysis, software modeling, and data analytics.*
